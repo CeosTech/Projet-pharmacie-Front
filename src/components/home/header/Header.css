@@ -2,7 +2,7 @@
 .Grid_Container{
     height: 100%;
     width: 100%;
-    background: url("../../../images/Fond_Header_Accueil.png");
+    background: url("../../../images/fond_acceuil.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -12,33 +12,53 @@
 }
 .commanderHeader {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #79B65D;
 }
 .commanderHeader:hover {
-    color: #FFFFFF;
+    color: #79B65D;
 }
 
 .Div_Text_Header{
     height: 40%;
     font-size: 7em;
     font-family: Teko;
-    text-align: center;
+    text-align: left;
+    
     color: #FFFFFF;
     margin: 0 auto;
     margin-top: -32vh;
+
+    top: 361px;
+    left: 200px;
+    width: 1000px;
+    height: 113px;
+    text-align: left;
+    font: normal normal bold 93px/113px ;
+    letter-spacing: 0px;
+    
 }
 
-#Btn_Commander_Accueil{
+#Btn_Prise_Rdv{
     font-size: var(--font-size-button);
-    background-color: #C3232B;
+    
     color: #FFFFFF;
+    border-color : white;
     font-family: Teko;
-    border-color: #C3232B;
     border-radius: 20px;
     padding: 8px 30px;    
+
+    margin-top : 10%;
+    left: 155px;
+    width: 400px;
+    height: 98px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 49px;
+    opacity: 1;
 }
-#Btn_Commander_Accueil:hover {
-    background-color: #db0b15;
+
+
+#Btn_Prise_Rdv:hover {
+    background-color: rgb(230, 255, 223);
 
 }
 
@@ -52,7 +72,7 @@
 /* for w < 960 or h < 730 */
 @media screen and (max-width: 960px) , (max-height: 800px) {
 
-    #Btn_Commander_Accueil{
+    #Btn_Prise_Rdv{
         font-size: var(--font-size-button-mobile);
         padding: 8px 20px;  
     }
