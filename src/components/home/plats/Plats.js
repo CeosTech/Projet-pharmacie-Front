@@ -35,25 +35,19 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  const data = [
+  const data1 = [
       {
           id: 1,
-          titre: "Sandwichs au four",
-          text: "Découvrez nos délicieuses recettes de sandwichs cuits au four",
-          prix: "Top des ventes !",
+          titre: "Orthopédie",
           photo: image1
       },
       {
         id: 2,
-        titre: "Nos sandwichs",
-        text: "Découvrez nos recettes gourmandes de sandwichs",
-        prix: "Menus à partir de 5€00",
+        titre: "Parapharmacie",
         photo: image2
     },{
         id: 3,
-        titre: "Nos pizzas",
-        text: "Découvrez nos pizzas cuites au four, aux formats Seul ou Sénior",
-        prix: "Prix à partir de 8€00",
+        titre: "Rappel Vaccin",
         photo: image3
     },
   ]
@@ -76,14 +70,14 @@ const Plats = () => {
                 
                 <div className="platsTitleContainer">
                     <Typography gutterBottom variant="h5" component="h1" className="platsTitle">
-                        <img src={star} /> NOS PLATS PHARES <img src={star} />
+                        Nos services 
                     </Typography>
                 </div>
 
                 {windowWidth >= 960 ? (
                              
-                      <div className="plats-card">
-                        {data.map((content) => (
+                    <div className="plats-card">
+                        {data1.map((content) => (
                             <Card className="cardItem">
                                 <img src={content.photo} alt="Contemplative Reptile"></img>
                                 
@@ -100,11 +94,15 @@ const Plats = () => {
                                 </CardContent>
                             </Card>
                         ))}
-                    </div>
+
+                      </div>
+
+
+
                                   
                         ) : (
                             <Carousel pause={false} className="slider-card">
-                                {data.map((content) => (
+                                {data1.map((content) => (
                                   <Carousel.Item interval={5000} className="px-3" key={content.titre}>
                                 <Card className="cardItem">
                                     <img src={content.photo} alt="Contemplative Reptile"></img>
@@ -127,11 +125,7 @@ const Plats = () => {
                         )}
 
               
-                <div className="command_button">
-                    <Link to="/carte" className="telecharger_btn values__button">
-                        Commander
-                    </Link>
-                </div>
+               
 
             </div>
         );
