@@ -5,7 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
-import Logo_Mustang from '../../images/Logo_Mustang.png';
+import Logo_Mustang from '../../images/Logo_pharmacie.png';
+import feuille from '../../images/feuille.png';
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -27,7 +28,7 @@ import { sendrequest } from "../../middlewares/request";
 import { selectBaskets } from "../../app/Redux-slices/basketsSlice";
 import { useSelector } from "react-redux";
 import SVG_MENU from "../../images/burger-menu.svg";
-
+import Switch from "react-switch";
 
 const useStyles = makeStyles({
     list: {
@@ -37,6 +38,10 @@ const useStyles = makeStyles({
       width: 'auto',
     },
   });
+
+ const handleChange = ()=> {
+    return 0;
+  }
 
 const Navbar = () => {
   const location = useLocation();
@@ -92,7 +97,7 @@ const Navbar = () => {
       setOpeningLoading
     );
   };
-
+  
   useEffect(() => {
     if (location.pathname !== search) {
       setSearch(location.pathname);
@@ -100,7 +105,7 @@ const Navbar = () => {
   }, [location]);
   useState(() => get_restaurant());
 
-
+ 
   const regex = /^\/admin/g;
   if (!location.pathname.match(regex)) {
     return (
@@ -127,37 +132,41 @@ const Navbar = () => {
                             
                         </IconButton>
                       </Grid>
-                      <Grid container justifyContent="flex-start" xs={5} md={4}>
+                      <Grid container justifyContent="flex-start" xs={5} md={3}>
                         <a href='/#header' className="Logo_Mustang">
                             <img className="Logo_Mustang" src={Logo_Mustang}></img>
                         </a>
                       </Grid>
-                      <Grid container xs={3} md={2} style={{minWidth:"90px "}}>
+                      <Grid className='Div-ouvert' container xs={3} md={4} style={{minWidth:"90px "}}>
                       {isOpenedLoading && (
-                      <Button id="Btn_Ouvert_Accueil">
-                        <strong id='text_ouvert'>
-                          <FiberManualRecordIcon id={
-                              isOpened[isOpened.length - 1].disponibilite_restaurant
-                                ? "icon_ouvert"
-                                : "icon_ferme"
-                            }/>
-                            {isOpened[isOpened.length - 1].disponibilite_restaurant
-                              ? "Ouvert"
-                              : "Fermé"}
-                        </strong>
-                        </Button>
-
+                        // div that contains the toggle and the  leaf img
+                        <div className="ouvert-toggle">
+                        <img src={feuille} alt="feuille" />
+                        <Switch className='Switch'
+                        checkedIcon={false}
+                          onChange={handleChange} 
+                          checked={isOpened[isOpened.length - 1].disponibilite_restaurant}
+                          disabled = {true}
+                          onHandleColor={"#79B65D"}
+                          offHandleColor={"#FF0000"}
+                          onColor={"#fff"}
+                          offColor={"#fff"}
+                          width={50}
+                         
+                          />
+                          
+                        </div>
                       )}
                         
                       </Grid>
-                      <Grid container  justifyContent="center" alignItems="center" md={2}>
+                      {/* <Grid container  justifyContent="center" alignItems="center" md={2}>
                         <NavLink to='/panier' className="">
                             <Button id="Btn_Panier_Accueil"><strong>
                             <span>{getNombresArticles(baskets)}</span>
                               <ShoppingCartIcon /> PANIER</strong>
                               </Button>
                         </NavLink>
-                      </Grid>
+                      </Grid> */}
                     </Grid>
                     </Toolbar>
                 </AppBar>

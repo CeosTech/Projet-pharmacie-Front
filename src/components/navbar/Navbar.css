@@ -1,45 +1,46 @@
-#Navbar_Mustang{
+#Navbar_Mustang {
 
 
-    background-color: #FFFFFF;
-    
+    background-color: #D1E1BF;
+
 }
 
-#Icon_Navbar{
+#Icon_Navbar {
 
-    color: #C3232B;
+    color: white;
     font-size: 2.8em;
-    
-    
+
+
 }
-#Icon_Navbar_Close{
+
+#Icon_Navbar_Close {
 
     color: #f8f2f3;
-    font-size:      3.6em;
+    font-size: 3.6em;
     position: absolute;
     right: 0;
     padding: 4px;
     margin: 20px;
-    
+
 }
 
-.Logo_Mustang{
-    
-    width: 90px;
+.Logo_Mustang {
+
+    width: 200px;
     margin: 0 auto;
     margin-top: 0.3em;
     margin-bottom: 0.3em;
-    
+
 }
 
-#Btn_Panier_Accueil{
+#Btn_Panier_Accueil {
 
     font-size: 1.5em;
     background-color: #C3232B;
     color: #FFFFFF;
     Width: 6em;
     height: 2em;
-    justify-content: center;   
+    justify-content: center;
     text-align: center;
     margin: 0 auto;
     box-shadow: none;
@@ -48,7 +49,7 @@
     border-radius: 15px;
 }
 
-#Btn_Ouvert_Accueil{
+#Btn_Ouvert_Accueil {
 
     font-size: 1.5em;
     background-color: #000000;
@@ -59,35 +60,39 @@
     font-family: Teko;
     border-color: #000000;
     border-radius: 25px;
-    
+
+}
+.Div-ouvert{
+    display: flex;
+    justify-content: flex-end;
+}
+ .ouvert-toggle{
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     justify-content: space-between;
+    margin-bottom: 10px;
+
+     
+
+ }
+ .ouvert-toggle > img{
+    width: 18px;
+
+ }
+.Switch{
+    opacity: 1 !important;
 }
 
 
 
-
-#icon_ouvert{
-
-    fill: #0FE617;
-    font-size: 1em;
-    text-align: left;
-    margin-right: 7%;
-}
-
-#icon_ferme{
-
-    fill: #e60f0f;
-    font-size: 1em;
-    text-align: left;
-    margin-right: 7%;
-}
-
-.Navbar_Text{
+.Navbar_Text {
     color: #FFFFFF;
     text-align: left;
     padding: 10px 40px;
 }
 
-.Navbar_Text .MuiTypography-body1{
+.Navbar_Text .MuiTypography-body1 {
 
     font-family: Teko;
     font-size: 1.8rem;
@@ -95,11 +100,11 @@
     margin: 0 auto;
 }
 
-#test .MuiPaper-root{
+#test .MuiPaper-root {
 
     background-color: #C3232B;
     width: 27em;
-    
+
 }
 
 #test .MuiList-padding {
@@ -112,41 +117,42 @@
 
 
 @media only screen and (max-width: 960px) {
-    
 
-    #Icon_Navbar{
 
-        color: #C3232B;
+    #Icon_Navbar {
+
+        color: #fff;
         font-size: 2em;
-        
-        
+
+
     }
 
-    #Btn_Panier_Accueil{
+    #Btn_Panier_Accueil {
 
         font-size: 1.3em;
         Width: 5.5em;
         height: 2em;
         display: none;
-        
+
     }
 
-    #Btn_Ouvert_Accueil{
+    #Btn_Ouvert_Accueil {
 
         font-size: 1.2em;
-        
+
         height: 2em;
-        
+
     }
 
-    .Logo_Mustang{
+    .Logo_Mustang {
 
-        width: 5em;
+        width: 6em;
 
-        
-        
+
+
     }
-    #text_ouvert{
+
+    #text_ouvert {
 
         font-size: 0.8em;
     }
@@ -154,10 +160,10 @@
 }
 
 @media screen and (max-width: 500px) {
-    #test .MuiPaper-root{
+    #test .MuiPaper-root {
 
         width: 100%;
-        
+
     }
 }
 
