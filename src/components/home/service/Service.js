@@ -1,5 +1,5 @@
 import React, { useEffect, useState  } from 'react';
-import "./Plats.css";
+import "./Service.css";
 
 import image1 from "../../../images/Plats/Rectangle1.jpg";
 import image2 from "../../../images/Plats/Rectangle2.jpg";
@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'none',
       },
     },
-  }));
+}));
 
-  const data1 = [
+const data1 = [
       {
           id: 1,
           titre: "Orthopédie",
@@ -50,9 +50,27 @@ const useStyles = makeStyles((theme) => ({
         titre: "Rappel Vaccin",
         photo: image3
     },
-  ]
+]
 
-const Plats = () => {
+
+const data2 = [
+    {
+        id: 1,
+        titre: "Test antigénique",
+        photo: image1
+    },
+    {
+      id: 2,
+      titre: "Envoyer une ordonnance",
+      photo: image2
+  },{
+      id: 3,
+      titre: "Location de Materiel",
+      photo: image3
+  },
+]
+
+const Service = () => {
     const classes = useStyles();
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -74,7 +92,10 @@ const Plats = () => {
                     </Typography>
                 </div>
 
-                {windowWidth >= 960 ? (
+
+
+                {/*first row */
+                  windowWidth >= 960 ? (
                              
                     <div className="plats-card">
                         {data1.map((content) => (
@@ -85,22 +106,19 @@ const Plats = () => {
                                     <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
                                         {content.titre}
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" className="cardText">
-                                        {content.text}
-                                    </Typography>
-                                    <Typography variant="body2" color="textDanger" component="p" className="cardPrice">
-                                        {content.prix}
-                                    </Typography>
+                                
                                 </CardContent>
                             </Card>
+
                         ))}
 
-                      </div>
 
+                    </div>
 
-
-                                  
+         
                         ) : (
+                            /*mobile version */ 
+
                             <Carousel pause={false} className="slider-card">
                                 {data1.map((content) => (
                                   <Carousel.Item interval={5000} className="px-3" key={content.titre}>
@@ -124,6 +142,63 @@ const Plats = () => {
 
                         )}
 
+                            
+                            
+                            {/* second row */ 
+                            windowWidth >= 900 ? (
+                             
+                             <div className="plats-card">
+                                 {data2.map((content) => (
+                                     <Card className="cardItem">
+                                         <img src={content.photo} alt="Contemplative Reptile"></img>
+                                         
+                                         <CardContent>
+                                             <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
+                                                 {content.titre}
+                                             </Typography>
+                                
+                                         </CardContent>
+                                     </Card>         
+         
+                                 ))}
+                             
+                                 
+         
+                             </div>
+         
+         
+                 
+         
+                                           
+                                 ) : (
+
+                                    /*mobile version */
+
+
+                                     <Carousel pause={false} className="slider-card">
+                                         {data1.map((content) => (
+                                           <Carousel.Item interval={5000} className="px-3" key={content.titre}>
+                                         <Card className="cardItem">
+                                             <img src={content.photo} alt="Contemplative Reptile"></img>
+                                         <CardContent>
+                                             <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
+                                                 {content.titre}
+                                             </Typography>
+                                             <Typography variant="body2" color="textSecondary" component="p" className="cardText">
+                                                 {content.text}
+                                             </Typography>
+                                             <Typography variant="body2" color="textDanger" component="p" className="cardPrice">
+                                                 {content.prix}
+                                             </Typography>
+                                         </CardContent>
+                                     </Card>
+                                           </Carousel.Item>
+                                         ))}
+                                       </Carousel>
+         
+                                 )}
+         
+
               
                
 
@@ -131,4 +206,4 @@ const Plats = () => {
         );
     }
 
-export default Plats;
+export default Service;

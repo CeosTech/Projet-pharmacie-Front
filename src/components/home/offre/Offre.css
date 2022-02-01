@@ -7,7 +7,6 @@
   width: 100%;
   height : 100%;
 
-  padding-top: 70px;
   background-color: white !important;
 
   font-family: 'Teko' !important;
@@ -15,14 +14,14 @@
 }
 
 
-.galerieTitle {
+.offreTitle {
   color: #3F981C;
   
   font-family: "Teko" !important;
   text-align: center;
   font-size: var(--font-size-titre-grande) !important;
   font-weight: 700 !important;
-  padding-top: 50px;
+  padding-top: 60px;
   padding-bottom : 50px;
   line-height: 72px;
   letter-spacing: 15% !important;
@@ -31,10 +30,11 @@
 
 
 
-.cardGalerie {
+.cardOffre {
+  background-color: #D1E1BF;
   width: 537px;
   height: 558px;
-  box-shadow: 0px 0px 0px white !important;
+  box-shadow: 0px 3px 9px #00000029 !important;
   text-align: center;
  
   margin: 0 auto;
@@ -44,7 +44,7 @@
 
 }
 
-.cardGalerie img {
+.cardOffre img {
   width: 75%;
   height: 70%;
 }
@@ -61,7 +61,7 @@
   padding: 20px;
 }
 
-.galerieImgMobile{
+.offreImgMobile{
   padding: 0 10px 10% 10px;
   width: 100%;
     margin: 0 auto;
@@ -74,13 +74,13 @@
 }
 
 /* Responsive */
-#galerie {
+#offre {
   height: max-content;
   position: relative;
   z-index: 2;
 }
 
-.galerieContainer {
+.offreContainer {
   padding-top: 20px;
   padding-bottom: 40px;
 }

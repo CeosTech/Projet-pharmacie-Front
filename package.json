@@ -37,6 +37,7 @@
     "react-show-more-text": "^1.5.0",
     "react-switch": "^6.0.0",
     "read-more-react": "^1.0.10",
+    "watchpack": "^2.3.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

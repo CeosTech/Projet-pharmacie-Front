@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./Galerie.css";
+import "./Offre.css";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -58,20 +58,20 @@ const data = [
   },
 ]
 
-const Galerie = () => {
+const Offre = () => {
     const classes = useStyles();
 
     return (
         
-        <div className="galeriePage" id="galerie">
-            <div className="galerieTitleContainer">
-                <Typography gutterBottom variant="h5" component="h1" className="galerieTitle">
-                    Pourquoi Nous Choisir ?
+        <div className="offrePage" id="offre">
+            <div className="offreTitleContainer">
+                <Typography gutterBottom variant="h5" component="h1" className="offreTitle">
+                PROFITEZ DÈS MAINTENANT <br></br>de nos prix promotionnels et commandez.
                 </Typography>
             </div>
             <div className="plats-card">
                         {data.map((content) => (
-                            <Card className="cardGalerie">
+                            <Card className="cardOffre">
                                 <img src={content.photo} alt="Contemplative Reptile"></img>
                                 
                                 <CardContent>
@@ -112,4 +112,4 @@ const Galerie = () => {
 }
 
 
-export default Galerie;
+export default Offre;

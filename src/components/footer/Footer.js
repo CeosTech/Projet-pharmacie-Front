@@ -72,7 +72,7 @@ const Footer = () => {
 
               </Grid>
             </Grid>
-            <Grid container justifyContent="center" style={{backgroundColor:'#C3232B'}}>
+            <Grid container justifyContent="center" style={{backgroundColor:'#5c9b3f'}}>
                 
                     <span className="footer-copyright">Copyright 2021 ©  |  Made by <a 
                       className="footer-link" 

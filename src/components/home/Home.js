@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from './header/Header';
-import Plats from './plats/Plats';
+import Service from './service/Service';
 import Galerie from './galerie/Galerie';
+import Offre from './offre/Offre';
 
 
 class Home extends Component {
@@ -9,8 +10,9 @@ class Home extends Component {
         return (
             <div>
                 <Header />
-                <Plats />
+                <Service />
                 <Galerie />
+                <Offre />
             </div>
         );
     }
