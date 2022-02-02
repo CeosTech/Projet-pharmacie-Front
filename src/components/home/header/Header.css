@@ -15,6 +15,7 @@
 
 .commanderHeader:hover {
     color: #79B65D;
+    text-decoration: none;
 }
 
 .Div_Text_Header{
@@ -25,31 +26,27 @@
     
     color: #FFFFFF;
     margin: 0 auto;
-    margin-top: -32vh;
 
     top: 361px;
-    left: 200px;
+
     width: 1000px;
     height: 113px;
     text-align: left;
     font: normal normal bold 93px/113px ;
-    letter-spacing: 0px;
     
 }
 
 #Btn_Prise_Rdv{
-    font-size: var(--font-size-button);
+    font-size: 16px!important;
     
     color: #FFFFFF;
     border-color : white;
     font-family: Montserrat;
-    border-radius: 20px;
-    padding: 8px 30px;    
 
     margin-top : 10%;
-    left: 155px;
-    width: 400px;
-    height: 98px;
+    margin-left : 50px;
+    width: 250px;
+    height: 60px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 49px;
     opacity: 1;
@@ -57,6 +54,30 @@
 
 
 #Btn_Prise_Rdv:hover {
+    background-color: rgb(230, 255, 223);
+
+}
+
+#Btn_Service{
+    font-size: 16px!important;
+    
+    color: #FFFFFF;
+    border-color : white;
+    font-family: Montserrat;
+
+    padding: 8px 30px;    
+
+    margin-top : 10%;
+    left: 150px;
+    width: 180px;
+    height: 55px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 49px;
+    opacity: 1;
+}
+
+
+#Btn_Service:hover {
     background-color: rgb(230, 255, 223);
 
 }

@@ -1,7 +1,7 @@
 export const NavLinkContent = [
     {
         id: 1,
-        titre: "ACCUEIL",
+        titre: "Acceuil",
         link: "/#header"
     },
     {
@@ -27,7 +27,7 @@ export const NavLinkContent = [
     {
         id: 6,
         titre: "Test antigénique",
-        link: "/"
+        link: "/Test antigenique formulaire"
     },
     {
         id: 7,
@@ -36,7 +36,7 @@ export const NavLinkContent = [
     },
     {
         id: 8,
-        titre: "PANIER",
+        titre: "Panier",
         link: "/panier"
     },
 ]

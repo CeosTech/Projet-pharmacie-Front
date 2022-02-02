@@ -3,6 +3,7 @@ import Header from './header/Header';
 import Service from './service/Service';
 import Galerie from './galerie/Galerie';
 import Offre from './offre/Offre';
+import Localisation from './localisation/Localisation';
 
 
 class Home extends Component {
@@ -13,6 +14,7 @@ class Home extends Component {
                 <Service />
                 <Galerie />
                 <Offre />
+                <Localisation />
             </div>
         );
     }

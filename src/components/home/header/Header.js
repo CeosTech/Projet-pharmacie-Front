@@ -15,14 +15,24 @@ class Header extends Component {
                     
                         <div className="Div_Text_Header"><strong>Lorem ipsum dolor <br></br>sit amet </strong>
                         <br></br>
-                        <Button id="Btn_Prise_Rdv">
-                            <Link to="/carte" className="commanderHeader">
-                                <strong>Prendre rendez-vous</strong>
+                        <Button id="Btn_Service">
+                            <Link to="/#service" className="commanderHeader">
+                                <strong>Nos Services</strong>
                             </Link>
                         </Button>
+
+
+
+                        <Button id="Btn_Prise_Rdv">
+                            <Link to="/RendezVous" className="commanderHeader">
+                                <strong>Prendre un rendez-vous</strong>
+                            </Link>
+                        </Button>
+
+                        
                         </div>
                         
-                       
+                        
                         
                 </Grid>           
             </div>

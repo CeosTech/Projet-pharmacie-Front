@@ -10,7 +10,8 @@ import Navbar from './components/navbar/Navbar';
 import Panier from "./pages/Panier";
 import Paiement from "./pages/Paiement";
 import Felicitation from "./pages/Felicitation";
-import Commander from './components/commander/Commander';
+import RendezVous from './components/RDV/RendezVous';
+import FormulaireAntigenique from "./components/FormulaireAntigenique/FormulaireAntigenique";
 import Franchise from './components/franchise/Franchise';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
@@ -50,7 +51,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/carte" component={Commander}/>
+          <Route exact path="/RendezVous" >
+            <RendezVous />
+          </Route>
+          <Route exact path="/Test antigenique formulaire" component={FormulaireAntigenique} />
           <Route exact path="/panier" component={Panier} />
           {/*<Route exact path="/franchise" component={Franchise}/>*/}
           {isKeyLoaded && (

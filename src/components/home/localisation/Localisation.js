@@ -1,33 +1,42 @@
-import React, { Component } from 'react';
-import './Header.css';
-import Button from 'react-bootstrap/Button'
+import React from 'react';
+import './Localisation.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Link } from "react-router-dom";
+import image1 from "../../../images/Plats/Rectangle1.jpg";
 
 
 import {Grid } from '@material-ui/core';
 
-class Header extends Component {
-    render() {
-        return (
-            <div id="header">
-                <Grid container alignItems="center" justifyContent="center" className="Grid_Container">
+
+const Localisation = () => {
+
+
+    return (
+        <div id="header">
+            <Grid container alignItems="center" justifyContent="center" className="Container_Loc">
+                
+            <img
+                    className="localisation_img"
+                    alt="Map"
+                    src={image1}
+                  />
+                
+                <div className="Text_Loc">
                     
-                        <div className="Div_Text_Header"><strong>Lorem ipsum dolor <br></br>sit amet </strong>
-                        <br></br>
-                        <Button id="Btn_Prise_Rdv">
-                            <Link to="/carte" className="commanderHeader">
-                                <strong>Prendre rendez-vous</strong>
-                            </Link>
-                        </Button>
-                        </div>
-                        
-                       
-                        
-                </Grid>           
-            </div>
-        );
-    }
+                 <h5> Horaire</h5>
+                    <br></br>
+                    <span>Lundi 10h - 20h Mardi <br></br> Vendredi 08h30 <br></br> 20h Samedi 09h - 19h30
+                    </span>
+                    
+            
+                </div>
+                    
+                   
+                    
+            </Grid>           
+        </div>
+    );
+
 }
 
-export default Header;
+
+export default Localisation;

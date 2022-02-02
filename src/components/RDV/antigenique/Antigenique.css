@@ -1,44 +1,80 @@
-.Container_Loc{
+.Container{
     height: 100%;
     width: 100%;
-    background: url("../../../images/wave.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+    background-color : white;
+ 
     position: relative;
 }
 
+.prendreRDV {
+    text-decoration: none;
+    color: white;
 
-.Text_Loc h5 {
+}
+
+.prendreRDV:hover {
+    color: white;
+}
+
+.Text h5 {
+
     font-size : 3em;
     font-weight : bold;
 
 }
 
 
-.Text_Loc {
+.Text{
     height: 40%;
     font-size: 1em;
     font-family: Montserrat;
     text-align: left;
     
-    color: white;
+    color: #3F981C;
+    margin: 0 auto;
+    margin-top: -32vh;
 
-    width: 250px;
-    height: 203px;
-    text-align: left;
-    margin-left : 40px;
+    top: 361px;
+    left: 200px;
+    width: 1000px;
+    height: 113px;
+    text-align: center;
+    font: normal normal bold 93px/113px ;
+    letter-spacing: 0px;
     
 }
 
 
-.localisation_img {
+#Btn_Reserver_Test{
+    font-size: 14px!important;
 
-    width : 450px;
-    height : 400px;
+    background-color: #79B65D!important;
+    border-color : white;
+    font-family: Montserrat;
+   
+    padding: 8px 30px;    
+
+    margin-top : 4%!important;
+    left: 155px;
+    width: 240px!important;
+    height: 70px!important;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 49px;
+    opacity: 1;
 }
 
 
+#Btn_Reserver_Test:hover {
+    background-color: #a0e282!important;
+
+}
+
+/* responsive */
+#header {
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+}
 
 /* for w < 960 or h < 730 */
 @media screen and (max-width: 960px) , (max-height: 800px) {

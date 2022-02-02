@@ -1,5 +1,6 @@
-#Navbar_Mustang {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
+#Navbar_Mustang {
 
     background-color: #D1E1BF;
 
@@ -32,35 +33,7 @@
 
 }
 
-#Btn_Panier_Accueil {
 
-    font-size: 1.5em;
-    background-color: #C3232B;
-    color: #FFFFFF;
-    Width: 6em;
-    height: 2em;
-    justify-content: center;
-    text-align: center;
-    margin: 0 auto;
-    box-shadow: none;
-    font-family: Teko;
-    border-color: #C3232B;
-    border-radius: 15px;
-}
-
-#Btn_Ouvert_Accueil {
-
-    font-size: 1.5em;
-    background-color: #000000;
-    color: #FFFFFF;
-    Width: 6em;
-    height: 2em;
-    box-shadow: none;
-    font-family: Teko;
-    border-color: #000000;
-    border-radius: 25px;
-
-}
 .Div-ouvert{
     display: flex;
     justify-content: flex-end;
@@ -93,8 +66,8 @@
 
 .Navbar_Text .MuiTypography-body1 {
 
-    font-family: Teko;
-    font-size: 1.8rem;
+    font-family: Montserrat;
+    font-size: 1.5em;
     font-weight: bold;
     margin: 0 auto;
 }
