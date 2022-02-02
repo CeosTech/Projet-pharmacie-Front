@@ -176,7 +176,7 @@ const Service = () => {
 
 
                                      <Carousel pause={false} className="slider-card">
-                                         {data1.map((content) => (
+                                         {data2.map((content) => (
                                            <Carousel.Item interval={5000} className="px-3" key={content.titre}>
                                          <Card className="cardItem">
                                              <img src={content.photo} alt="Contemplative Reptile"></img>

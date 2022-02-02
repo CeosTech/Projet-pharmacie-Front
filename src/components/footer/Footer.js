@@ -34,7 +34,7 @@ const Footer = () => {
                         rel="noreferrer"
                         href="https://www.google.com/maps/place/Le+Mustang/@48.2724593,4.0757994,17z/data=!3m1!4b1!4m5!3m4!1s0x47ee99df182aa17d:0xee0c0de0f02fc3ad!8m2!3d48.2724524!4d4.0779787"                    
                       >
-                         41 Avenue des Lombards <br></br> 10000 Troyes
+                        41 Avenue des Lombards <br></br> 10000 Troyes
                       </a>
                     </p>
                   </Grid>

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 .galeriePage {
   /* background-color: #3c3c3c; */
@@ -9,7 +9,7 @@
 
   background-color: white !important;
 
-  font-family: 'Teko' !important;
+  font-family: 'Montserrat' !important;
   z-index : 1;
 }
 
@@ -17,7 +17,7 @@
 .offreTitle {
   color: #3F981C;
   
-  font-family: "Teko" !important;
+  font-family: "Montserrat" !important;
   text-align: center;
   font-size: var(--font-size-titre-grande) !important;
   font-weight: 700 !important;
@@ -31,12 +31,12 @@
 
 
 .cardOffre {
-  background-color: #D1E1BF;
+  
   width: 537px;
   height: 558px;
-  box-shadow: 0px 3px 9px #00000029 !important;
+  box-shadow: 0px 3px 9px #00000029;
   text-align: center;
- 
+  
   margin: 0 auto;
   margin-bottom : 5%;
   
@@ -84,6 +84,52 @@
   padding-top: 20px;
   padding-bottom: 40px;
 }
+
+
+@media screen and (max-width : 1280px) {
+
+  .offreTitle {
+    color: #3F981C;
+    
+    font-family: "Montserrat" !important;
+    text-align: center;
+    font-size: 40px !important;
+    font-weight: 700 !important;
+    padding-top: 50px;
+    padding-bottom : 0px;
+    line-height: 72px;
+    letter-spacing: 15% !important;
+    text-decoration :none ;
+  }
+  
+  
+  
+  .cardOffre {
+    
+    width: 500px;
+    height: 380px;
+    box-shadow: 0px 3px 9px #00000029;
+    text-align: center;
+    
+    margin: 0 auto;
+    margin-bottom : 5%;
+    
+    padding-bottom: 100px;
+  
+  }
+  
+  .cardOffre img {
+    width: 75%;
+    height: 70%;
+  }
+
+  .plats-card {
+    width : 90%;
+  }
+
+}
+
+
 
 /* for w < 960 or h < 730 */
 @media  screen and (max-width: 960px) , (max-height: 800px) {

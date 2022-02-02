@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
 .galeriePage {
@@ -10,26 +10,23 @@
   padding-top: 70px;
   background-color: white !important;
 
-  font-family: 'Teko' !important;
+  font-family: 'Montserrat' !important;
   z-index : 1;
 }
-
 
 .galerieTitle {
   color: #3F981C;
   
-  font-family: "Teko" !important;
+  font-family: "Montserrat" !important;
   text-align: center;
   font-size: var(--font-size-titre-grande) !important;
-  font-weight: 700 !important;
+  font-weight: bold !important;
   padding-top: 50px;
   padding-bottom : 50px;
   line-height: 72px;
   letter-spacing: 15% !important;
   text-decoration :none ;
 }
-
-
 
 .cardGalerie {
   width: 537px;
@@ -50,53 +47,75 @@
 }
 
 
-/* style for image gallerie */
-.gallerie-image-down {
-  padding-top: 18%;
-}
-
-/* style for mobile */
-.gallerie-mobile-version{
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.galerieImgMobile{
-  padding: 0 10px 10% 10px;
-  width: 100%;
-    margin: 0 auto;
-    display: block;
-}
-
-/* style for image gallerie mobile*/
-.gallerie-image-down-mobile {
-  padding-top: 28%;
-}
 
 /* Responsive */
+
+
 #galerie {
   height: max-content;
   position: relative;
   z-index: 2;
 }
 
-.galerieContainer {
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
+
 
 /* for w < 960 or h < 730 */
-@media  screen and (max-width: 960px) , (max-height: 800px) {
+@media  screen and (max-width: 1280px) {
   .galerieTitle {
     font-size: var(--font-size-titre-moyenne) !important;
+    padding-bottom : 30px;
   }
+
+  .cardGalerie {
+    width: 450px;
+    height: 450px;
+    box-shadow: 0px 0px 0px white !important;
+    text-align: center;
+   
+    margin: 0 auto;
+    margin-bottom : 5%;
+    
+    padding-bottom: 100px;
+  
+  }
+  
+  .cardGalerie img {
+    width: 80%;
+    height: 70%;
+  }
+
 
 }
 
 /* for w < 960 or h < 730 */
-@media  screen and (max-width: 612px) , (max-height: 600px) {
+@media  screen and (max-width: 428px){
   .galerieTitle {
     font-size: var(--font-size-titre-petite) !important;
+  }
+
+
+  .cardGalerie {
+    width: 300px;
+    height: 300px;
+    box-shadow: 0px 0px 0px white !important;
+    text-align: center;
+   
+    margin: 0 auto;
+    margin-bottom : 5%;
+    
+    padding-bottom: 100px;
+    
+  
+  }
+  
+  .cardGalerie img {
+    width: 90%;
+    height: 60%;
+  }
+
+  .plats-card {
+
+    width : 90%;
   }
 }
 

@@ -72,7 +72,7 @@ const Offre = () => {
             <div className="plats-card">
                         {data.map((content) => (
                             <Card className="cardOffre">
-                                <img src={content.photo} alt="Contemplative Reptile"></img>
+                                
                                 
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
@@ -94,17 +94,6 @@ const Offre = () => {
 
                     </div>
 
-            <div className={classes.sectionMobile}>
-                <div className="gallerie-mobile-version">
-                    <Grid container >
-                        <Grid container direction="column" alignItems="center" xs={6}>
-                            <img src={image1} className="galerieImgMobile" />
-                            <img src={image2} className="galerieImgMobile" />
-                            <img src={image3} className="galerieImgMobile" />
-                        </Grid>
-                    </Grid>
-                </div>
-            </div>
 
         </div>
         
