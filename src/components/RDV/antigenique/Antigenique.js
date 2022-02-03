@@ -23,7 +23,7 @@ const Antigenique = () => {
                         </span>
                     
                     <Button id="Btn_Reserver_Test">
-                        <Link to="/Test antigenique" className="prendreRDV">
+                        <Link to="/Test antigenique formulaire" className="prendreRDV">
                             <strong>RÉSERVER UN TEST ANTIGÉNIQUE</strong>
                         </Link>
                     </Button>

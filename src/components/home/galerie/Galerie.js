@@ -9,15 +9,9 @@ import CardContent from '@material-ui/core/CardContent';
 
 import star from "../../../images/star.svg";
 
-import image1 from "../../../images/Galerie/galerie1.jpg";
-import image2 from "../../../images/Galerie/galerie2.jpg";
+import image1 from "../../../images/Galerie/galerie1.png";
+import image2 from "../../../images/Galerie/galerie2.png";
 import image3 from "../../../images/Galerie/galerie3.png";
-import image4 from "../../../images/Galerie/galerie4.jpg";
-import image5 from "../../../images/Galerie/galerie5.jpg";
-import image6 from "../../../images/Galerie/galerie6.png";
-import image7 from "../../../images/Galerie/galerie7.jpg";
-import image8 from "../../../images/Galerie/galerie8.jpg";
-import image9 from "../../../images/Galerie/galerie9.jpg";
 
 
 const useStyles = makeStyles((theme) => ({

@@ -23,7 +23,7 @@ const Ordonnance = () => {
                         </span>
                     
                     <Button id="Btn_Reserver_Test">
-                        <Link to="/Test antigenique" className="prendreRDV">
+                        <Link to="/" className="prendreRDV">
                             <strong>ENVOYEZ VOTRE ORDONNANCE</strong>
                         </Link>
                     </Button>

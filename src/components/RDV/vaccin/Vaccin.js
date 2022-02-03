@@ -23,7 +23,7 @@ const Vaccin = () => {
                         </span>
                     
                     <Button id="Btn_Reserver_Test">
-                        <Link to="/Test antigenique" className="prendreRDV">
+                        <Link to="/" className="prendreRDV">
                             <strong>RÉSERVER UN RAPPEL VACCIN</strong>
                         </Link>
                     </Button>

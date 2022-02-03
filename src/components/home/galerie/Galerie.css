@@ -42,11 +42,13 @@
 }
 
 .cardGalerie img {
-  width: 75%;
-  height: 70%;
+  width: auto;
+  max-height: 100%;
 }
 
-
+.cardText {
+  font-size : 17px!important;
+}
 
 /* Responsive */
 
@@ -59,7 +61,7 @@
 
 
 
-/* for w < 960 or h < 730 */
+/* for w < 1280 */
 @media  screen and (max-width: 1280px) {
   .galerieTitle {
     font-size: var(--font-size-titre-moyenne) !important;
@@ -80,8 +82,9 @@
   }
   
   .cardGalerie img {
-    width: 80%;
-    height: 70%;
+    width: 60%;
+    height: 60%;
+    margin-bottom: 30px;
   }
 
 

@@ -85,12 +85,8 @@ const Offre = () => {
                                 </CardContent>
                             </Card>
 
-
-
-
                         ))}
                     
-                        
 
                     </div>
 
