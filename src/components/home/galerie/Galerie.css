@@ -50,6 +50,15 @@
   font-size : 17px!important;
 }
 
+
+.plats-card-galerie {
+
+  display: flex;
+  margin: 0 auto;
+  width: 85%;
+  padding-top: 2vh;
+
+}
 /* Responsive */
 
 
@@ -92,33 +101,37 @@
 
 /* for w < 960 or h < 730 */
 @media  screen and (max-width: 428px){
+  
+  .plats-card-galerie {
+
+    display : flex;
+    flex-wrap: wrap;
+    flex-direction : column;
+
+  }
+  
   .galerieTitle {
-    font-size: var(--font-size-titre-petite) !important;
+    font-size: 40px!important;
   }
 
-
   .cardGalerie {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: auto;
     box-shadow: 0px 0px 0px white !important;
     text-align: center;
    
     margin: 0 auto;
-    margin-bottom : 5%;
+    margin-bottom : 2%;
     
-    padding-bottom: 100px;
-    
-  
+    padding-bottom: 10px;
+      
   }
   
   .cardGalerie img {
-    width: 90%;
-    height: 60%;
+    width: 30%;
+    height: auto;
   }
 
-  .plats-card {
 
-    width : 90%;
-  }
 }
 

@@ -83,11 +83,7 @@
 }
 
 /* responsive */
-#header {
-    height: 100vh;
-    position: relative;
-    z-index: 5;
-}
+
 
 /* for w < 960 or h < 730 */
 @media screen and (max-width: 960px) , (max-height: 800px) {
@@ -106,12 +102,31 @@
        margin-top: -10vh;
     }
 }
+
+
+
 /* 746 <= w <= 1104 */
 @media screen and (max-width: 746px) {
     .Div_Text_Header {
        font-size: 4em;
        margin-top: -10vh;
     }
+
+    #Btn_Prise_Rdv{
+    font-size: 16px!important;
+    
+    color: #FFFFFF;
+    border-color : white;
+    font-family: Montserrat;
+
+    margin-top : 10%;
+    margin-left : 0px;
+    width: 250px;
+    height: 60px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 49px;
+    opacity: 1;
+}
 }
 
 @media screen and (max-width: 608px) {

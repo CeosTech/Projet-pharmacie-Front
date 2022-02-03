@@ -10,8 +10,12 @@ import Navbar from './components/navbar/Navbar';
 import Panier from "./pages/Panier";
 import Paiement from "./pages/Paiement";
 import Felicitation from "./pages/Felicitation";
+
 import RendezVous from './components/RDV/RendezVous';
 import FormulaireAntigenique from "./components/FormulaireAntigenique/FormulaireAntigenique";
+import Ordonnance from "./components/EnvoiOrdonnance/Ordonnance";
+
+
 import Franchise from './components/franchise/Franchise';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
@@ -55,6 +59,7 @@ function App() {
             <RendezVous />
           </Route>
           <Route exact path="/Test antigenique formulaire" component={FormulaireAntigenique} />
+          <Route exact path="/ordonnance" component={Ordonnance} />
           <Route exact path="/panier" component={Panier} />
           {/*<Route exact path="/franchise" component={Franchise}/>*/}
           {isKeyLoaded && (

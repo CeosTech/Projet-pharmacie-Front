@@ -12,8 +12,8 @@ import { useForm } from "react-hook-form";
 const FormulaireAntigenique = () => {
     const [startDate, setStartDate] = useState(new Date());
     const { register, handleSubmit } = useForm();
-    const [result, setResult] = useState("");
-    const [date, setDate] = useState(new Date());
+    const [setResult] = useState("");
+ 
 
     return (
 

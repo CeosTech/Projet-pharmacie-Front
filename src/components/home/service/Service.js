@@ -1,10 +1,12 @@
 import React, { useEffect, useState  } from 'react';
 import "./Service.css";
 
-import image1 from "../../../images/Plats/Rectangle1.jpg";
-import image2 from "../../../images/Plats/Rectangle2.jpg";
-import image3 from "../../../images/Plats/Rectangle3.jpg";
-import star from "../../../images/star.svg";
+import image1 from "../../../images/service/box1.png";
+import image2 from "../../../images/service/box2.png";
+import image3 from "../../../images/service/box3.png";
+import image4 from "../../../images/service/box4.png";
+import image5 from "../../../images/service/box5.png";
+import image6 from "../../../images/service/box6.png";
 
 import Carousel from "react-bootstrap/Carousel";
 import { makeStyles } from '@material-ui/core/styles';
@@ -57,16 +59,17 @@ const data2 = [
     {
         id: 1,
         titre: "Test antigénique",
-        photo: image1
+        photo: image4
     },
     {
       id: 2,
       titre: "Envoyer une ordonnance",
-      photo: image2
-  },{
+      photo: image5
+  },
+  {
       id: 3,
       titre: "Location de Materiel",
-      photo: image3
+      photo: image6
   },
 ]
 
@@ -131,9 +134,7 @@ const Service = () => {
                                     <Typography variant="body2" color="textSecondary" component="p" className="cardText">
                                         {content.text}
                                     </Typography>
-                                    <Typography variant="body2" color="textDanger" component="p" className="cardPrice">
-                                        {content.prix}
-                                    </Typography>
+
                                 </CardContent>
                             </Card>
                                   </Carousel.Item>

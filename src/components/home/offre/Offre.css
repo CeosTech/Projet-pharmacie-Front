@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-.galeriePage {
+.offrePage {
   /* background-color: #3c3c3c; */
   
   width: 100%;
@@ -29,14 +29,12 @@
 }
 
 
-
 .cardOffre {
   
-  width: 537px;
-  height: 558px;
+  width: 50px;
+  height: 55px;
   box-shadow: 0px 3px 9px #00000029;
   text-align: center;
-  
   margin: 0 auto;
   margin-bottom : 5%;
   
@@ -46,45 +44,38 @@
 
 .cardOffre img {
   width: 75%;
-  height: 70%;
+  height: auto;
 }
 
 
-/* style for image gallerie */
-.gallerie-image-down {
-  padding-top: 18%;
+
+
+.cardTitle {
+  color : #79B65D;
+  font-family: "Montserrat" !important;
+  
+  text-align: center;
+  font-weight: 900 !important;
+  font-size: 26px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase;
 }
 
-/* style for mobile */
-.gallerie-mobile-version{
+
+.plats-card-offre {
+  display: flex;
   margin: 0 auto;
-  padding: 20px;
+  width: 90%;
+  padding-top: 2vh;
+  margin-bottom : 30px;
+  
 }
 
-.offreImgMobile{
-  padding: 0 10px 10% 10px;
-  width: 100%;
-    margin: 0 auto;
-    display: block;
+.slider-card-offre {
+  padding-top: 1vh;
+  margin-bottom: 2px;
+  
 }
-
-/* style for image gallerie mobile*/
-.gallerie-image-down-mobile {
-  padding-top: 28%;
-}
-
-/* Responsive */
-#offre {
-  height: max-content;
-  position: relative;
-  z-index: 2;
-}
-
-.offreContainer {
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
-
 
 @media screen and (max-width : 1280px) {
 
@@ -131,18 +122,50 @@
 
 
 
-/* for w < 960 or h < 730 */
-@media  screen and (max-width: 960px) , (max-height: 800px) {
-  .galerieTitle {
-    font-size: var(--font-size-titre-moyenne) !important;
+/* for w < 600 */
+@media  screen and (max-width: 600px) {
+  .offreTitle {
+    font-size: 40px;
   }
 
-}
 
-/* for w < 960 or h < 730 */
-@media  screen and (max-width: 612px) , (max-height: 600px) {
+  .plats-card-offre {
+
+    display : flex;
+    flex-wrap: wrap;
+    flex-direction : column;
+
+  }
+  
   .galerieTitle {
-    font-size: var(--font-size-titre-petite) !important;
+    font-size: 40px!important;
+  }
+
+  .cardOffre {
+    width: 90%;
+    height: 400px;
+    
+    text-align: center;
+   
+    margin: 0 auto;
+    margin-bottom : 2%;
+    
+   
+
+    box-shadow: 0px 3px 9px #00000029;
+    text-align: center;
+    
+    margin: 0 auto;
+    margin-bottom : 5%;
+    
+      
+  }
+  
+  .cardOffre img {
+    width: 50%;
+    height: auto;
   }
 }
+
+
 

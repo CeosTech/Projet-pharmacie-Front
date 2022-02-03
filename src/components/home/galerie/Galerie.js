@@ -63,7 +63,7 @@ const Galerie = () => {
                     Pourquoi Nous Choisir ?
                 </Typography>
             </div>
-            <div className="plats-card">
+            <div className="plats-card-galerie">
                 {data.map((content) => (
                     <Card className="cardGalerie">
                         <img src={content.photo} alt="illustration"></img>

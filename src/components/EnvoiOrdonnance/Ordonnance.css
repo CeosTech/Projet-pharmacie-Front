@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.Page_Ordonnance {
+    text-align : center;
+
+    width : 60%;
+    margin-left : 20% ;
+    margin-top : 140px;;
+}
+
+
+.Text_Form_ordonnance {
+
+    margin-bottom : 50px;
+    color: #3F981C;
+    font-size : 20px;
+
+}
+
+.Text_Form_ordonnance h5 {
+
+    font-size : 50px;
+    font-weight : bold;
+}
+
+
+
+/* Responsive  */
+
+
+/* for screen width < 1000 */
+@media only screen and (max-width: 800px) {
+
+    .Page_Ordonnance {
+        text-align : center;
+    
+        width : 75%;
+        margin-left : 13% ;
+        margin-top : 140px;;
+    }
+
+}
+
+
+/* for screen width < 700 */
+
+@media only screen and (max-width: 500px) {
+
+    .Page_Ordonnance {
+        text-align : center;
+    
+        width : 90%;
+        margin-left : 5% ;
+        margin-top : 140px;;
+    }
+
+    .Text_Form_ordonnance {
+        font-size : 18px;
+    }
+    
+    .Text_Form_ordonnance h5 {
+    
+        font-size : 40px;
+        font-weight : bold;
+    }
+}
