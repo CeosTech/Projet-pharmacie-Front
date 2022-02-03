@@ -7,7 +7,7 @@ export const NavLinkContent = [
     {
         id: 2,
         titre: "Nos services",
-        link: "/#service"
+        link: "/service"
     },
     {
         id: 3,
@@ -36,6 +36,11 @@ export const NavLinkContent = [
     },
     {
         id: 8,
+        titre: "Ordonnance",
+        link: "/ordonnance"
+    },
+    {
+        id: 9,
         titre: "Panier",
         link: "/panier"
     },

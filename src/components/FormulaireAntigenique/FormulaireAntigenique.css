@@ -1,19 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 .Page_Formulaire {
     text-align : center;
 
-    width : 50%;
-    margin-left : 25% ;
-    margin-top : 100px;
-
-    
+    width : 60%;
+    margin-left : 20% ;
+    margin-top : 140px;;
 }
+
+
+.Text_Form_antigenique {
+
+    margin-bottom : 50px;
+    color: #3F981C;
+    font-size : 20px;
+
+}
+
+.Text_Form_antigenique h5 {
+
+    font-size : 50px;
+    font-weight : bold;
+}
+
+/* Test antigenic Form css */
 
 .Formulaire {
 
     padding : 50px;
     background-color: #D1E1BF;
+    margin-bottom : 40px;
+    box-shadow: 0px 3px 9px #00000029;
 
 }
+
+.Formulaire h5 {
+
+    color : white;
+    font-size : 30px;
+    margin-bottom : 25px;
+
+}
+
+.Categorie_Formulaire {
+
+    width : 80%;
+    margin-left : 10%;
+}
+
 
 select, input {
     display: block;
@@ -39,7 +73,7 @@ select, input {
   
 input[type="submit"], .button {
     position: relative;
-    background: #ec5990;
+    background: #879775;
     color: white;
     text-transform: uppercase;
     border: none;
@@ -54,6 +88,7 @@ input[type="submit"], .button {
     width: 100%;
     font-weight: lighter;
     transition: 0.3s all;
+    margin-bottom : 30px;
 }
   
 .buttonBlack {
@@ -97,3 +132,56 @@ input[type="submit"]:active {
     opacity: 1;
 }
   
+
+
+
+/* Responsive  */
+
+
+/* for screen width < 1000 */
+@media only screen and (max-width: 800px) {
+
+    .Page_Formulaire {
+        text-align : center;
+    
+        width : 75%;
+        margin-left : 13% ;
+        margin-top : 140px;;
+    }
+
+    .Categorie_Formulaire {
+
+        width : 80%;
+        margin-left : 10%;
+    }
+}
+
+
+/* for screen width < 700 */
+
+@media only screen and (max-width: 500px) {
+
+    .Page_Formulaire {
+        text-align : center;
+    
+        width : 90%;
+        margin-left : 5% ;
+        margin-top : 140px;;
+    }
+
+    .Categorie_Formulaire {
+
+        width : 95%;
+        margin-left : 5%;
+    }
+
+    .Text_Form_antigenique {
+        font-size : 18px;
+    }
+    
+    .Text_Form_antigenique h5 {
+    
+        font-size : 40px;
+        font-weight : bold;
+    }
+}

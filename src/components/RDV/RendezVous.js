@@ -5,7 +5,7 @@ import Ordonnance from './ordonnance/Ordonnance';
 
 
 
-class Test extends Component {
+class RendezVous extends Component {
     render() {
         return (
             <div>
@@ -17,4 +17,4 @@ class Test extends Component {
     }
 }
 
-export default Test;
+export default RendezVous;

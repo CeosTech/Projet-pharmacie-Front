@@ -37,5 +37,4 @@ const Antigenique = () => {
 
 }
 
-
 export default Antigenique;
