@@ -9,7 +9,6 @@
 .prendreRDV {
     text-decoration: none;
     color: white;
-
 }
 
 .prendreRDV:hover {
@@ -110,6 +109,10 @@
     .Div_Text_Header {
        font-size: 2em;
        margin-top: 9vh;
+    }
+
+    .Text {
+        margin-top : -200px;
     }
 }
 

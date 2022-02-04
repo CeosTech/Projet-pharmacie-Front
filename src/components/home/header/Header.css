@@ -109,7 +109,8 @@
 @media screen and (max-width: 746px) {
     .Div_Text_Header {
        font-size: 4em;
-       margin-top: -10vh;
+       margin-top: -100px!important;
+       margin-left : 20px;
     }
 
     #Btn_Prise_Rdv{

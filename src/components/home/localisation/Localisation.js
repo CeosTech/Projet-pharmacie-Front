@@ -24,7 +24,7 @@ const Localisation = () => {
                     
                  <h5> Horaire</h5>
                     <br></br>
-                    <span>Lundi 10h - 20h Mardi <br></br> Vendredi 08h30 <br></br> 20h Samedi 09h - 19h30
+                    <span>Lundi : 10h - 20h <br></br>Mardi - Vendredi : 08h30 - 20h <br></br> Samedi : 09h - 19h30
                     </span>
                     
             

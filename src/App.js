@@ -62,15 +62,28 @@ function App() {
           <Route exact path="/ordonnance" component={Ordonnance} />
           <Route exact path="/panier" component={Panier} />
           {/*<Route exact path="/franchise" component={Franchise}/>*/}
-          {isKeyLoaded && (
+          
+
+      { /**En attendant cle stripe code suivant en commentaire 
+       * 
+       * 
+       *  {isKeyLoaded && (
             <Route exact path="/paiement">
               <Elements stripe={loadStripe(apiKey[0].stripe_public_key)}>
                 {/*Pour les tests en prod */}
                 {/*<Elements stripe={"pk_test_51IZE0cLbB6RgpOO7iZUCX9Ur3vHxEbgRHRndYTjkEuzei0jpqiDjlccIlVHQMbCZEb6zAHpd4R5tktQR3IIy5u5i00kZDxLJsh"}>*/}
-                <Paiement />
+               {/* <Paiement />
               </Elements>
             </Route>
           )}
+       * 
+       * 
+       * 
+       */
+
+
+      }
+          
           <Route exact path="/felicitation" component={Felicitation} />
           <SecuredRoute path="/admin" component={Admin} />
         </NavBarContextProvider>

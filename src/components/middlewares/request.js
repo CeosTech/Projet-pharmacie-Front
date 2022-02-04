@@ -1,6 +1,6 @@
 import axios from "axios";
 
- export const URL = "https://lescrocsdelanight.herokuapp.com/restaurant/";
+ export const URL = "https://pharmacie-site.herokuapp.com/restaurant/";
  //export const URL = "http://localhost:8000/";
 
 /**
