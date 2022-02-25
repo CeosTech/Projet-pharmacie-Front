@@ -36,7 +36,7 @@ export const adminSlice = createSlice({
       {
         name: "nouvelles_ordonnances",
         path: "/nouvelles-ordonnances",
-        libelle: "Nouvelles Ordonnances",
+        libelle: "Ordonnances",
         icone: "fa-bullhorn",
         active: true,
       },
@@ -47,6 +47,7 @@ export const adminSlice = createSlice({
         icone: "fa-bullhorn",
         active: true,
       },
+      
       {
         name: "suivi_activite",
         path: "/suivi-activites",

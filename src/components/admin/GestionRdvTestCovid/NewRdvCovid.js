@@ -1,6 +1,6 @@
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
-import "./Article.css";
+import "./NewRdvCovid.css";
 import {
   Accordion,
   AccordionDetails,
@@ -40,13 +40,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Article({ article }) {
+export default function NewRdvCovid({ article }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
   const handleEdit = () => {
     history.push({
-      pathname: "/admin/editer-article",
+      pathname: "/admin/nouvelles-commandes",
       state: { articleToUpdate: article },
     });
   };
@@ -64,7 +64,10 @@ export default function Article({ article }) {
     }, 1000);
   };
 
-  const date_article = new Date(article.date_message).toLocaleDateString();
+  const date_RDV = new Date(article.date_reservation).toLocaleDateString();
+  const heure_RDV = new Date(article.date_reservation).toLocaleTimeString();
+  const date_envoi = new Date(article.date_message).toLocaleDateString();
+  
 
   return (
     <Accordion
@@ -77,7 +80,7 @@ export default function Article({ article }) {
           <div className={classes.table}>
             <p className={classes.p}>{article.nom}</p>
             <p className={classes.p}>{article.prenom}</p>
-            <p className={classes.p}>{article.date_message}</p>
+            <p className={classes.p}>{date_envoi}</p>
           </div>
         ) : (
           <div></div>
@@ -87,61 +90,88 @@ export default function Article({ article }) {
       </AccordionSummary>
       <AccordionDetails>
         <div className="article__container">
-          <div className="article__photo">
-            <img className="photo_fact" src={article.image_ordonnance} alt="" />
-          </div>
+  
           <div className="container darker">
-            <strong> Message du client : </strong> {ReactHtmlParser(article.message)}
+            <strong> Nom : </strong> {ReactHtmlParser(article.nom)}
+          
+            <strong> Prénom : </strong> {ReactHtmlParser(article.prenom)}
+          
+            <strong> Age : </strong> {ReactHtmlParser(article.age)}
+          
+            <strong> Telephone : </strong> {ReactHtmlParser(article.telephone)}
+          
+            <strong> Email : </strong> {ReactHtmlParser(article.email)}
+          
+            <strong> Adresse : </strong> {ReactHtmlParser(article.adresse)}
+          
+            <strong> Code Postal : </strong> {ReactHtmlParser(article.code_postal)}
+          
+            <strong> Ville : </strong> {ReactHtmlParser(article.ville)}
+          
+            <strong> Numéro de sécurité sociale : </strong> {ReactHtmlParser(article.num_secu)}
+          
+            <strong> Message : </strong> {ReactHtmlParser(article.message)}
+          
+            <strong> Date du rendez-vous : </strong> {date_RDV}
+
+            <strong> Heure rendez-vous : </strong> {heure_RDV}
           </div>
-          {article.image_ordonnance && (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <a
-                href={article.image_ordonnance}
-                target="_blank"
-                rel="noreferrer"
-                style={{ marginTop: "1rem" }}
-              >
-                <i className="fas fa-file-pdf fa-3x"></i>
-              </a>
-              <span>télécharger le pdf</span>
-            </div>
-          )}
+          
 
-
+{/**
           <span style={{ marginTop: "1rem" }}>
             {new Date(article.date_message).toLocaleTimeString()}
           </span>
-
+*/}
+          {/** BUTTON */}
           <div className="article__button">
-            <a
-              href={article.image_ordonnance}
-              target="_blank"
-              rel="noreferrer"
-              download
-            >
+            
+            
+            {/** ANSWER BUTTON */}
+          <button
+                className="answer__button"
+                onClick={() => {
+                  handleEdit();
+                }}
+              >
+                Répondre
+          </button>
+
+          {/** MODIFY BUTTON */}
               <button
                 className="registre__button"
                 onClick={() => {
                   handleEdit();
                 }}
               >
-                <i className="fas fa-edit fa-2x"></i>
+                Modifier
               </button>
-            </a>
+           
+
+            {/** VALIDATION BUTTON */}
+            
+              <button
+                className="validation__button"
+                onClick={() => {
+                  handleEdit();
+                }}
+              >
+                Confirmer
+              </button>
+         
+
+            {/** DELETED BUTTON */}
             <button
               className="supp_button"
               onClick={() => {
                 deleteData(article.id);
               }}
             >
-              <i className="far fa-trash-alt fa-2x"></i>
+              Supprimer
             </button>
+
+
+            
           </div>
         </div>
       </AccordionDetails>

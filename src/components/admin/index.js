@@ -38,9 +38,9 @@ import Contratdetravail from "./contratdetravail/Contratdetravail";
 import Creationcdi from "./creationcdi/Creationcdi";
 import HistoriqueFacture from "./HistoriqueFacture/historiquefacture.js";
 
-import GestionArticlesPublies from "./nouvelleOrdonnance/GestionArticlesPublies";
+import GestionArticlesPublies from "./GestionOrdonnance/GestionArticlesPublies";
 
-import GestionRdvCovid from "./nouveauRdvTestCovid/GestionRdvCovid";
+import GestionRdvCovid from "./GestionRdvTestCovid/GestionRdvCovid";
 
 // const useStyles = makeStyles({
 //   root: {

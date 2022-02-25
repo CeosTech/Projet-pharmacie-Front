@@ -1,6 +1,6 @@
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
-import "./NewRdvCovid.css";
+import "./Article.css";
 import {
   Accordion,
   AccordionDetails,
@@ -40,13 +40,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewRdvCovid({ article }) {
+export default function Article({ article }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
   const handleEdit = () => {
     history.push({
-      pathname: "/admin/nouvelles-commandes",
+      pathname: "/admin/editer-article",
       state: { articleToUpdate: article },
     });
   };
@@ -64,8 +64,8 @@ export default function NewRdvCovid({ article }) {
     }, 1000);
   };
 
-  const date_RDV = new Date(article.date_reservation).toLocaleDateString();
-  const date_envoi = new Date(article.date_message).toLocaleDateString();
+  const date_retrait = new Date(article.date_message).toLocaleDateString();
+  
 
   return (
     <Accordion
@@ -78,7 +78,7 @@ export default function NewRdvCovid({ article }) {
           <div className={classes.table}>
             <p className={classes.p}>{article.nom}</p>
             <p className={classes.p}>{article.prenom}</p>
-            <p className={classes.p}>{date_envoi}</p>
+            <p className={classes.p}>{date_retrait}</p>
           </div>
         ) : (
           <div></div>
@@ -88,30 +88,16 @@ export default function NewRdvCovid({ article }) {
       </AccordionSummary>
       <AccordionDetails>
         <div className="article__container">
-  
+          <div className="article__photo">
+            <img className="photo_fact" src={article.image_ordonnance} alt="" />
+          </div>
           <div className="container darker">
             <strong> Nom : </strong> {ReactHtmlParser(article.nom)}
-          
             <strong> Prénom : </strong> {ReactHtmlParser(article.prenom)}
-          
-            <strong> Age : </strong> {ReactHtmlParser(article.age)}
-          
-            <strong> Telephone : </strong> {ReactHtmlParser(article.telephone)}
-          
-          
-            <strong> Email : </strong> {ReactHtmlParser(article.email)}
-          
-            <strong> Adresse : </strong> {ReactHtmlParser(article.adresse)}
-          
-            <strong> Code Postal : </strong> {ReactHtmlParser(article.code_postal)}
-          
-            <strong> Ville : </strong> {ReactHtmlParser(article.ville)}
-          
-            <strong> Numéro de sécurité sociale : </strong> {ReactHtmlParser(article.num_secu)}
-          
-            <strong> Message : </strong> {ReactHtmlParser(article.message)}
-          
-            <strong> Date du rendez-vous : </strong> {date_RDV}
+            <strong> Téléphone : </strong> {ReactHtmlParser(article.telephone)}
+            <strong> email : </strong> {ReactHtmlParser(article.email)}
+            <strong> Date de retrait : </strong> {date_retrait}
+            <strong> Message du client : </strong> {ReactHtmlParser(article.message)}
           </div>
           {article.image_ordonnance && (
             <div
@@ -139,28 +125,49 @@ export default function NewRdvCovid({ article }) {
           </span>
 
           <div className="article__button">
-            <a
-              href={article.image_ordonnance}
-              target="_blank"
-              rel="noreferrer"
-              download
-            >
-              <button
+          
+          {/** ANSWER BUTTON */}
+          <button
+                className="answer__button"
+                onClick={() => {
+                  handleEdit();
+                }}
+              >
+                Répondre
+          </button>
+
+
+          {/** MODIFY BUTTON */}
+          <button
                 className="registre__button"
                 onClick={() => {
                   handleEdit();
                 }}
               >
-                <i className="fas fa-edit fa-2x"></i>
+                Modifier
+          </button>
+           
+
+            {/** VALIDATION BUTTON */}
+            
+              <button
+                className="validation__button"
+                onClick={() => {
+                  handleEdit();
+                }}
+              >
+                Confirmer
               </button>
-            </a>
+         
+
+            {/** DELETED BUTTON */}
             <button
               className="supp_button"
               onClick={() => {
                 deleteData(article.id);
               }}
             >
-              <i className="far fa-trash-alt fa-2x"></i>
+              Supprimer
             </button>
           </div>
         </div>

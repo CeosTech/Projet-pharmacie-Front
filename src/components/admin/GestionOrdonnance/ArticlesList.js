@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import Article from "./NewRdvCovid";
+import Article from "./Article";
 import Pagination from "react-js-pagination";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ItemsCountPerPage = 4;
 
-export default function NewRdvCovidList({ articles }) {
+export default function ArticlesList({ articles }) {
   const [bounds, setBounds] = useState([0, ItemsCountPerPage]);
   const [activePage, setActivePage] = useState(1);
   const classes = useStyles();
@@ -58,7 +58,7 @@ export default function NewRdvCovidList({ articles }) {
           <div className={classes.table}>
             <p className={classes.heading}>Nom</p>
             <p className={classes.heading}>Prénom</p>
-            <p className={classes.heading}>Date d'envoi</p>
+            <p className={classes.heading}>Date de retrait</p>
           </div>
           {articles.slice(bounds[0], bounds[1]).map((article) => (
             <Article article={article} key={article.id} />
