@@ -6,7 +6,7 @@
 
 }
 
-.Page_Formulaire {
+.Page_Formulaire_Ordonnance {
     text-align : center;
 
     width : 60%;
@@ -15,7 +15,7 @@
 }
 
 
-.Text_Form_antigenique {
+.Text_Form_Ordonnance {
 
     margin-bottom : 50px;
     color: #3F981C;
@@ -23,7 +23,7 @@
 
 }
 
-.Text_Form_antigenique h5 {
+.Text_Form_Ordonnance h5 {
 
     font-size : 50px;
     font-weight : bold;
@@ -31,7 +31,7 @@
 
 /* Test antigenic Form css */
 
-.Formulaire {
+.Formulaire_Ordonnance {
 
     padding : 50px;
     background-color: #D1E1BF;
@@ -40,7 +40,7 @@
 
 }
 
-.Formulaire h5 {
+.Formulaire_Ordonnance h5 {
 
     color : white;
     font-size : 30px;
@@ -48,7 +48,7 @@
 
 }
 
-.Categorie_Formulaire {
+.Categorie_Formulaire_Ordonnance {
 
     width : 80%;
     margin-left : 10%;
@@ -147,7 +147,7 @@ button[type="submit"]:active {
 /* for screen width < 1000 */
 @media only screen and (max-width: 800px) {
 
-    .Page_Formulaire {
+    .Page_Formulaire_Ordonnance {
         text-align : center;
     
         width : 75%;
@@ -155,7 +155,7 @@ button[type="submit"]:active {
         margin-top : 140px;;
     }
 
-    .Categorie_Formulaire {
+    .Categorie_Formulaire_Ordonnance {
 
         width : 80%;
         margin-left : 10%;
@@ -167,7 +167,7 @@ button[type="submit"]:active {
 
 @media only screen and (max-width: 500px) {
 
-    .Page_Formulaire {
+    .Page_Formulaire_Ordonnance {
         text-align : center;
     
         width : 90%;
@@ -175,17 +175,17 @@ button[type="submit"]:active {
         margin-top : 140px;;
     }
 
-    .Categorie_Formulaire {
+    .Categorie_Formulaire_Ordonnance {
 
         width : 95%;
         margin-left : 5%;
     }
 
-    .Text_Form_antigenique {
+    .Text_Form_Ordonnance {
         font-size : 18px;
     }
     
-    .Text_Form_antigenique h5 {
+    .Text_Form_Ordonnance h5 {
     
         font-size : 40px;
         font-weight : bold;

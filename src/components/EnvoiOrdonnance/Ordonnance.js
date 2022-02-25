@@ -26,7 +26,7 @@ const Ordonnance = () => {
 
         await axios.post(
             'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/',
-            {...data, image_ordonnance: {img}} // {...data, message: "...."}
+            {...data } // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);
         }).catch((e) => {
@@ -37,10 +37,10 @@ const Ordonnance = () => {
 
     return (
 
-        <div className="Page_Formulaire">
+        <div className="Page_Formulaire_Ordonnance">
         
             {/*Presentation text of the prescription send*/}
-            <div className="Text_Form_ordonnance">
+            <div className="Text_Form_Ordonnance">
                 <h5> Click and collect : envoyez votre ordonnace</h5> <br></br>
                 <span>Avec le Click and Collect plus besoin de patienter. Envoyez votre ordonnance et nous nous chargerons de préparer vos médicaments.
                     Venez les récuperer une fois votre commande finaliser.
@@ -48,10 +48,10 @@ const Ordonnance = () => {
             </div>
 
             {/* prescription send form */}
-            <form className="Formulaire" onSubmit={handleSubmit((data) => { envoi(data) }) }>
+            <form className="Formulaire_Ordonnance" onSubmit={handleSubmit((data) => { envoi(data) }) }>
                 <h5> Lieu de Consultation </h5>
                 <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
-                <div className="Categorie_Formulaire">
+                <div className="Categorie_Formulaire_Ordonnance">
 
                     {/** FIRST NAME INPUT */}
                     <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
@@ -115,17 +115,10 @@ const Ordonnance = () => {
 
 
                     {/* --- UPLOAD FILE FIELD --- */}
-                    <TextField
-                        id="image"
-                        type="file"
-                        variant="outlined"
-                        size="small"
-                        name="image"
-                        onChange={(event) => {
-                            const fileUploaded = event.target.files[0]
-                            setImage(event); }
-                        }
-                    />
+                    <input {...register("image_ordonnance") } type="file" placeholder="Déposez votre ordonnance"
+                    >
+                    
+                    </input>
 
 
 

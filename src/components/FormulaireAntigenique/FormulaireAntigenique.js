@@ -197,6 +197,7 @@ const FormulaireAntigenique = () => {
       
                 {/* --- DATE AND TIME FIELD --- */}
                 <DatePicker
+                    {...register("date_reservation") }
                     placeholderText="Choisissez votre rendez-vous *"
                     showTimeSelect
                     isClearable

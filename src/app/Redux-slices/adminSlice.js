@@ -41,6 +41,13 @@ export const adminSlice = createSlice({
         active: true,
       },
       {
+        name: "nouveaux_rdv_test_covid",
+        path: "/nouveaux-formulaires-test-covid",
+        libelle: "Formulaires Test Covid",
+        icone: "fa-bullhorn",
+        active: true,
+      },
+      {
         name: "suivi_activite",
         path: "/suivi-activites",
         libelle: "Suivi de l’activité",

@@ -40,6 +40,8 @@ import HistoriqueFacture from "./HistoriqueFacture/historiquefacture.js";
 
 import GestionArticlesPublies from "./nouvelleOrdonnance/GestionArticlesPublies";
 
+import GestionRdvCovid from "./nouveauRdvTestCovid/GestionRdvCovid";
+
 // const useStyles = makeStyles({
 //   root: {
 //     position: "absolute",
@@ -158,6 +160,10 @@ const AdminPage = () => {
 
             <Route exact path={path + "/nouvelles-ordonnances"}>
               <GestionArticlesPublies />
+            </Route>
+
+            <Route exact path={path + "/nouveaux-formulaires-test-covid"}>
+              <GestionRdvCovid />
             </Route>
 
             <Route exact path={path + "/clients"}>
