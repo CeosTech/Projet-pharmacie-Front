@@ -7,14 +7,22 @@ import {
 } from "react-router-dom";
 import NavBarContextProvider from "./contexts/Navbar/navbarState";
 import Navbar from './components/navbar/Navbar';
+import Commander from './components/commander/Commander';
 import Panier from "./pages/Panier";
 import Paiement from "./pages/Paiement";
 import Felicitation from "./pages/Felicitation";
 
 import RendezVous from './components/RDV/RendezVous';
+import ChoixVaccin from './components/FormulaireVaccin/ChoixVaccin';
+import FormulaireVaccin from './components/FormulaireVaccin/PremiereInjection/FormulaireVaccin';
+import FormVaccinNoCovid from './components/FormulaireVaccin/JamaisEuCovid/FormVaccinNoCovid';
+import FormRappelVaccin from './components/FormulaireVaccin/DoseRappel/FormRappelVaccin';
+import FormDeuxiemeInjec from './components/FormulaireVaccin/DeuxiemeInjection/FormVaccinDeuxiemeInjec';
 import FormulaireAntigenique from "./components/FormulaireAntigenique/FormulaireAntigenique";
+
 import Ordonnance from "./components/EnvoiOrdonnance/Ordonnance";
 
+import LocationMateriel from "./components/LocationMateriel/LocationMateriel"
 
 import Franchise from './components/franchise/Franchise';
 import Home from './components/home/Home';
@@ -59,7 +67,24 @@ function App() {
             <RendezVous />
           </Route>
           <Route exact path="/Test antigenique formulaire" component={FormulaireAntigenique} />
+          <Route exact path="/Premiere Injection" >
+            <FormulaireVaccin />
+          </Route>
+          <Route exact path="/Injection sans covid" >
+            <FormVaccinNoCovid />
+          </Route>
+          <Route exact path="/Rappel Vaccin" >
+            <FormRappelVaccin />
+          </Route>
+          <Route exact path="/Deuxieme Injection" >
+            <FormDeuxiemeInjec />
+          </Route>
+          <Route exact path="/Location De Materiel" >
+            <LocationMateriel />
+          </Route>
+          <Route exact path="/Choix du vaccin" component={ChoixVaccin} />
           <Route exact path="/ordonnance" component={Ordonnance} />
+          <Route exact path="/carte" component={Commander} />
           <Route exact path="/panier" component={Panier} />
           {/*<Route exact path="/franchise" component={Franchise}/>*/}
           

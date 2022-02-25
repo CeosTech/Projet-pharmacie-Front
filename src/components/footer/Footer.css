@@ -7,10 +7,11 @@
 }
 
 #footer{
-    background-color: #79B65D;
+    background-color: #D1E1BF;
     color : white;
     padding: 50px 30px;
     font-family: Raleway;
+    
 }
 
 /* Style for text in Footer */
@@ -25,6 +26,12 @@
     border-right: solid 1px black;
 }
 
+.footer-logo-border img {
+
+    height : 55px;
+    margin-left: -30px;
+    margin-top : 30px;
+}
 
 /* Text go to left in desktop version */
 .footer-text {
@@ -35,6 +42,7 @@
 /* Open hours */
 .openhours {
     display:inline-block;
+    margin-left : 20px;
 }
 
 .openhours p{

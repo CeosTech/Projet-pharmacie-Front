@@ -50,26 +50,30 @@ const data1 = [
     },{
         id: 3,
         titre: "Rappel Vaccin",
-        photo: image3
+        photo: image3,
+        ref:"/Choix du vaccin"
     },
 ]
 
 
 const data2 = [
     {
-        id: 1,
+        id: 4,
         titre: "Test antigénique",
-        photo: image4
+        photo: image4,
+        ref: "/Test antigenique formulaire"
     },
     {
-      id: 2,
+      id: 5,
       titre: "Envoyer une ordonnance",
-      photo: image5
+      photo: image5,
+      ref:"/ordonnance"
   },
   {
-      id: 3,
+      id: 6,
       titre: "Location de Materiel",
-      photo: image6
+      photo: image6,
+      ref:"/Location De Materiel"
   },
 ]
 
@@ -103,10 +107,12 @@ const Service = () => {
                     <div className="plats-card">
                         {data1.map((content) => (
                             <Card className="cardItem">
-                                <img src={content.photo} alt="Contemplative Reptile"></img>
+                                <a href={content.ref}>
+                                    <img src={content.photo} alt="Illustration box"></img>
+                                </a>
                                 
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
+                                    <Typography gutterBottom variant="h5" component="h2" className="cardTitle_Service">
                                         {content.titre}
                                     </Typography>
                                 
@@ -125,19 +131,21 @@ const Service = () => {
                             <Carousel pause={false} className="slider-card">
                                 {data1.map((content) => (
                                   <Carousel.Item interval={5000} className="px-3" key={content.titre}>
-                                <Card className="cardItem">
-                                    <img src={content.photo} alt="Contemplative Reptile"></img>
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
-                                        {content.titre}
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p" className="cardText">
-                                        {content.text}
-                                    </Typography>
+                                        <Card className="cardItem">
+                                            <a href={content.ref}>
+                                                <img src={content.photo} alt="Illustration box"></img>
+                                            </a>
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h5" component="h2" className="cardTitle_Service">
+                                                    {content.titre}
+                                                </Typography>
+                                                <Typography variant="body2" color="textSecondary" component="p" className="cardText">
+                                                    {content.text}
+                                                </Typography>
 
-                                </CardContent>
-                            </Card>
-                                  </Carousel.Item>
+                                            </CardContent>
+                                        </Card>
+                                    </Carousel.Item>
                                 ))}
                               </Carousel>
 
@@ -151,12 +159,15 @@ const Service = () => {
                              <div className="plats-card">
                                  {data2.map((content) => (
                                      <Card className="cardItem">
-                                         <img src={content.photo} alt="Contemplative Reptile"></img>
+                                        <a href={content.ref}>
+                                            <img src={content.photo} alt="Illustration box"></img>
+                                        </a>
                                          
-                                         <CardContent>
-                                             <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
-                                                 {content.titre}
-                                             </Typography>
+                                         
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="h2" className="cardTitle_Service">
+                                                {content.titre}
+                                            </Typography>
                                 
                                          </CardContent>
                                      </Card>         
@@ -176,26 +187,30 @@ const Service = () => {
                                     /*mobile version */
 
 
-                                     <Carousel pause={false} className="slider-card">
-                                         {data2.map((content) => (
+                                    <Carousel pause={false} className="slider-card">
+                                        {data2.map((content) => (
                                            <Carousel.Item interval={5000} className="px-3" key={content.titre}>
-                                         <Card className="cardItem">
-                                             <img src={content.photo} alt="Contemplative Reptile"></img>
-                                         <CardContent>
-                                             <Typography gutterBottom variant="h5" component="h2" className="cardTitle">
-                                                 {content.titre}
-                                             </Typography>
-                                             <Typography variant="body2" color="textSecondary" component="p" className="cardText">
-                                                 {content.text}
-                                             </Typography>
-                                             <Typography variant="body2" color="textDanger" component="p" className="cardPrice">
-                                                 {content.prix}
-                                             </Typography>
-                                         </CardContent>
-                                     </Card>
+                                                <Card className="cardItem">
+                                                    <a href={content.ref}>
+                                                        <img src={content.photo} alt="Illustration box"></img>
+                                                    </a>
+                                                    <CardContent>
+                                                        <Typography gutterBottom variant="h5" component="h2" className="cardTitle_Service">
+                                                            {content.titre}
+                                                        </Typography>
+
+                                                        <Typography variant="body2" color="textSecondary" component="p" className="cardText">
+                                                            {content.text}
+                                                        </Typography>
+
+                                                        <Typography variant="body2" color="textDanger" component="p" className="cardPrice">
+                                                            {content.prix}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </Card>
                                            </Carousel.Item>
-                                         ))}
-                                       </Carousel>
+                                        ))}
+                                    </Carousel>
          
                                  )}
          

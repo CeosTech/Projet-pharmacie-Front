@@ -3,22 +3,28 @@ import DatePicker from "react-datepicker";
 import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
-import './FormulaireAntigenique.css';
+import '../PremiereInjection/FormulaireVaccin.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import axios from 'axios';
 
 
 /** Using React Hook form library. Find more : https://react-hook-form.com/ */
 
-const FormulaireAntigenique = () => {
+const FormVaccinNoCovid = () => {
 
     const [startDate, setStartDate] = useState(new Date());
     
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+
+    const [checked, setChecked] = React.useState(false);
+
+    const { control} = useForm();
+  const [submittedDate, setSubmittedDate] = useState();
     
     const envoi = async (data) => {
 
@@ -42,21 +48,18 @@ const FormulaireAntigenique = () => {
 
     return (
 
-        <div className="Page_Formulaire">
+        <div className="Page_Formulaire_Vaccin">
         
-        {/*Presentation text of the antigenic test*/}
-        <div className="Text_Form_antigenique">
-            <h5> Test antigenique</h5> <br></br>
-            <span>Les tests antigéniques rapides constituent un outil supplémentaire pour réduire les chaînes de transmission virale. 
-                  Ils viennent en complément des tests RT-PCR  qui restent la technique de référence pour la détection de  l’infection à la Covid-19. 
-            </span>
+        {/*Presentation text of the vaccin*/}
+        <div className="Text_Form_Vaccin">
+            <h5> Première et deuxième injections <br></br> (personne n'ayant jamais eu la COVID-19)</h5>
         </div>
 
-        {/* antigenic test form */}
-        <form className="Formulaire" onSubmit={handleSubmit((data) => { envoi(data) }) }>
+        {/* vaccin form */}
+        <form className="Formulaire_Vaccin" onSubmit={handleSubmit((data) => { envoi(data) }) }>
             <h5> Lieu de Consultation </h5>
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
-            <div className="Categorie_Formulaire">
+            <div className="Categorie_Formulaire_Vaccin">
 
 
                 {/** FIRST NAME INPUT */}
@@ -160,15 +163,17 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- CITY INPUT --- */}
+                Ville*
                 <input {...register("ville",
                             {
                                 required: '* Ce champs est requis'
                             })
-                } placeholder="Ville *" />
+                } placeholder="Saisir..." />
                 <ErrorMessage   errors={errors}   name="ville"  render={({ message }) => <p id='Message_erreur'>{message}</p>}    />
 
 
                 {/* --- SOCIAL SECURITY SYSTEM NUMBER INPUT --- */}
+                Numéro de sécurité sociale *
                 <input {...register("num_secu",
                             {
                                 required: "* Ce champs est requis",
@@ -187,15 +192,50 @@ const FormulaireAntigenique = () => {
                                 
                             }) 
             
-                } placeholder="Numéro de sécurité sociale *" />
+                } placeholder="Saisir..." />
                 <ErrorMessage   errors={errors}     name="num_secu"     render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
 
                 
-                {/* ---  MESSAGE FIELD --- */}
-                <input {...register("message") } placeholder="Un message à nous transmettre ?" />
+                
 
+
+                {/* --- VACCIN CHOICE --- */}
+                Choissisez un vaccin*
+                     
+                <label id="top">
+                    <input {...register("type_vaccin") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
+                    {' Vaccin ARNm, sans préférence '}
+                    <p>Pfizer-BioNTech, Moderna</p>
+                </label>
+                
+
+                <label>
+                 <input {...register("type_vaccin") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
+                    {' '}
+                    Moderna <p>Personnes de plus de 30 ans</p>
+                </label>
+
+
+                <label>
+                 <input {...register("message") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
+                    {' '}
+                    Pfizer/BioNTech <p>Personnes de plus de 12 ans</p>
+
+                </label>
+
+
+                <label id="last">
+                 <input {...register("message") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
+                    {' '}
+                    Pfizer/BioNTech Enfants <p>Personnes de plus de 5 à 11 ans inclus</p>
+                </label>
+
+                
       
+
+
                 {/* --- DATE AND TIME FIELD --- */}
+                Choisir une date *
                 <DatePicker
                     placeholderText="Choisissez votre rendez-vous *"
                     showTimeSelect
@@ -206,11 +246,17 @@ const FormulaireAntigenique = () => {
                     startDate={startDate}
                     onChange={date => setStartDate(date)}
 
-
                     
                 />
 
+                {/* ---  MESSAGE FIELD --- */}
+                <input {...register("message") } placeholder="Un message à nous transmettre ?" />
+               
+                    
                 
+                
+                 
+                   
                 
                 <button type="submit">
                     ENVOYER
@@ -222,7 +268,10 @@ const FormulaireAntigenique = () => {
             
 
             <h5> Motif de Consultation </h5>
-            <p>Dépistage Covid-19 Test-Antigénique (Prélèvement Naso-Pharyngé)</p>
+            <p>Première Injection de vaccin contre la COVID-19</p>
+
+
+           
 
         </form>
         {/* end of antigenic test form */}
@@ -233,4 +282,4 @@ const FormulaireAntigenique = () => {
     
 }
 
-export default FormulaireAntigenique;
+export default FormVaccinNoCovid;

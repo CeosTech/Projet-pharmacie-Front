@@ -1,16 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+.menu-arrow-forward {
+  background-color: white !important;
+}
 
-.carte {
+#carte {
   box-sizing: border-box;
   padding: 1em 1em 2em 1em;
   margin-left: 2.5rem;
   height: max-content;
   margin-right: 2.5rem;
   background-position: center;
+  
 }
 
+#header_ortho {
+
+  margin-top : 3em;
+  
+}
+
+#header_ortho h5 {
+  font-size : 3em;
+  color : #3F981C;
+  font-weight : bold;
+
+  text-align : center;
+  margin-left : 110%;
+  margin-bottom : .8em;
+
+}
+
+#header_ortho .description {
+
+  width : 130%;
+  margin-left : 70%;
+  text-align : center;
+  font-size : 1.2em;
+}
+
+
 .carte_contain {
-  background-color: #1C1F2B;
+  background-color: #D1E1BF;
   border-radius: 20px !important;
   margin-left: 2em;
   margin-top: 2em;
@@ -18,10 +47,9 @@
 
 .carteTitle {
   color: white;
-  font-family: "Teko" !important;
   text-align: center;
   font-size: 44px !important;
-  font-weight: 700 !important;
+  font-weight: 900 !important;
   line-height: 72px;
   letter-spacing: 15% !important;
 }
@@ -64,7 +92,7 @@
   font-size: 1.5rem;
   border-radius: 5px;
   text-align: left;
-  font-family: "Teko" !important;
+
   width: 240px;
 }
 
@@ -89,17 +117,13 @@
 }
 .carte__item.active {
   font-size: 1.5rem;
-  font-weight: 700;
+  color: #3F981C;
+ 
 }
 
 
 .carte.active {
   height: 100%;
-}
-
-.menu-arrow-forward{
-  position: fixed;
-  margin-top: -10%;
 }
 
 @media (max-width: 1080px) {
@@ -136,12 +160,19 @@
   .carte__image-container img {
     max-width: 50%;
   }
+  .carte_contain {
+    margin-right: 2em;
+  }
+}
+.MuiSvgIcon-root{
+
 }
 
 @media (max-width: 600px) {
   .carte_title {
     line-height: normal;
   }
+  
   
 }
 
@@ -160,9 +191,20 @@
     margin-bottom: -2em;
   }
   .carte_contain {
-    background-color: #1C1F2B;
+    background-color: #000000;
     border-radius: 20px !important;
   }
+  .carte__item.active {
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+  .carte__item{
+    font-size: 2.2rem;
+  }
+  .menu-arrow-forward{
+    padding-top: 15px;
+  }
+  
 }
 
 @media (min-width: 1080px) {
@@ -181,30 +223,36 @@
 
 /* style for carte side */
 .menu-side {
-  padding-top: 6em;
+  padding-top: 5em;
+  box-sizing: content-box;
 }
 
 /* Arrow icon for Menu Side */
 .menu-arrow-back .MuiSvgIcon-root {
   fill: white;
   font-size: 50px;
-  margin: 0.3em;
-  border: 2px solid white;
-  border-radius: 10px;
+  margin: 0.5em;
+  background-color: #F1B519;
+  border-radius: 15px;
+}
+.menu-arrow-back{
+  /* padding-top: 25px; */
+}
+.menu-arrow-forward{
+  padding-top: 15px;
 }
 
 .menu-arrow-forward .MuiSvgIcon-root {
   fill: white;
   font-size: 50px;
-  position: absolute;
-  margin-top: -19px;
-  margin-left: -0.2em;
-  border: 2px solid white;
-  border-radius: 10px;
+  position: fixed;
+  margin-top: -10px;
+  background-color: #F1B519;
+  border-radius: 15px;
 }
 
 .menu-offcanvas .offcanvas-body {
-  background-color: #1C1F2B;
+  background-color: #000000;
   padding: 0rem 0rem;
   
 }

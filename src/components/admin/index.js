@@ -38,6 +38,8 @@ import Contratdetravail from "./contratdetravail/Contratdetravail";
 import Creationcdi from "./creationcdi/Creationcdi";
 import HistoriqueFacture from "./HistoriqueFacture/historiquefacture.js";
 
+import GestionArticlesPublies from "./nouvelleOrdonnance/GestionArticlesPublies";
+
 // const useStyles = makeStyles({
 //   root: {
 //     position: "absolute",
@@ -153,6 +155,11 @@ const AdminPage = () => {
             <Route exact path={path + "/Gestion_commerciale"}>
               <Gestioncommerciale />
             </Route>
+
+            <Route exact path={path + "/nouvelles-ordonnances"}>
+              <GestionArticlesPublies />
+            </Route>
+
             <Route exact path={path + "/clients"}>
               <BddClient />
             </Route>

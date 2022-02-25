@@ -34,6 +34,13 @@ export const adminSlice = createSlice({
         active: true,
       },
       {
+        name: "nouvelles_ordonnances",
+        path: "/nouvelles-ordonnances",
+        libelle: "Nouvelles Ordonnances",
+        icone: "fa-bullhorn",
+        active: true,
+      },
+      {
         name: "suivi_activite",
         path: "/suivi-activites",
         libelle: "Suivi de l’activité",

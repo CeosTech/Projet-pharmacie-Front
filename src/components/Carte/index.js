@@ -1,5 +1,5 @@
 import { useState } from "react";
-import star from "../../images/star.svg";
+
 import Typography from '@material-ui/core/Typography';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
@@ -48,10 +48,16 @@ const Carte = ({
   const handleShow = () => setShow(true);
 
   return (
-    <div id="carte">
 
-    {/* Button for Side Menu */}
-    <div className={classes.sectionMobile} >
+    <div id="header_ortho">
+      
+     
+
+    
+      <div id="carte">
+      
+      {/* Button for Side Menu */}
+      <div className={classes.sectionMobile} >
             <div className="menu-arrow-forward" onClick={handleShow}>
             <ArrowForwardIcon  /> 
             </div>
@@ -67,12 +73,7 @@ const Carte = ({
                           </div>
                             
                               <div className="carte_contain">
-                                <div className="carte__image-container">
-                                  <Typography gutterBottom variant="h5" component="h1" className="carteTitle">
-                                      <img src={star} className ="carteStar" /> CARTE <img src={star} className ="carteStar"/>
-                                  </Typography>
-                                </div>
-
+                                
                                 <div className="carte__items">
                                 {carte.map((carte) => (
                                     [1,2,3].includes(carte.id) ?
@@ -137,11 +138,7 @@ const Carte = ({
           <div className={classes.sectionDesktop}>
           
                               <div className="carte_contain">
-                                <div className="carte__image-container">
-                                  <Typography gutterBottom variant="h5" component="h1" className="carteTitle">
-                                      <img src={star} className ="carteStar" /> CARTE <img src={star} className ="carteStar"/>
-                                  </Typography>
-                                </div>
+                                
 
                                 <div className="carte__items">
                                 {carte.map((carte) => (
@@ -197,6 +194,7 @@ const Carte = ({
                               </div>
                           
           </div>
+      </div>
     </div>
   );
 };

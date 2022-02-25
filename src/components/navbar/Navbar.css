@@ -69,7 +69,7 @@
     font-family: Montserrat;
     font-size: 1.5em;
     font-weight: bold;
-    margin: 0 auto;
+    margin: 0px;
 }
 
 #test .MuiPaper-root {
@@ -81,7 +81,7 @@
 
 #test .MuiList-padding {
     width: max-content;
-    padding-top: 6em;
+    padding-top: 5em;
     margin-left: 2em;
 }
 
