@@ -3,7 +3,6 @@ import DatePicker from "react-datepicker";
 import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
-
 import './Ordonnance.css';
 import img from "../../images/feuille.png"
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -15,18 +14,15 @@ import axios from 'axios';
 
 /** Using React Hook form library. Find more : https://react-hook-form.com/ */
 
-
 const Ordonnance = () => {
 
     const [startDate, setStartDate] = useState(new Date());
     const [image, setImage] = useState(img);
     const { register, formState: { errors }, handleSubmit } = useForm();
-
     const envoi = async (data) => {
         console.log("==============ENVOIE=======")
         console.log(data)
         console.log("==============FIN=======")
-
 
         await axios.post(
             'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/',
@@ -39,11 +35,9 @@ const Ordonnance = () => {
 
     }
 
-
     return (
 
-
-        <div className="Page_Ordonnance">
+        <div className="Page_Formulaire">
         
             {/*Presentation text of the prescription send*/}
             <div className="Text_Form_ordonnance">

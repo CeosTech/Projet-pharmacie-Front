@@ -38,8 +38,6 @@ export default function ({
             categorie: categorieId,
             disponibilite: disponibilite ? disponibilite : true
         });
-
-
     }
     const [product, setProduct] = useState(initialProduct());
 
