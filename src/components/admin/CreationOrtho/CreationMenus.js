@@ -32,51 +32,24 @@ const CreationMenus = () => {
 						}}
 					/>
 				) : null}
-				<button
-					className="button Button_creation"
-					onClick={() => {
-						setIngredients(true);
-					}}
-				>
-					Créer des ingrédients
-				</button>
-				{ingredients ? (
-					<Ingredient
-						close={(bool) => {
-							setIngredients(bool);
-						}}
-					/>
-				) : null}
-			</div>
 
-			<div id="creation_menus_container">
+
 				<button
 					className="button Button_creation"
 					onClick={() => {
-						let url = '/admin/produits';
+						let url = '/admin/produits/orthopedie';
 						history.push(url);
 					}}
 				>
 					Créer un produit
 				</button>
-				<button
-					className="button Button_creation"
-					onClick={() => {
-						setSupplements(true);
-					}}
-				>
-					Créer des suppléments
-				</button>
-				{supplements ? (
-					<Supplement
-						close={(bool) => {
-							setSupplements(bool);
-						}}
-					/>
-				) : null}
+				
 			</div>
+
+		
 		</div>
 	);
 };
 
 export default CreationMenus;
+

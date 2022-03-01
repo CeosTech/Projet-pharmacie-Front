@@ -34,11 +34,27 @@ export const adminSlice = createSlice({
         active: true,
       },
       {
-        name: "creation_magasins",
-        path: "/creation-magasin",
-        libelle: "Création Des Magasins",
+        name: "creation_magasin_ortho",
+        path: "/creation-magasin-ortho",
+        libelle: "Création Orthopédie",
      
         active: true,
+      },
+
+      {
+        name: "creation_magasin_parapharmacie",
+        path: "/creation-magasin-parapharmacie",
+        libelle: "Création Parapharmacie",
+     
+        active: true,
+      },
+
+      {
+        name: "gestion-produits",
+        path: "/produits",
+        libelle: "Gestion des produits",
+        icone: "fa-utensils",
+        active: false,
       },
       {
         name: "nouvelles_ordonnances",
@@ -127,13 +143,7 @@ export const adminSlice = createSlice({
         active: false,
         icone: "fa-chalkboard-teacher",
       },*/
-      {
-        name: "gestion-produits",
-        path: "/produits",
-        libelle: "Gestion des produits",
-        icone: "fa-utensils",
-        active: false,
-      },
+      
       {
         name: "Comptabilite",
         path: "/Comptabilite",

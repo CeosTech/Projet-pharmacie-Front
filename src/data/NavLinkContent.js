@@ -17,7 +17,7 @@ export const NavLinkContent = [
     {
         id: 4,
         titre: "Orthopédie",
-        link: "/carte"
+        link: "/carte-orthopedie"
     },
     {
         id: 5,

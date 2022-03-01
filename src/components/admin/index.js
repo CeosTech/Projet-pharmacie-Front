@@ -17,7 +17,12 @@ import DisponibiliteLivraison from "./disponibilite/DisponibiliteLivraison";
 import ZoneLivraison from "./zoneLivraison/ZoneLivraison";
 import HistoriqueCommande from "./historiqueCommande/HistoriqueCommande";
 import CommandeEnCours from "./commandeEnCours/CommandeEnCours";
-import GestionProduits from "./gestionProduits";
+
+import GestionProduit from "./GestionDesProduits/GestionProduits";
+import GestionProduitsOrtho from "./gestionProduits";
+import GestionProduitsParapharma from "./gestionProduitsParapharma";
+
+
 
 import FichierContact from "./contact/FichierContact";
 import BddClient from "./bddClient/BddClient";
@@ -41,7 +46,9 @@ import HistoriqueFacture from "./HistoriqueFacture/historiquefacture.js";
 
 import GestionOrdonnancesPublies from "./GestionOrdonnance/GestionOrdonnancesPublies";
 
-import CreationMenus from "./CreationMagasin/CreationMenus"
+import CreationMenus from "./CreationOrtho/CreationMenus"
+import CreationMenusParapharma from "./CreationParapharmacie/CreationMenus"
+
 import GestionRdvCovid from "./GestionRdvTestCovid/GestionRdvCovid";
 import GestionRdvVaccin from "./GestionRdv_Vaccin/Gestion_Rdv_Vaccin";
 
@@ -92,9 +99,26 @@ const AdminPage = () => {
             <Route exact path={path + "/historiques"}>
               <HistoriqueCommande />
             </Route>
-            <Route exact path={path + "/creation-magasin"}>
+            <Route exact path={path + "/creation-magasin-ortho"}>
               <CreationMenus />
             </Route>
+
+            <Route exact path={path + "/creation-magasin-parapharmacie"}>
+              <CreationMenusParapharma />
+            </Route>
+
+            <Route exact path={path + "/produits"}>
+                <GestionProduit />
+              </Route>
+
+              <Route exact path={path + "/produits/orthopedie"}>
+                <GestionProduitsOrtho />
+              </Route>
+
+              <Route exact path={path + "/produits/parapharmacie"}>
+                <GestionProduitsParapharma />
+              </Route>
+
             <Route exact path={path + "/suivi-activites"}>
               <Suivi />
             </Route>
@@ -194,9 +218,13 @@ const AdminPage = () => {
             >
               <Creationcdi />
             </Route>
-            <Route exact path={path + "/produits"}>
-                <GestionProduits />
-              </Route>
+
+          
+
+            
+
+
+
             <Route path="*" component={NotFoundPage} />
           </Switch>
         </div>

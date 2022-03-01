@@ -41,7 +41,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function GestionProduitsOrtho () {
+export default function GestionProduitsParapharma () {
     const classes = useStyles();
     const [active, setActive] = useState(1);
     const [activeCarte, setActiveCarte] = useState(true);

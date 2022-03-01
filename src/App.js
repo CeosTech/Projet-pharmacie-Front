@@ -84,7 +84,7 @@ function App() {
           </Route>
           <Route exact path="/Choix du vaccin" component={ChoixVaccin} />
           <Route exact path="/ordonnance" component={Ordonnance} />
-          <Route exact path="/carte" component={Commander} />
+          <Route exact path="/carte-orthopedie" component={Commander} />
           <Route exact path="/panier" component={Panier} />
           {/*<Route exact path="/franchise" component={Franchise}/>*/}
           
