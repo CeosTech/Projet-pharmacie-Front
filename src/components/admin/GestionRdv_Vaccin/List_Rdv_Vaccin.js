@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import Article from "./Article";
+import Article from "./NewRdv_Vaccin";
 import Pagination from "react-js-pagination";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     alignItems: "center",
     borderBottom: "1px solid black",
+    margin:"2em",
   },
 
   detail: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ItemsCountPerPage = 4;
 
-export default function ArticlesList({ articles }) {
+export default function List_Rdv_Vaccin({ articles }) {
   const [bounds, setBounds] = useState([0, ItemsCountPerPage]);
   const [activePage, setActivePage] = useState(1);
   const classes = useStyles();
@@ -58,7 +59,8 @@ export default function ArticlesList({ articles }) {
           <div className={classes.table}>
             <p className={classes.heading}>Nom</p>
             <p className={classes.heading}>Prénom</p>
-            <p className={classes.heading}>Date de retrait</p>
+            <p className={classes.heading}>Objet</p>
+            <p className={classes.heading}>Date de réception</p>
           </div>
           {articles.slice(bounds[0], bounds[1]).map((article) => (
             <Article article={article} key={article.id} />

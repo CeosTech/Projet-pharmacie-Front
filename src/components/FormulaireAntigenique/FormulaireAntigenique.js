@@ -28,7 +28,8 @@ const FormulaireAntigenique = () => {
         console.log("==============FIN=======")
 
         await axios.post(
-            'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
+            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
+            'http://localhost:8000/pharmacie/formulaire-test-covid/',
             {...data} // {...data, message: "...."}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {

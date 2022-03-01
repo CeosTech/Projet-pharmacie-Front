@@ -38,9 +38,12 @@ import Contratdetravail from "./contratdetravail/Contratdetravail";
 import Creationcdi from "./creationcdi/Creationcdi";
 import HistoriqueFacture from "./HistoriqueFacture/historiquefacture.js";
 
-import GestionArticlesPublies from "./GestionOrdonnance/GestionArticlesPublies";
 
+import GestionOrdonnancesPublies from "./GestionOrdonnance/GestionOrdonnancesPublies";
+
+import CreationMenus from "./CreationMagasin/CreationMenus"
 import GestionRdvCovid from "./GestionRdvTestCovid/GestionRdvCovid";
+import GestionRdvVaccin from "./GestionRdv_Vaccin/Gestion_Rdv_Vaccin";
 
 // const useStyles = makeStyles({
 //   root: {
@@ -88,6 +91,9 @@ const AdminPage = () => {
             </Route>
             <Route exact path={path + "/historiques"}>
               <HistoriqueCommande />
+            </Route>
+            <Route exact path={path + "/creation-magasin"}>
+              <CreationMenus />
             </Route>
             <Route exact path={path + "/suivi-activites"}>
               <Suivi />
@@ -159,11 +165,15 @@ const AdminPage = () => {
             </Route>
 
             <Route exact path={path + "/nouvelles-ordonnances"}>
-              <GestionArticlesPublies />
+              <GestionOrdonnancesPublies />
             </Route>
 
             <Route exact path={path + "/nouveaux-formulaires-test-covid"}>
               <GestionRdvCovid />
+            </Route>
+
+            <Route exact path={path + "/gestion-rdv-vaccin"}>
+              <GestionRdvVaccin />
             </Route>
 
             <Route exact path={path + "/clients"}>

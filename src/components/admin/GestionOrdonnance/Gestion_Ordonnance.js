@@ -1,6 +1,6 @@
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
-import "./Article.css";
+import "./Gestion_Ordonnance.css";
 import {
   Accordion,
   AccordionDetails,
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Article({ article }) {
+export default function Ordonnance({ article }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
@@ -56,7 +56,7 @@ export default function Article({ article }) {
   const val = article.id;
 
   const deleteData = async () => {
-    axios.delete(URL + val);
+    axios.delete('https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/' + val);
     let currentPath = window.location.pathname;
     history.replace(`${currentPath}/replace`);
     setTimeout(() => {

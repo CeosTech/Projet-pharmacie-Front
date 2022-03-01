@@ -1,10 +1,23 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
+import ReactDatePicker from "react-datepicker";
 import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
-import TextField from '@material-ui/core/TextField';
+import ReactSelect from "react-select";
 import '../PremiereInjection/FormulaireVaccin.css';
-
+import {
+    TextField,
+    Checkbox,
+    Select,
+    MenuItem,
+    Switch,
+    RadioGroup,
+    FormControlLabel,
+    ThemeProvider,
+    Radio,
+    createMuiTheme,
+    Slider
+  } from "@material-ui/core";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useState } from "react";
@@ -24,7 +37,7 @@ const FormVaccinNoCovid = () => {
     const [checked, setChecked] = React.useState(false);
 
     const { control} = useForm();
-  const [submittedDate, setSubmittedDate] = useState();
+    const [submittedDate, setSubmittedDate] = useState();
     
     const envoi = async (data) => {
 
@@ -34,8 +47,9 @@ const FormVaccinNoCovid = () => {
         console.log("==============FIN=======")
 
         await axios.post(
-            'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
-            {...data} // {...data, message: "...."}
+            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/',
+            'http://localhost:8000/pharmacie/formulaire-vaccin/',
+            {...data, objet: "Jamais contracté Covid-19", choix_vaccin:"null"}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);
@@ -201,34 +215,29 @@ const FormVaccinNoCovid = () => {
 
                 {/* --- VACCIN CHOICE --- */}
                 Choissisez un vaccin*
+
+
+                <section>
+  
+                    <Controller
+                        name="choix_vaccin"
+                        
+                        control={control}
+                        render={({ field }) => (
+                        <ReactSelect
+                            isClearable
+                            {...field}
+                            options={[
+                            { value: "pfizer", label: "Pfizer",},
+                            { value: "moderna", label: "Moderna" },
+                            { value: "Astrazeneca", label: "Astrzeneca" }
+                            ]}
+                        />
+                        )}
+                    />
+                </section>
                      
-                <label id="top">
-                    <input {...register("type_vaccin") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
-                    {' Vaccin ARNm, sans préférence '}
-                    <p>Pfizer-BioNTech, Moderna</p>
-                </label>
                 
-
-                <label>
-                 <input {...register("type_vaccin") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
-                    {' '}
-                    Moderna <p>Personnes de plus de 30 ans</p>
-                </label>
-
-
-                <label>
-                 <input {...register("message") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
-                    {' '}
-                    Pfizer/BioNTech <p>Personnes de plus de 12 ans</p>
-
-                </label>
-
-
-                <label id="last">
-                 <input {...register("message") } type="checkbox"  placeholder="Un message à nous transmettre ?" />
-                    {' '}
-                    Pfizer/BioNTech Enfants <p>Personnes de plus de 5 à 11 ans inclus</p>
-                </label>
 
                 
       
@@ -236,25 +245,33 @@ const FormVaccinNoCovid = () => {
 
                 {/* --- DATE AND TIME FIELD --- */}
                 Choisir une date *
-                <DatePicker
-                    placeholderText="Choisissez votre rendez-vous *"
-                    showTimeSelect
-                    isClearable
-                    dateFormat="dd/MM/yyyy H:mm"
-                    selected={startDate}
-                    selectsStart
-                    startDate={startDate}
-                    onChange={date => setStartDate(date)}
-
-                    
+                
+                <Controller
+                
+                    control={control}
+                    name="ReactDatepicker"
+                    render={({ field }) => (
+                    <ReactDatePicker
+                        className="input"
+                        placeholderText="Select date"
+                        dateFormat="dd/MM/yyyy"
+                        onChange={(e) => field.onChange(e)}
+                        onChange={(a) => console.log(a)}
+                        
+                        selected={field.value}
+                        date_reservation={field}
+                    />
+                    )}
                 />
+
+                <ErrorMessage   errors={errors}     name="date_reservation"     render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
 
                 {/* ---  MESSAGE FIELD --- */}
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
                
                     
                 
-                
+        
                  
                    
                 

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
-import "./NewRdvCovid.css";
+import "./NewRdv_Vaccin.css";
 import {
   Accordion,
   AccordionDetails,
@@ -35,12 +35,12 @@ const useStyles = makeStyles((theme) => ({
   p: {
     fontWeight: "bold",
     margin: 0,
-    width: "20%",
+    width: "15%",
     color:"green",
   },
 }));
 
-export default function NewRdvCovid({ article }) {
+export default function NewRdv_Vaccin({ article }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
@@ -56,7 +56,7 @@ export default function NewRdvCovid({ article }) {
   const val = article.id;
 
   const deleteData = async () => {
-    axios.delete('https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/' + val);
+    axios.delete('http://localhost:8000/pharmacie/formulaire-vaccin/' + val);
     let currentPath = window.location.pathname;
     history.replace(`${currentPath}/replace`);
     setTimeout(() => {
@@ -80,6 +80,7 @@ export default function NewRdvCovid({ article }) {
           <div className={classes.table}>
             <p className={classes.p}>{article.nom}</p>
             <p className={classes.p}>{article.prenom}</p>
+            <p className={classes.p}>{article.objet}</p>
             <p className={classes.p}>{date_envoi}</p>
           </div>
         ) : (
@@ -92,6 +93,8 @@ export default function NewRdvCovid({ article }) {
         <div className="article__container">
   
           <div className="container darker">
+            <strong> Objet : </strong> {ReactHtmlParser(article.objet)}
+
             <strong> Nom : </strong> {ReactHtmlParser(article.nom)}
           
             <strong> Prénom : </strong> {ReactHtmlParser(article.prenom)}
@@ -110,7 +113,7 @@ export default function NewRdvCovid({ article }) {
           
             <strong> Numéro de sécurité sociale : </strong> {ReactHtmlParser(article.num_secu)}
           
-            <strong> Message : </strong> {ReactHtmlParser(article.message)}
+            <strong> Message : </strong> {ReactHtmlParser("-   "+ article.message)}
           
             <strong> Date du rendez-vous : </strong> {date_RDV}
 

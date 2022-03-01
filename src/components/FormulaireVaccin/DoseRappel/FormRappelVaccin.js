@@ -34,8 +34,9 @@ const FormRappelVaccin = () => {
         console.log("==============FIN=======")
 
         await axios.post(
-            'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
-            {...data} // {...data, message: "...."}
+            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin',
+            'http://localhost:8000/pharmacie/formulaire-vaccin/',
+            {...data, objet: "Dose de rappel"}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);
