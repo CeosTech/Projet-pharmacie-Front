@@ -209,6 +209,10 @@ export const adminSlice = createSlice({
     changeCommandeCoursLength: (state, action) => {
       state.commandeCoursLength = action.payload;
     },
+    
+    ChangeOrdonnancesVus: (state, action) => {
+      state.ordonnancevus = action.payload;
+    },
 
     refreshContent: (state, action) => {
       state.refresh = !state.refresh;

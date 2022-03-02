@@ -25,8 +25,8 @@ const Ordonnance = () => {
         console.log("==============FIN=======")
 
         await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/',
-            'http://localhost:8000/pharmacie/formulaire-ordonnance/', 
+            'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/',
+            // 'http://localhost:8000/pharmacie/formulaire-ordonnance/', 
             {...data } // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);

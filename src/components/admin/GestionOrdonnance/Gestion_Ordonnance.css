@@ -52,6 +52,13 @@
   font-size: 1.2em;
   font-weight: bold;
 }
+.feuille{
+  width:20px;
+}
+.date{
+  display: flex;
+  justify-content: space-between;
+}
 
 .article__photo {
   display: flex;

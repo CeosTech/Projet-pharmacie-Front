@@ -9,9 +9,12 @@ export default function GestionOrdonnancesPublies() {
 
   const fetchArticles = async () => {
     await axios
-      .get(`https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/`)
+      .get(
+        // `https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/`
+        'http://127.0.0.1:8000/pharmacie/formulaire-ordonnance/'
+      )
       .then((response) => {
-        setArticles(response.data);
+        setArticles(response.data.reverse());
       })
       .catch((error) => {
         console.log(`error`, error);
