@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import FormGroup from "@material-ui/core/FormGroup";
 /*import "./modal.css";*/
-import Modal from "../MyModal/Modal";
+import Modal from "./Modal";
 
 export default function ({
     categorieId,
@@ -77,7 +77,7 @@ export default function ({
         form_data.append("categorie", categorieId);
         form_data.append("disponibilite", product.disponibilite);
         console.log(`from_data`, form_data)
-        let url = URL + "orthopedie/produit/";
+        let url = URL + "parapharmacie/produit/";
         axios
             .post(url, form_data, {
                 headers: {
@@ -95,7 +95,7 @@ export default function ({
     }
 
     const deleteProduct = async () => {
-        await axios.delete(URL + "orthopedie/produit/" + id + "/")
+        await axios.delete(URL + "parapharmacie/produit/" + id + "/")
           .then(() => console.log(`deleted`))
           .catch(error => console.error(error));
 
@@ -117,7 +117,7 @@ export default function ({
         form_data.append("prix", product.prix);
         form_data.append("categorie", product.categorie);
         form_data.append("disponibilite", product.disponibilite);
-        let url = URL + "orthopedie/produit/" + id + "/";
+        let url = URL + "parapharmacie/produit/" + id + "/";
         axios
             .put(url, form_data, {
                 headers: {

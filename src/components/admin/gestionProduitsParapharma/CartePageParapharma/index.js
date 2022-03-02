@@ -16,13 +16,13 @@ import {
 import FormGroup from "@material-ui/core/FormGroup";
 //import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { splitPrix } from "../../../../utilities";
-import AddProductModal from "../MyModal/AddProductModal";
-import Modal from "../MyModal/Modal";
+import AddProductModal from "../MyModalParapharma/AddProductModal";
+import Modal from "../MyModalParapharma/Modal";
 //import RemoveIcon from "@material-ui/icons/Remove";
 //import AddIcon from "@material-ui/icons/Add";
 
 
-const CartePage = (props) => {
+const CartePageParapharma = (props) => {
   const idMenu = props.idMenuPage;
   const [produit, setProduit] = useState(props.produit);
   //const [show, setShow] = useState(false);
@@ -115,4 +115,4 @@ const CartePage = (props) => {
       </>
     );
 };
- export default CartePage;
+ export default CartePageParapharma;

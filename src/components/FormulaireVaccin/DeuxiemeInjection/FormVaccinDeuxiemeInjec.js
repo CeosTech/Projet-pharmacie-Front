@@ -8,7 +8,7 @@ import '../PremiereInjection/FormulaireVaccin.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 
@@ -19,12 +19,6 @@ const FormDeuxiemeInjec = () => {
     const [startDate, setStartDate] = useState(new Date());
     
     const { register, formState: { errors }, handleSubmit } = useForm();
-
-
-    const [checked, setChecked] = React.useState(false);
-
-    const { control} = useForm();
-  const [submittedDate, setSubmittedDate] = useState();
     
     const envoi = async (data) => {
 
@@ -36,7 +30,7 @@ const FormDeuxiemeInjec = () => {
         await axios.post(
             //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
             'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data , objet: "Deuxieme Injection"}
+            {...data , objet: "Deuxieme Injection", date_reservation:startDate}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);

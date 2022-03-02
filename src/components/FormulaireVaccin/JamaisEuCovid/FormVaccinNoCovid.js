@@ -33,12 +33,10 @@ const FormVaccinNoCovid = () => {
     
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-
-    const [checked, setChecked] = React.useState(false);
-
     const { control} = useForm();
-    const [submittedDate, setSubmittedDate] = useState();
-    
+
+   
+
     const envoi = async (data) => {
 
         //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
@@ -49,7 +47,7 @@ const FormVaccinNoCovid = () => {
         await axios.post(
             //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/',
             'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data, objet: "Jamais contracté Covid-19", choix_vaccin:"null"}
+            {...data, objet: "Jamais contracté Covid-19", choix_vaccin:"null", }
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);
@@ -243,25 +241,19 @@ const FormVaccinNoCovid = () => {
       
 
 
-                {/* --- DATE AND TIME FIELD --- */}
-                Choisir une date *
-                
-                <Controller
-                
-                    control={control}
-                    name="ReactDatepicker"
-                    render={({ field }) => (
-                    <ReactDatePicker
-                        className="input"
-                        placeholderText="Select date"
-                        dateFormat="dd/MM/yyyy"
-                        onChange={(e) => field.onChange(e)}
-                        onChange={(a) => console.log(a)}
-                        
-                        selected={field.value}
-                        date_reservation={field}
-                    />
-                    )}
+               {/* --- DATE AND TIME FIELD --- */}
+               Choisir une date *
+                <DatePicker
+                    placeholderText="Choisissez votre rendez-vous *"
+                    showTimeSelect
+                    isClearable
+                    dateFormat="dd/MM/yyyy H:mm"
+                    selected={startDate}
+                    selectsStart
+                    startDate={startDate}
+                    onChange={date => setStartDate(date)}
+
+                    
                 />
 
                 <ErrorMessage   errors={errors}     name="date_reservation"     render={({ message }) => <p id='Message_erreur'>{message}</p>}   />

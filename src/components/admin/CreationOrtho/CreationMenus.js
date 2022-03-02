@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './creationMenus.css';
 
 import Category from './creationCategorie';
-import Ingredient from './creationIngredients';
+
 import Supplement from './creationSupplement';
 
 const CreationMenus = () => {

@@ -3,14 +3,13 @@ import { useHistory } from 'react-router-dom';
 import './creationMenus.css';
 
 import Category from './creationCategorieParapharma';
-import Ingredient from './creationIngredients';
-import Supplement from './creationSupplement';
+import Subcategory from './creationSousCategorie';
 
 const CreationMenus = () => {
 	const history = useHistory();
 
 	const [ category, setCategory ] = useState(false);
-	const [ ingredients, setIngredients ] = useState(false);
+	const [ subcategory, setSubcategory ] = useState(false);
 	const [ produit, setProduit ] = useState(false);
 	const [ supplements, setSupplements ] = useState(false);
 
@@ -37,20 +36,39 @@ const CreationMenus = () => {
 				<button
 					className="button Button_creation"
 					onClick={() => {
-						let url = '/admin/produits/orthopedie';
+						setSubcategory(true);
+					}}
+				>
+					Créer une sous-catégorie
+				</button>
+				{subcategory ? (
+					<Subcategory
+						close={(bool) => {
+							setSubcategory(bool);
+						}}
+					/>
+				) : null}
+				
+			</div>
+
+			<div id="creation_menus_container">
+
+				<button
+					className="button Button_creation"
+					onClick={() => {
+						let url = '/admin/produits/parapharmacie';
 						history.push(url);
 					}}
 				>
 					Créer un produit
 				</button>
-
-				
 				
 			</div>
 
-					
+		
 		</div>
 	);
 };
 
 export default CreationMenus;
+

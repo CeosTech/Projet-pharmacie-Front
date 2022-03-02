@@ -41,7 +41,8 @@ const data1 = [
       {
           id: 1,
           titre: "Orthopédie",
-          photo: image1
+          photo: image1,
+          ref: "/carte-orthopedie"
       },
       {
         id: 2,

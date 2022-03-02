@@ -56,7 +56,7 @@ export default function Ordonnance({ article }) {
   const val = article.id;
 
   const deleteData = async () => {
-    axios.delete('https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/' + val);
+    axios.delete('https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/' /**'http://localhost:8000/pharmacie/formulaire-ordonnance/' */ + val);
     let currentPath = window.location.pathname;
     history.replace(`${currentPath}/replace`);
     setTimeout(() => {

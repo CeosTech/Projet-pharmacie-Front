@@ -110,7 +110,7 @@ export default function NewRdvCovid({ article }) {
           
             <strong> Numéro de sécurité sociale : </strong> {ReactHtmlParser(article.num_secu)}
           
-            <strong> Message : </strong> {ReactHtmlParser(article.message)}
+            <strong> Message : </strong> {"- " + ReactHtmlParser(article.message)}
           
             <strong> Date du rendez-vous : </strong> {date_RDV}
 

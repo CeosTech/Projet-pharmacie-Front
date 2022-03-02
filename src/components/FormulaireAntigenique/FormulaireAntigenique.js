@@ -8,7 +8,7 @@ import './FormulaireAntigenique.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import axios from 'axios';
 
 
@@ -18,7 +18,7 @@ const FormulaireAntigenique = () => {
 
     const [startDate, setStartDate] = useState(new Date());
     
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, control } = useForm();
     
     const envoi = async (data) => {
 
@@ -30,7 +30,7 @@ const FormulaireAntigenique = () => {
         await axios.post(
             //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
             'http://localhost:8000/pharmacie/formulaire-test-covid/',
-            {...data} // {...data, message: "...."}
+            {...data, date_reservation:startDate} // {...data, message: "...."}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);

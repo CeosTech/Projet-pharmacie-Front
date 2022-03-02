@@ -9,7 +9,7 @@ export default function GestionRdvCovid() {
 
   const fetchArticles = async () => {
     await axios
-      .get(`https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/`)
+      .get(`http://localhost:8000/pharmacie/formulaire-test-covid/`)
       .then((response) => {
         setArticles(response.data);
       })

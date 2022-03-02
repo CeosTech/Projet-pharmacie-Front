@@ -18,7 +18,7 @@ function GestionProduits() {
   
 
   const RedirectionParapharma = () => {
-    let url = "/admin/parapharmacie/";
+    let url = "/admin/produits/parapharmacie/";
     history.push(url);
   };
   

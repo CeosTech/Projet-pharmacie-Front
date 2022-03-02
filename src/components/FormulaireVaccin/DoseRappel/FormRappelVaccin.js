@@ -19,13 +19,7 @@ const FormRappelVaccin = () => {
     const [startDate, setStartDate] = useState(new Date());
     
     const { register, formState: { errors }, handleSubmit } = useForm();
-
-
-    const [checked, setChecked] = React.useState(false);
-
-    const { control} = useForm();
-  const [submittedDate, setSubmittedDate] = useState();
-    
+   
     const envoi = async (data) => {
 
         //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
@@ -36,7 +30,7 @@ const FormRappelVaccin = () => {
         await axios.post(
             //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin',
             'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data, objet: "Dose de rappel"}
+            {...data, objet: "Dose de rappel", date_reservation:startDate}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);

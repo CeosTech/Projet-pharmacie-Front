@@ -5,10 +5,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 //import Carte from "./Carte";
-import CartePage from './CartePage';
+import CartePage from './CartePageParapharma/index';
 //import MenuType from "../../Menu/MenuType";
 //import Card from "./Carte/card";
-import AddProductModal from "./MyModal/AddProductModal";
+import AddProductModal from "./MyModalParapharma/AddProductModal";
 import "./index.css";
 import axios from "axios";
 import { IconButton, Button } from "@material-ui/core";
@@ -46,13 +46,16 @@ export default function GestionProduitsParapharma () {
     const [active, setActive] = useState(1);
     const [activeCarte, setActiveCarte] = useState(true);
     const [datas, setDatas] = useState([]);
-    const [sideDishes, setSideDishes] = useState([]);
+    //const [sideDishes, setSideDishes] = useState([]);
     const [menuCategories, setMenuCategories] = useState([]);
+
+    const[menuSubCategories, setMenuSubcategories] = useState([]);
+
     const [dishesDisplayed, setDishesDisplay] = useState(false);
     // Booleans that will only allow the component to render when the requests have returned the datas
-    const [isDataLoading, setDataLoading] = useState(false);
-    const [isCategoryLoading, setCategoryLoading] = useState(false);
-    const [sideDishesLoading, setSideDishesLoading] = useState(false);
+    //const [isDataLoading, setDataLoading] = useState(false);
+    //const [isCategoryLoading, setCategoryLoading] = useState(false);
+    //const [sideDishesLoading, setSideDishesLoading] = useState(false);
     const [showProductModal, setShowProductModal] = useState(false);
     const [show, setShow] = useState(false);
     const [produit, setProduit] = useState([]);
@@ -65,16 +68,21 @@ export default function GestionProduitsParapharma () {
         const fetchData = async () => {
         
             //sendrequest("get", "letexan/produit/?accompagnement=true", setSideDishes, setSideDishesLoading);
-            axios.get(URL + "orthopedie/produit/").then((res) => {
+            axios.get(URL + "parapharmacie/produit/").then((res) => {
             setDatas(res.data);
             console.log(res.data);
         });
    
 
-        axios.get(URL + "orthopedie/categorie/").then((res) => {
+        axios.get(URL + "parapharmacie/categorie/").then((res) => {
           setMenuCategories(res.data);
           console.log(res.data);
         });
+
+        axios.get(URL + "parapharmacie/sous_categorie/").then((res) => {
+            setMenuSubcategories(res.data);
+            console.log(res.data);
+          });
     };
 
 
@@ -95,7 +103,7 @@ export default function GestionProduitsParapharma () {
     }
 
     const updateDisponibilite = async (id, disponibilite) => {
-        await axios.put(URL + "orthopedie/produit/" + id +"/", {
+        await axios.put(URL + "parapharmacie/produit/" + id +"/", {
             disponibilite: disponibilite,
         });
     };
@@ -172,6 +180,70 @@ export default function GestionProduitsParapharma () {
         }
     };
 
+
+    const selectDishesPerSubcategory = () => {
+        //var menuDishes = isMenu();
+
+        if (1 !== 1) {
+            
+        } else {
+            const selectedDishes = datas
+                // We filter the data :
+                .filter((data) => {
+                    console.log(data);
+                    // By only selecting the data that belongs to a subcategory (subcategories is an array in which are the different subcategories to which a dish belongs) that matches the one selected by the user (var active)
+                    return (
+                        data.sous_categorie === active
+                    )
+
+
+                    /*for (var i = 0; i < data.categories.length; i++) {
+                      if (data.categories[i] === active) return true;
+                      return false;
+                    }*/
+                })
+                //Once filtered, we can go through the selection to display them
+                .map((data) => {
+                    return (
+                        <>
+                            <div 
+                                style={{width: "100%", display: "flex", flexDirection: "row", borderBottom: "1px solid rgba(224, 224, 224, 1)"}} 
+                            >
+                                <div 
+                                    style={{width: "100%", margin: 0}} 
+                                    onClick={() => openModal(data)}>
+                                    <CartePage 
+                                        key={data.sous_categorie} 
+                                        idMenuPage={data.sous_categorie}
+                                        produit={data}
+                                        show={show} 
+                                        setShow={setShow} 
+                                    />
+                                    </div>
+                                    <div style={{paddingTop: "60px", marginRight: "5%"}}>
+                                        <SwitchBtn
+                                        val={data.disponibilite}
+                                        action={updateDisponibilite}
+                                        item={data}
+                                        />
+                                    </div>
+                            </div>
+
+                            <AddProductModal 
+                                {...produit} 
+                                productToUpdate={produit} 
+                                subcategoryId={active} 
+                                show={show} 
+                                setShow={setShow} ></AddProductModal>
+
+                            
+                        </>
+                    );
+                });
+            return selectedDishes;
+        }
+    };
+
     return (
         <div className='commander__'>
             <div style={{ textAlign: 'center', width: "100%" }}>
@@ -196,9 +268,14 @@ export default function GestionProduitsParapharma () {
                         })}
                     </Select>
                 </FormControl>
+
+
+               
+
+
             
                 <Button id="ajouter_produit" onClick={() => setShowProductModal(true)} > Ajouter Produit</Button>
-                <AddProductModal categorieId={active} show={showProductModal} setShow={setShowProductModal} ></AddProductModal>
+                <AddProductModal subcategoryId={active} show={showProductModal} setShow={setShowProductModal} ></AddProductModal>
             </div>
 
             {proprietes.map((prop) => (
@@ -214,6 +291,9 @@ export default function GestionProduitsParapharma () {
 
                         <div className='commander__container__cards'>
                             {selectDishesPerCategory()}
+                        </div>
+                        <div className='commander__container__cards'>
+                            {selectDishesPerSubcategory()}
                         </div>
 
                        
