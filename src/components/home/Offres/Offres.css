@@ -1,15 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
+.NosOffresTitle {
+
+  background-color:#D1E1BF;
+
+  color: #3F981C;
+  font-family: "Montserrat" !important;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700 !important;
+  padding-top: 100px;
+  
+  
+  text-decoration: none;
+  padding-bottom: 1%;
+
+}
 
 #Nosoffres {
-  background-image: url("../../../images/fond_acceuil.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+
   background-position: center;
-  height: 100vh;
+  padding-top : 1.5em;
   display: flex;
-  align-items: flex-end;
+  
   justify-content: center;
 
 }
@@ -47,7 +61,7 @@
     width: 250px;
   }
 }
-/* Respensive ipad */
+/* Responsive ipad */
 @media (max-width:1030px) and (max-height:1370px){
   .cards__items_offres {
     margin-bottom: 18vh;
@@ -77,11 +91,10 @@
   }
 }
 @media only screen and (max-width: 1080px) {
+  
   #Nosoffres {
     height: 50vh;
   }
-
-  
 
   
 }
@@ -107,10 +120,25 @@
 
 @media only screen and (max-width: 415px) {
 
+  #Nosoffres {
+    padding-top : 0em;
+    margin-top : -30px!important;
+  }
+  
   .offre_img {
     height: 150px;
     width: 150px;
   }
 
+  .NosOffresTitle {
+
+    height : 800px;
+    padding-top : 20px;
+    font-size: 40px;
+  }
+
+  .NosOffresTitle p {
+    font-size : 30px;
+  }
 
 }

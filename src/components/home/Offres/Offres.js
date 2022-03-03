@@ -12,7 +12,7 @@ function Offres() {
 
   // Retrieve images
   async function fetchData() {
-    await axios.get(URL + "restaurant/offres").then((res) => {
+    await axios.get(URL + "pharmacie/offres").then((res) => {
       let tab = [];
       res.data.map((obj) => {
         tab.push(obj.image);
@@ -29,26 +29,31 @@ function Offres() {
   }, [load]);
 
   return (
-    <div id="Nosoffres">
-      <ul className="cards__items_offres">
-        {load && (
-          <>
-            {list.map((img) => {
-              return (
-                <li>
-                  <img
-                    className="offre_img"
-                    alt="Menu Royal Delice"
-                    src={img}
-                    width="250"
-                    height="250"
-                  />
-                </li>
-              );
-            })}
-          </>
-        )}
-      </ul>
+    <div className="NosOffresTitle">
+
+      PROFITEZ 
+      <p>  de nos prix promotionnels et commandez.   </p>
+      <div id="Nosoffres">
+        <ul className="cards__items_offres">
+          {load && (
+            <>
+              {list.map((img) => {
+                return (
+                  <li>
+                    <img
+                      className="offre_img"
+                      alt="Offre Pharmacie"
+                      src={img}
+                      width="250"
+                      height="250"
+                    />
+                  </li>
+                );
+              })}
+            </>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }

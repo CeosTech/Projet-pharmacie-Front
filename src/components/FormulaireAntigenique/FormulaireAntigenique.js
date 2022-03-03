@@ -207,8 +207,6 @@ const FormulaireAntigenique = () => {
                     selectsStart
                     startDate={startDate}
                     onChange={date => setStartDate(date)}
-
-
                     
                 />
 

@@ -73,7 +73,7 @@ const Offre = (props) => {
     form_data.append("image", newImage, imgName);
     if (newImage !== null) {
       await axios
-        .put(URL + "restaurant/offres/" + props.id, form_data, {
+        .put(URL + "pharmacie/offres/" + props.id, form_data, {
           headers: {
             "content-type": "multipart/form-data",
           },
@@ -95,7 +95,7 @@ const Offre = (props) => {
 
   // Delete a category
   async function deleteValue(index) {
-    await axios.delete(URL + "restaurant/offres/" + props.id).then(() => {
+    await axios.delete(URL + "pharmacie/offres/" + props.id).then(() => {
       window.location.reload(false);
     });
   }

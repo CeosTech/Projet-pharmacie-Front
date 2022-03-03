@@ -24,7 +24,7 @@ const FormulaireVaccin = () => {
     const [checked, setChecked] = React.useState(false);
 
     const { control} = useForm();
-  const [submittedDate, setSubmittedDate] = useState();
+  const [value, setValue] = useState("");
     
     const envoi = async (data) => {
 

@@ -11,7 +11,7 @@ const OffreDuMoment = () => {
 
   /* Retrieve current offers data */
   async function fetchData() {
-    sendrequest("get", "restaurant/offres", setList, setLoad);
+    sendrequest("get", "pharmacie/offres", setList, setLoad);
   }
 
   useEffect(() => {

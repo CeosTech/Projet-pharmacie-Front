@@ -29,8 +29,8 @@
 
 .localisation_img {
 
-    width : 450px;
-    height : 400px;
+    width : auto;
+    height : 350px;
 }
 
 
@@ -39,16 +39,6 @@
 @media screen and (max-width: 500px) {
 
     
-    .Container_Loc{
-        top : 100px;
-        height: 80%;
-        width: auto;
-        background: url("../../../images/wave.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        
-        position: relative;
-    }
     
     
     .Text_Loc h5 {
@@ -62,10 +52,9 @@
         font-size: 1em;
         font-family: Montserrat;
         text-align: left;
-        
-        color: white;
+       
     
-        margin-top : -100px;
+        margin-top : -10em;
         text-align: left;
         
     }
@@ -73,8 +62,8 @@
     
     .localisation_img {
     
-        width : 250px;
-        height : 250px;
+        width : 300px;
+        height : auto;
     }
 
 }

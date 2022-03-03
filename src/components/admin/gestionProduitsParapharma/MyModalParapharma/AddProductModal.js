@@ -16,6 +16,7 @@ import Modal from "./Modal";
 
 export default function ({
     categorieId,
+    sous_categorieId,
     show,
     setShow,
     productToUpdate = null,
@@ -25,6 +26,7 @@ export default function ({
     prix,
     image,
     categorie,
+    sous_categorie,
     disponibilite,
 }) {
 
@@ -36,6 +38,7 @@ export default function ({
             image: image ? image : null,
             description: description ? description : "",
             categorie: categorieId,
+            sous_categorie: sous_categorieId,
             disponibilite: disponibilite ? disponibilite : true
         });
     }
@@ -75,6 +78,7 @@ export default function ({
             form_data.append("image", product.image, product.image.name);
         form_data.append("prix", product.prix);
         form_data.append("categorie", categorieId);
+        form_data.append("sous_categorie", sous_categorieId)
         form_data.append("disponibilite", product.disponibilite);
         console.log(`from_data`, form_data)
         let url = URL + "parapharmacie/produit/";
@@ -116,6 +120,7 @@ export default function ({
         }
         form_data.append("prix", product.prix);
         form_data.append("categorie", product.categorie);
+        form_data.append("sous_categorie", product.sous_categorie)
         form_data.append("disponibilite", product.disponibilite);
         let url = URL + "parapharmacie/produit/" + id + "/";
         axios
