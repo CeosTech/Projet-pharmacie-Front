@@ -4,18 +4,22 @@ import './creationMenus.css';
 
 import Category from './creationCategorie';
 
-import Supplement from './creationSupplement';
 
 const CreationMenus = () => {
 	const history = useHistory();
 
 	const [ category, setCategory ] = useState(false);
-	const [ ingredients, setIngredients ] = useState(false);
+	
 	const [ produit, setProduit ] = useState(false);
-	const [ supplements, setSupplements ] = useState(false);
+
 
 	return (
 		<div className='creation_menus'>
+
+			<div className="Menu-ortho-header">
+            	<h1>Création du magasin Orthopédie</h1>
+        	</div>
+
 			<div id="creation_menus_container">
 				<button
 					className="button Button_creation"

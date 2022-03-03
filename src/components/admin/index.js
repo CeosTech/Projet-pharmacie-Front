@@ -52,6 +52,8 @@ import CreationMenusParapharma from "./CreationParapharmacie/CreationMenus"
 import GestionRdvCovid from "./GestionRdvTestCovid/GestionRdvCovid";
 import GestionRdvVaccin from "./GestionRdv_Vaccin/Gestion_Rdv_Vaccin";
 
+import OffresDuMoment from "./offreDuMoment/";
+
 // const useStyles = makeStyles({
 //   root: {
 //     position: "absolute",
@@ -148,6 +150,9 @@ const AdminPage = () => {
             </Route>
             <Route exact path={path + "/mon-compte/infos-personnelles/caisse"}>
               <Caisse />
+            </Route>
+            <Route exact path={path + "/offres-du-moment"}>
+              <OffresDuMoment />
             </Route>
             <Route exact path={path + "/Comptabilite"}>
               <Comptabilite />

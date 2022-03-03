@@ -1,4 +1,16 @@
-.creation_menus_popup{
+.Menu-parapharma-header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    padding-bottom: 1em;
+    border-bottom: 1px solid gray;
+    font-weight: bold;
+    color: #04295d;
+    margin-bottom : 100px;
+    
+  }
+  
+  .creation_menus_popup{
+   
     position: absolute;
     top: 0;
     left: 0;
@@ -94,10 +106,30 @@
     height: 2px;
     background-color: #04295d;
 }
+
+.category_choice_title{
+    margin-left  : 43%;
+}
+.category_choice {
+    width : 30%;
+    margin-left  : 38%;
+}
+
+
+.lab_subcategory {
+    
+    font-size : 12px;
+   
+    margin-right : 50px;
+    margin-left : 50px;
+    width : 50%!important;
+    
+}
+
 @media (max-width: 1300px) {
     .creation_menus{
         flex-direction: column;
-        margin-top: 250px;
+        
     }
     .creation_menus_popup_input{
         width: 35%;

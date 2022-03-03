@@ -11,6 +11,9 @@ import { sendrequest } from "../../middlewares/request";
 const CreationSousCategorie = (props) => {
     /* categorie */
     const [list, setList] = useState([])
+    const [listCategorie, setListCategorie] = useState([])
+
+    const [category, setCategory] = useState("")
     const [subcategory, setSubCategory] = useState("")
     const [load, setLoad] = useState(false)
 
@@ -25,6 +28,12 @@ const CreationSousCategorie = (props) => {
             "get",
             "parapharmacie/sous_categorie/?ordering=id",
             setList,
+            setLoad
+        );
+        sendrequest(
+            "get",
+            "parapharmacie/categorie/",
+            setListCategorie,
             setLoad
         );
     }
@@ -68,6 +77,8 @@ const CreationSousCategorie = (props) => {
         return res
     }
 
+
+    /**
     // Add a new subcategory
     async function addSubCategory() {
         if (!check(list, subcategory)) { // Check if the new category doesn't already exist
@@ -82,6 +93,35 @@ const CreationSousCategorie = (props) => {
             alert("La sous catégorie existe déjà !");
         }
     }
+*/
+
+
+
+    // Add a new subcategory : name, subcategory
+    async function addSubCategory() {
+        if (category !== null && category != "") {
+            
+            await axios.post(URL + "parapharmacie/sous_categorie/",
+                {
+                    nom: subcategory,
+                 
+                    categorie: category,
+               
+                }
+            ).then()
+                .catch((e) => {
+                    console.log(e.response)
+                })
+            setError({ check: false, msg: "" })
+            setLoad(false)
+            fetchData()
+            setSubCategory("")
+        } else {
+            setError({ check: true, msg: "Veuillez correctement saisir les informations" })
+        }
+    }
+
+
 
     // Delete a subcategory
     async function deleteValue(index) {
@@ -126,12 +166,12 @@ const CreationSousCategorie = (props) => {
         <div className="creation_menus_popup"> {/* onClick={ () => {props.close(false)}} */}
             <i class="fas fa-times close" onClick={() => { props.close(false) }}></i>
             <div className="contain">
-                <h2>Création d'un menu</h2>
+                <h2>Création de la parapharmacie</h2>
                 <br />
                 <h4>Sous-Catégorie :</h4>
                 <div className="creation_Title">
                     <TextField
-                        label="Saisiez la catégorie"
+                        label="Saisiez la sous-catégorie"
                         id="outlined-basic"
                         variant="outlined"
                         name="subcategory"
@@ -142,17 +182,47 @@ const CreationSousCategorie = (props) => {
                     />
                     <br />
                     <br />
+
+                    <label className="category_choice_title">Catégorie :</label>
+                    <br />
+                    <select className="category_choice" name="type_supplement" id="type_supplement" onChange={(e) => { setCategory(e.target.value) }}>
+                        <option value="" selected disabled>--Sélectionnez la catégorie--</option>
+                        {
+                            listCategorie.map((i) => {
+                                return (
+                                    <option value={i.id}>{i.nom}</option>
+                                )
+                            })
+                        }
+                    </select>
+                    <br />
+                    <br />
+
                     <button className="button_inside" onClick={addSubCategory}>Ajouter</button>
+                    <div className="line"> </div>
+
                 </div>
 
+                <h4>Liste des sous-catégories créées :</h4>
+                <br />
                 <ul>
                     {
                         load ?
                             list.map((i) => {
                                 return (
                                     <li id={i.id}>
-                                        <input type="text" id={i.id} name="subcategory" value={i.nom} className="creation_menus_popup_input" required minlength="4" maxlength="8" size="10" onChange={(e) => { changeValue(e.target.id, e.target.value) }} />
-                                        <i class="fa fa-trash" aria-hidden="true" style={{ color: "red", }} onClick={() => { setTrash({ bool: true, index: i.id }) }}></i>
+                                        <div className="align">
+                                            <input type="text" id={i.id} name="sous_categorie" value={i.nom} className="creation_menus_popup_input" required minlength="4" size="10" onChange={(e) => { changeValue("nom", e.target.id, e.target.value) }} />
+                                            
+
+                                            <label className="lab_subcategory"> Catégorie: {listCategorie.map(o => {
+                                                if (o.id === i.categorie) {
+                                                    return o.nom
+                                                }
+                                            })}</label>
+                                            
+                                            <i class="fa fa-trash" style={{ color: "red", width: "0", }} aria-hidden="true" onClick={() => { setTrash({ bool: true, index: i.id, choice: "sous_categorie" }) }}></i>
+                                        </div>
                                     </li>
                                 )
                             })
@@ -160,6 +230,9 @@ const CreationSousCategorie = (props) => {
                             null
                     }
                 </ul>
+
+
+                
 
                 <br />
 

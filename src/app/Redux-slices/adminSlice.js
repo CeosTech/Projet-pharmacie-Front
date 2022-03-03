@@ -143,7 +143,13 @@ export const adminSlice = createSlice({
         active: false,
         icone: "fa-chalkboard-teacher",
       },*/
-      
+      {
+        name: "offres-du-moment",
+        path: "/offres-du-moment",
+        libelle: "Les offres du moment",
+        icone: "fa-gift",
+        active: false,
+      },
       {
         name: "Comptabilite",
         path: "/Comptabilite",

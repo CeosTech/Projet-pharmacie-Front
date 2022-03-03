@@ -15,6 +15,11 @@ const CreationMenus = () => {
 
 	return (
 		<div className='creation_menus'>
+
+			<div className="Menu-parapharma-header">
+            	<h1>Création de la parapharmacie</h1>
+        	</div>
+
 			<div id="creation_menus_container">
 				<button
 					className="button Button_creation"

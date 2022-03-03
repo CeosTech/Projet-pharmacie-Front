@@ -1,4 +1,15 @@
-.creation_menus_popup{
+.Menu-ortho-header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    padding-bottom: 1em;
+    border-bottom: 1px solid gray;
+    font-weight: bold;
+    color: #04295d;
+    margin-bottom : 100px;
+    
+  }
+  
+  .creation_menus_popup{
     position: absolute;
     top: 0;
     left: 0;
