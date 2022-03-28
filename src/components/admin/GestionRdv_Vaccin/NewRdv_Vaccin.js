@@ -81,6 +81,7 @@ export default function NewRdv_Vaccin({ article }) {
             <p className={classes.p}>{article.nom}</p>
             <p className={classes.p}>{article.prenom}</p>
             <p className={classes.p}>{article.objet}</p>
+            <p className={classes.p}>{article.choix_vaccin}</p>
             <p className={classes.p}>{date_envoi}</p>
           </div>
         ) : (
@@ -94,6 +95,8 @@ export default function NewRdv_Vaccin({ article }) {
   
           <div className="container darker">
             <strong> Objet : </strong> {ReactHtmlParser(article.objet)}
+
+            <strong> Choix du vaccin : </strong> {ReactHtmlParser(article.choix_vaccin)}
 
             <strong> Nom : </strong> {ReactHtmlParser(article.nom)}
           

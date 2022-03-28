@@ -12,7 +12,7 @@ function Offres() {
 
   // Retrieve images
   async function fetchData() {
-    await axios.get(URL + "pharmacie/offres").then((res) => {
+    await axios.get("http://localhost:8000/pharmacie/offres").then((res) => {
       let tab = [];
       res.data.map((obj) => {
         tab.push(obj.image);
@@ -44,8 +44,7 @@ function Offres() {
                       className="offre_img"
                       alt="Offre Pharmacie"
                       src={img}
-                      width="250"
-                      height="250"
+                      
                     />
                   </li>
                 );

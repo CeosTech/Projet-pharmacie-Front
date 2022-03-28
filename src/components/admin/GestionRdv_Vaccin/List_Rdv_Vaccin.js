@@ -60,6 +60,7 @@ export default function List_Rdv_Vaccin({ articles }) {
             <p className={classes.heading}>Nom</p>
             <p className={classes.heading}>Prénom</p>
             <p className={classes.heading}>Objet</p>
+            <p className={classes.heading}>Vaccin</p>
             <p className={classes.heading}>Date de réception</p>
           </div>
           {articles.slice(bounds[0], bounds[1]).map((article) => (

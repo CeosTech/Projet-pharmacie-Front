@@ -41,13 +41,31 @@ const useStyles = makeStyles({
   },
 });
 
-export default function GestionProduitsParapharma () {
+export default function GestionProduitsParapharma ({
+    categorieId,
+    sous_categorieId
+}) {
+
+
+    const initialProduct = () => {
+        
+        return({
+            categorie: categorieId,
+            sous_categorie: sous_categorieId,
+        });
+    }
+    const [product, setProduct] = useState(initialProduct());
+   
+    const inputChange = (e) => {
+        setProduct({ ...product, [e.target.name]: e.target.value })
+    }
+
 
     const classes = useStyles();
     const [active, setActive] = useState(1);
     const [activeCarte, setActiveCarte] = useState(true);
     const [datas, setDatas] = useState([]);
-    const [sideDishes, setSideDishes] = useState([]);
+    // const [sideDishes, setSideDishes] = useState([]);
     const [menuCategories, setMenuCategories] = useState([]);
     const [menuSubCategories, setMenuSubCategories] = useState([]);
     const [dishesDisplayed, setDishesDisplay] = useState(false);
@@ -100,6 +118,7 @@ export default function GestionProduitsParapharma () {
         setShow(true);
 
     }
+
 
     const updateDisponibilite = async (id, disponibilite) => {
         await axios.put(URL + "parapharmacie/produit/" + id +"/", {
@@ -167,7 +186,7 @@ export default function GestionProduitsParapharma () {
                             <AddProductModal 
                                 {...produit} 
                                 productToUpdate={produit} 
-                                categorieId={active} 
+                                categorieId={active}
                                 sous_categorieId={active}
                                 show={show} 
                                 setShow={setShow} ></AddProductModal>
@@ -189,7 +208,7 @@ export default function GestionProduitsParapharma () {
 
             
                 <FormControl >
-                    <InputLabel id="demo-simple-select-label">Categorie</InputLabel>
+                    <InputLabel id="demo-simple-select-label">Catégorie</InputLabel>
                     <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -201,38 +220,17 @@ export default function GestionProduitsParapharma () {
                         setActiveCarte(false);
                         setDishesDisplay(false);
                     }}
+                    
                     >
                         
-                        
                         {menuCategories.map(categorie=>{
+                                                      
+                            return <MenuItem value={categorie.id}>{categorie.id + categorie.nom} </MenuItem>
 
-
-                            const val2 = menuSubCategories.map(subcat =>{ 
-                                return subcat.categorie
-                            });
-
-                            console.log("===subcat : " + val2)
-                            
-                            var j;
-
-                            for(j = 0; j < val2.length ; j ++) {
-
-                                while (categorie.id == val2[j])
-                            {
-
-
-                           
-                                return <MenuItem value={categorie.id}>{categorie.nom} </MenuItem>
-
-                            }
-
-                            }
                         })}
 
                     </Select>
 
-
-                        
 
                 </FormControl>
                 
@@ -245,46 +243,45 @@ export default function GestionProduitsParapharma () {
                     id="demo-simple-select"
                     variant="outlined"
                     size="small"
-                    value={active}
+                    value={sous_categorieId}
                     onChange={(e)=>{
                         setActive(e.target.value);
                         setActiveCarte(false);
-                        setDishesDisplay(false);
-                        
+                        setDishesDisplay(false);                        
                     }}
                     >
 
                         
                         
-                        {menuSubCategories.map( (sous_categorie) =>{
+                        {menuSubCategories.map( (sous_categorie) => {
 
+                           
                             console.log("=================================")
 
                             const val = menuCategories.map(cat =>{ 
+
                                 return cat.id 
                             });
                             
-                            console.log("val : " + val[2]);
+                            console.log("val de val[1]: " + val);
                             
                             console.log("ss cat : " + sous_categorie.categorie)
                             console.log("====TARGET===")
                             var i ;
+                            
                             for(i = 0; i < val.length ; i ++) {
 
-                                while (sous_categorie.categorie == val[i])
-                            {
-
-                                return <MenuItem value={sous_categorie.id}> {sous_categorie.nom} </MenuItem>
-                                
-                            }
+                                if (sous_categorie.categorie === val[i])
+                                {
+                                    return <MenuItem value={sous_categorie.id}> {sous_categorie.categorie} </MenuItem>
+                                }
 
                                 
                             }
-
-                            
                             
                         })}
                     </Select>
+
                 </FormControl>
 
             
@@ -300,17 +297,17 @@ export default function GestionProduitsParapharma () {
 
             <div className='commander__container'>
             
-                    <>
+                <>
                         
 
-                        <div className='commander__container__cards'>
-                            {selectDishesPerCategory()}
-                        </div>
+                    <div className='commander__container__cards'>
+                        {selectDishesPerCategory()}
+                    </div>
 
                       
 
                        
-                    </>
+                </>
       
             </div>
         </div>

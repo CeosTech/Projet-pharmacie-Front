@@ -37,7 +37,7 @@ export const adminSlice = createSlice({
         name: "creation_magasin_ortho",
         path: "/creation-magasin-ortho",
         libelle: "Création Orthopédie",
-     
+        icone: "fa-stethoscope",
         active: true,
       },
 
@@ -45,7 +45,7 @@ export const adminSlice = createSlice({
         name: "creation_magasin_parapharmacie",
         path: "/creation-magasin-parapharmacie",
         libelle: "Création Parapharmacie",
-     
+        icone:"fa-medkit",
         active: true,
       },
 
@@ -53,7 +53,7 @@ export const adminSlice = createSlice({
         name: "gestion-produits",
         path: "/produits",
         libelle: "Gestion des produits",
-        icone: "fa-utensils",
+        icone: "fa-plus",
         active: false,
       },
       {

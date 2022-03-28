@@ -27,7 +27,7 @@ const Ordonnance = () => {
         await axios.post(
             //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/',
             'http://localhost:8000/pharmacie/formulaire-ordonnance/', 
-            {...data, image_ordonnance:img } // {...data, message: "...."}
+            {...data, date_retrait:startDate, image_ordonnance:img } // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);
         }).catch((e) => {
@@ -99,6 +99,7 @@ const Ordonnance = () => {
 
                     {/* --- DATE AND TIME FIELD --- */}
                     <DatePicker
+                        {...register("date_retrait") }
                         placeholderText="Choisissez votre rendez-vous *"
                         showTimeSelect
                         isClearable
@@ -107,7 +108,7 @@ const Ordonnance = () => {
                         selectsStart
                         startDate={startDate}
                         onChange={date => setStartDate(date)}
-
+                        
                     />
 
 
@@ -116,10 +117,14 @@ const Ordonnance = () => {
 
 
                     {/* --- UPLOAD FILE FIELD --- */}
-                    <input {...register("image_ordonnance") } type="file" placeholder="Déposez votre ordonnance"
-                    >
+                    <TextField
+                    id="image_ordonnance"
+                    type="file"
+                    variant="outlined"
+                    size="small"
+                    name="image_ordonnance"
                     
-                    </input>
+                />
 
 
 

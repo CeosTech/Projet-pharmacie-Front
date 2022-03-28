@@ -23,9 +23,8 @@
   background-position: center;
   padding-top : 1.5em;
   display: flex;
-  
   justify-content: center;
-
+  
 }
 
 
@@ -33,13 +32,15 @@
 .cards__items_offres {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: space-around;
   list-style-type: none;
   margin-bottom: 23vh;
-  padding-left: 0 !important;
+  padding-right: 15vh;
 }
 
+.offre_img {
+  margin-left : 10vh;
+}
 
 @media  screen and (max-width: 1930px) {
   .cards__items_offres {
@@ -57,8 +58,8 @@
     width: 65%;
   }
   .offre_img {
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
   }
 }
 /* Responsive ipad */
@@ -71,8 +72,8 @@
     margin-bottom: 9vh;
   }
   .offre_img {
-    height: 250px;
-    width: 250px;
+    height: auto;
+    width: 400px;
   }
 }
 

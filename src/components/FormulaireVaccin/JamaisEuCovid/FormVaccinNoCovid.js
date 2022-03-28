@@ -5,23 +5,11 @@ import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
 import ReactSelect from "react-select";
 import '../PremiereInjection/FormulaireVaccin.css';
-import {
-    TextField,
-    Checkbox,
-    Select,
-    MenuItem,
-    Switch,
-    RadioGroup,
-    FormControlLabel,
-    ThemeProvider,
-    Radio,
-    createMuiTheme,
-    Slider
-  } from "@material-ui/core";
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm} from "react-hook-form";
 import axios from 'axios';
 
 
@@ -33,9 +21,6 @@ const FormVaccinNoCovid = () => {
     
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { control} = useForm();
-
-   
 
     const envoi = async (data) => {
 
@@ -47,7 +32,7 @@ const FormVaccinNoCovid = () => {
         await axios.post(
             //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/',
             'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data, objet: "Jamais contracté Covid-19", choix_vaccin:"null", }
+            {...data, objet: "Jamais contracté Covid-19", date_reservation:startDate }
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);
@@ -75,29 +60,32 @@ const FormVaccinNoCovid = () => {
 
 
                 {/** FIRST NAME INPUT */}
+                Nom *
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
                         ...register("nom",
                         {
                             required: '* Ce champs est requis'
                         })
-                } placeholder="Nom *" />
+                } placeholder="Saisir..." />
 
                 {/** Show an error message under the input if the field does not respect validation rules */}
                 <ErrorMessage   errors={errors}   name="nom"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
 
                 {/* --- LAST NAME INPUT --- */}
+                Prénom *
                 <input {...register("prenom",
                             {
                                 required: '* Ce champs est requis'
                             })
-                } placeholder="Prénom *" />
+                } placeholder="Saisir..." />
 
                 <ErrorMessage   errors={errors}   name="prenom"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
 
                 {/* --- PHONE NUMBER INPUT --- */}
+                Telephone *
                 <input {...register("telephone",
                             {
                                 required: "* Ce champs est requis",
@@ -114,21 +102,23 @@ const FormVaccinNoCovid = () => {
                                     message: "Veuillez entrer votre numéro de téléphone à 10 chiffres"
                                 },
                             }) 
-                } placeholder="Telephone *" />
+                } placeholder="Saisir..." />
                 <ErrorMessage   errors={errors}   name="telephone"  render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
 
                 {/* --- EMAIL INPUT --- */}
+                Email *
                 <input {...register("email",
                             {
                                 required: "* Ce champs est requis",
                                 
                             }) 
-                } placeholder="Email *" />
+                } placeholder="Saisir..." />
                 <ErrorMessage   errors={errors}   name="email"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
 
                 {/* --- AGE INPUT --- */}
+                Age *
                 <input {...register("age",
                             {
                                 required: '* Ce champs est requis',
@@ -142,21 +132,23 @@ const FormVaccinNoCovid = () => {
                                 }
                                 
                             })
-                } placeholder="Age *" />
+                } placeholder="Saisir..." />
 
                 <ErrorMessage  errors={errors}   name="age"  render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
 
                 {/* --- ADRESS INPUT --- */}
+                Adresse *
                 <input {...register("adresse",
                             {
                                 required: '* Ce champs est requis'
                             })
-                } placeholder="Adresse *" />
+                } placeholder="Saisir..." />
                 <ErrorMessage   errors={errors}    name="adresse"   render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
 
 
                 {/* --- POSTCODE INPUT --- */}
+                Code Postal *
                 <input {...register("code_postal",
                             {
                                 required: '* Ce champs est requis',
@@ -169,7 +161,7 @@ const FormVaccinNoCovid = () => {
                                     message: "Veuillez entrer votre code postal à 5 chiffres"
                                 },
                             })
-                } placeholder="Code Postal *" />
+                } placeholder="Saisir..." />
 
                 <ErrorMessage  errors={errors}   name="code_postal"  render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
@@ -213,32 +205,36 @@ const FormVaccinNoCovid = () => {
 
                 {/* --- VACCIN CHOICE --- */}
                 Choissisez un vaccin*
-
-
-                <section>
-  
-                    <Controller
-                        name="choix_vaccin"
-                        
-                        control={control}
-                        render={({ field }) => (
-                        <ReactSelect
-                            isClearable
-                            {...field}
-                            options={[
-                            { value: "pfizer", label: "Pfizer",},
-                            { value: "moderna", label: "Moderna" },
-                            { value: "Astrazeneca", label: "Astrzeneca" }
-                            ]}
-                        />
-                        )}
-                    />
-                </section>
                      
+                <label className="type_vaccin">
+                    <input {...register("choix_vaccin") } type="radio"   value="Sans préférence"/>
+                    <p className="vaccinTitle"> Vaccin ARNm, sans préférence </p>
+                    <p className="vaccinDescription"> Pfizer-BioNTech, Moderna</p>
+                </label>
+                     
+     
+                <label className="type_vaccin">
+                    <input {...register("choix_vaccin") } type="radio"  value="Moderna"/>
+                    <p className="vaccinTitle"> Moderna </p> 
+                    <p className="vaccinDescription">Personnes de plus de 30 ans</p>
+                </label>
+     
+     
+                <label className="type_vaccin">
+                    <input {...register("choix_vaccin") } type="radio"  value="Pfizer/BioNTech +12 ans"/>
+                    <p className="vaccinTitle"> Pfizer/BioNTech </p>
+                    <p className="vaccinDescription"> Personnes de plus de 12 ans</p>
+     
+                </label>
+     
+     
+                <label className="type_vaccin">
+                    <input {...register("choix_vaccin") } type="radio"  value="Pfizer/BioNTech 5/11 ans" />
+                    <p className="vaccinTitle"> Pfizer/BioNTech Enfants </p>
+                    <p className="vaccinDescription"> Personnes de plus de 5 à 11 ans inclus</p>
+                </label>
                 
 
-                
-      
 
 
                {/* --- DATE AND TIME FIELD --- */}
@@ -262,11 +258,7 @@ const FormVaccinNoCovid = () => {
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
                
                     
-                
-        
-                 
-                   
-                
+
                 <button type="submit">
                     ENVOYER
                 </button>
