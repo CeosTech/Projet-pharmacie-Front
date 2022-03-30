@@ -59,6 +59,14 @@ const CartePageParapharma = (props) => {
       }
     }
 
+
+    useEffect( ()=> {
+      console.log("PROPS", produit)
+    }
+    
+    );
+
+
     return(
       <>
         <div id="menu-page" style={{paddingLeft: "300%"}}>
@@ -89,7 +97,7 @@ const CartePageParapharma = (props) => {
                                         expanded={false}
                                         width={280}
                                         truncatedEndingComponent={"... "}
-                                        className="menu-item-text"
+                                        
                                     >
                                         {produit?.description}
                                     </ShowMoreText>

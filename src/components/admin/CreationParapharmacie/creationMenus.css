@@ -23,7 +23,7 @@
 }
 .creation_menus{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 20px;

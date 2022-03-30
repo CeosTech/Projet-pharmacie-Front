@@ -18,6 +18,7 @@ import { URL, sendrequest } from "../../../middlewares/request";
 import SwitchBtn from "../switch/SwitchBtn";
 import TableCell from "@material-ui/core/TableCell";
 import { makeStyles } from "@material-ui/core/styles";
+import { ContactsOutlined } from "@material-ui/icons";
 
 
 
@@ -63,6 +64,7 @@ export default function GestionProduitsParapharma ({
 
     const classes = useStyles();
     const [active, setActive] = useState(1);
+    const [active_ss_cat, setActiveSousCat] = useState(1);
     const [activeCarte, setActiveCarte] = useState(true);
     const [datas, setDatas] = useState([]);
     // const [sideDishes, setSideDishes] = useState([]);
@@ -84,28 +86,35 @@ export default function GestionProduitsParapharma ({
 
         const fetchData = async () => {
         
-            //sendrequest("get", "letexan/produit/?accompagnement=true", setSideDishes, setSideDishesLoading);
-            axios.get(URL + "parapharmacie/produit/").then((res) => {
-            setDatas(res.data);
-            console.log(res.data);
-        });
-   
-
-        axios.get(URL + "parapharmacie/categorie/").then((res) => {
+        //sendrequest("get", "letexan/produit/?accompagnement=true", setSideDishes, setSideDishesLoading);
+    
+        await axios.get(URL + "parapharmacie/categorie/").then((res) => {
           setMenuCategories(res.data);
           console.log(res.data);
         });
 
-        axios.get(URL + "parapharmacie/sous_categorie/").then((res) => {
+        await axios.get(URL + "parapharmacie/sous_categorie/?categorie=" + active).then((res) => {
             setMenuSubCategories(res.data);
             console.log(res.data);
-          });
+        });
+        
+        console.log(" ACTIVE "+ active);
+        console.log("ACTIVE SOUS CAT" + active_ss_cat);
+
+        await axios.get(URL + "parapharmacie/produit/?categorie=" + active + "&sous_categorie=" + active_ss_cat).then((res) => {
+            setDatas(res.data);
+            console.log(res.data);
+        })
+        .catch( (error) => {
+            console.log(error.response);
+        });
+
     };
 
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [active, active_ss_cat]);
 
     const openModal = (data) =>{
        
@@ -113,8 +122,7 @@ export default function GestionProduitsParapharma ({
         while(produit === []){
             //console.log(test);
         }
-        console.log("TEST1");
-        console.log(produit);
+        
         setShow(true);
 
     }
@@ -137,27 +145,13 @@ export default function GestionProduitsParapharma ({
 
     const selectDishesPerCategory = () => {
         //var menuDishes = isMenu();
-
-        if (1 !== 1) {
-            
-        } else {
+        
             const selectedDishes = datas
                 // We filter the data :
-                .filter((data) => {
-                    console.log(data);
-                    // By only selecting the data that belongs to a category (categories is an array in which are the different categories to which a dish belongs) that matches the one selected by the user (var active)
-                    return (
-                        data.categorie === active
-                    )
-
-
-                    /*for (var i = 0; i < data.categories.length; i++) {
-                      if (data.categories[i] === active) return true;
-                      return false;
-                    }*/
-                })
+                
                 //Once filtered, we can go through the selection to display them
                 .map((data) => {
+                    console.log("DATA MAP", data)
                     return (
                         <>
                             <div 
@@ -187,7 +181,7 @@ export default function GestionProduitsParapharma ({
                                 {...produit} 
                                 productToUpdate={produit} 
                                 categorieId={active}
-                                sous_categorieId={active}
+                                sous_categorieId={active_ss_cat}
                                 show={show} 
                                 setShow={setShow} ></AddProductModal>
 
@@ -196,7 +190,7 @@ export default function GestionProduitsParapharma ({
                     );
                 });
             return selectedDishes;
-        }
+        
     };
 
    
@@ -225,7 +219,7 @@ export default function GestionProduitsParapharma ({
                         
                         {menuCategories.map(categorie=>{
                                                       
-                            return <MenuItem value={categorie.id}>{categorie.id + categorie.nom} </MenuItem>
+                            return <MenuItem value={categorie.id}>{categorie.nom} </MenuItem>
 
                         })}
 
@@ -245,39 +239,19 @@ export default function GestionProduitsParapharma ({
                     size="small"
                     value={sous_categorieId}
                     onChange={(e)=>{
-                        setActive(e.target.value);
+                        setActiveSousCat(e.target.value);
                         setActiveCarte(false);
                         setDishesDisplay(false);                        
                     }}
                     >
 
-                        
-                        
                         {menuSubCategories.map( (sous_categorie) => {
 
-                           
-                            console.log("=================================")
-
-                            const val = menuCategories.map(cat =>{ 
-
-                                return cat.id 
-                            });
                             
-                            console.log("val de val[1]: " + val);
-                            
-                            console.log("ss cat : " + sous_categorie.categorie)
-                            console.log("====TARGET===")
-                            var i ;
-                            
-                            for(i = 0; i < val.length ; i ++) {
-
-                                if (sous_categorie.categorie === val[i])
-                                {
-                                    return <MenuItem value={sous_categorie.id}> {sous_categorie.categorie} </MenuItem>
-                                }
-
+                                    return <MenuItem value={sous_categorie.id}> {sous_categorie.nom} </MenuItem>
                                 
-                            }
+
+                            
                             
                         })}
                     </Select>
@@ -301,11 +275,58 @@ export default function GestionProduitsParapharma ({
                         
 
                     <div className='commander__container__cards'>
-                        {selectDishesPerCategory()}
+                        {datas.length > 0 ? 
+                // We filter the data :
+                
+                //Once filtered, we can go through the selection to display them
+                datas.map((data) => {
+                    console.log("DATA MAP", data);
+                    if(data.categorie === active && data.sous_categorie === active_ss_cat) {
+
+                    
+                    
+                    return (
+                        <>
+                            <div 
+                                style={{width: "100%", display: "flex", flexDirection: "row", borderBottom: "1px solid rgba(224, 224, 224, 1)"}} 
+                            >
+                                <div 
+                                    style={{width: "100%", margin: 0}} 
+                                    onClick={() => openModal(data)}>
+                                    <CartePage 
+                                        key={data.categorie} 
+                                        idMenuPage={data.categorie}
+                                        produit={data}
+                                        show={show} 
+                                        setShow={setShow} 
+                                    />
+                                    </div>
+                                    <div style={{paddingTop: "60px", marginRight: "5%"}}>
+                                        <SwitchBtn
+                                        val={data.disponibilite}
+                                        action={updateDisponibilite}
+                                        item={data}
+                                        />
+                                    </div>
+                            </div>
+
+                            <AddProductModal 
+                                {...produit} 
+                                productToUpdate={produit} 
+                                categorieId={active}
+                                sous_categorieId={active_ss_cat}
+                                show={show} 
+                                setShow={setShow} ></AddProductModal>
+
+                            
+                        </>
+                    );
+                } } 
+                ) 
+                : null}
                     </div>
 
-                      
-
+ 
                        
                 </>
       

@@ -76,4 +76,3 @@ const CreationMenus = () => {
 };
 
 export default CreationMenus;
-
