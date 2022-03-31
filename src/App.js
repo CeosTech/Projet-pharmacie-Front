@@ -7,7 +7,10 @@ import {
 } from "react-router-dom";
 import NavBarContextProvider from "./contexts/Navbar/navbarState";
 import Navbar from './components/navbar/Navbar';
+
 import Commander from './components/commander/Commander';
+import ParapharmacieShop from './components/parapharmacie/commander/Commander';
+
 import Panier from "./pages/Panier";
 import Paiement from "./pages/Paiement";
 import Felicitation from "./pages/Felicitation";
@@ -84,7 +87,8 @@ function App() {
           </Route>
           <Route exact path="/Choix du vaccin" component={ChoixVaccin} />
           <Route exact path="/ordonnance" component={Ordonnance} />
-          <Route exact path="/carte-orthopedie" component={Commander} />
+          <Route exact path="/shop-orthopedie" component={Commander} />
+          <Route exact path="/shop-parapharmacie" component={ParapharmacieShop} />
           <Route exact path="/panier" component={Panier} />
           {/*<Route exact path="/franchise" component={Franchise}/>*/}
           

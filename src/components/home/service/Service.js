@@ -42,12 +42,13 @@ const data1 = [
           id: 1,
           titre: "Orthopédie",
           photo: image1,
-          ref: "/carte-orthopedie"
+          ref: "/shop-orthopedie"
       },
       {
         id: 2,
         titre: "Parapharmacie",
-        photo: image2
+        photo: image2,
+        ref: "/shop-parapharmacie"
     },{
         id: 3,
         titre: "Rappel Vaccin",

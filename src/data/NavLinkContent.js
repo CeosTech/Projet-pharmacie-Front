@@ -17,12 +17,12 @@ export const NavLinkContent = [
     {
         id: 4,
         titre: "Orthopédie",
-        link: "/carte-orthopedie"
+        link: "/shop-orthopedie"
     },
     {
         id: 5,
         titre: "Parapharmacie",
-        link: "/"
+        link: "/shop-parapharmacie"
     },
     {
         id: 6,
