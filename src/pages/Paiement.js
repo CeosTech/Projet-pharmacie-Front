@@ -247,6 +247,7 @@ const Paiement = (props) => {
             viande_1_selected: item.viande_1_selected,
             viande_2_selected: item.viande_2_selected,
             viande_3_selected: item.viande_3_selected,
+            accompagnement: item.accompagnement,
           });
           produits.push({
             produit_id: item.id,
@@ -265,16 +266,14 @@ const Paiement = (props) => {
             adresse,
             ville,
             code_postale,
-            montant: parseFloat(history.location.state.priceReduction !== null ? history.location.state.priceReduction : prixTotale) + parseFloat(history.location.state.frais > 0 ? history.location.state.frais : 0),
-          },
+            montant: parseFloat(history.location.state.priceReduction !== null ? history.location.state.priceReduction : prixTotale) + parseFloat(history.location.state.frais > 0 ? history.location.state.frais : 0),          },
           panier: {
             menus: menus,
             infos_menus: JSON.stringify(menus),
             produits,
           },
           methode_vente: typeOfDelivery,
-          commentaire: (history.location.state.priceReduction === null ? location.delivery.comment : " || CODE PROMO : " + history.location.state.code_promo + '\n' + location.delivery.comment) +
-          (history.location.state.frais > 0 ? "\n"+ "Frais de livraison : " + history.location.state.frais + "€" : "" ), // à voir
+          commentaire: history.location.state.priceReduction == null ? location.delivery.comment : location.delivery.comment + " CODE PROMO : " + history.location.state.code_promo, // à voir
           prix_totale: parseFloat(history.location.state.priceReduction !== null ? history.location.state.priceReduction : prixTotale) + parseFloat(history.location.state.frais > 0 ? history.location.state.frais : 0),
         };
 
@@ -322,7 +321,6 @@ const Paiement = (props) => {
 
   useEffect(() => {
     console.log(`baskets de paiement à linterieru`, baskets);
-    console.log(history.location.state)
   }, [baskets]);
    const idProcedure = 2;
 
@@ -501,8 +499,8 @@ const Paiement = (props) => {
                   {prixTotale}€
                 </p>
               </div>
-              {/*================= START PRINT FRAIS LIVRAISON================================================*/}
-              <div style={{ backgroundColor: "#f0c300", color: "white", fontFamily: "'Joti One', cursive", paddingLeft: "2%", marginTop: "1%" }}>
+               {/*================= START PRINT FRAIS LIVRAISON================================================*/}
+               <div style={{ backgroundColor: "#f0c300", color: "white", fontFamily: "'Joti One', cursive", paddingLeft: "2%", marginTop: "1%" }}>
                 {history.location.state.frais > 0 ? "Frais de livraison : " + history.location.state.frais + "€" : ""}
               </div>
               {/*================= END PRINT FRAIS LIVRAISON================================================*/}

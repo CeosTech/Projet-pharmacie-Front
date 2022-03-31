@@ -92,26 +92,17 @@ function App() {
           <Route exact path="/panier" component={Panier} />
           {/*<Route exact path="/franchise" component={Franchise}/>*/}
           
-
-      { /**En attendant cle stripe code suivant en commentaire 
-       * 
-       * 
-       *  {isKeyLoaded && (
+          {isKeyLoaded && (
             <Route exact path="/paiement">
-              <Elements stripe={loadStripe(apiKey[0].stripe_public_key)}>
+              
+              {/*<Elements stripe={loadStripe(apiKey[0].stripe_public_key)}> */}
                 {/*Pour les tests en prod */}
-                {/*<Elements stripe={"pk_test_51IZE0cLbB6RgpOO7iZUCX9Ur3vHxEbgRHRndYTjkEuzei0jpqiDjlccIlVHQMbCZEb6zAHpd4R5tktQR3IIy5u5i00kZDxLJsh"}>*/}
-               {/* <Paiement />
+                <Elements stripe={"pk_test_51KO0T9Lequm3HWkAqh1zL6MSN258h4DD8ZUVgyaDFZAs1QjfJ4W1BxCueu8Vo7REY4DUa4QBj1gV4jy9VJT5FQOW009Q6ZDmWU"}>
+                <Paiement />
               </Elements>
             </Route>
           )}
-       * 
-       * 
-       * 
-       */
-
-
-      }
+      
           
           <Route exact path="/felicitation" component={Felicitation} />
           <SecuredRoute path="/admin" component={Admin} />
