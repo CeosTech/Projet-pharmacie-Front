@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+.card_command_container {
+  margin-top : 20px;
+}
 
 
 .card__item {
@@ -15,9 +17,11 @@
 }
 
 .card_contain {
-  background-color: white;
+  background-color: #D1E1BF;
+  
+
   border-radius: 10px;
-  height: 290px;
+  height: 320px;
 }
 
 .item_unavailable {
@@ -26,15 +30,14 @@
 
 .MuiFormHelperText-root {
   font-weight: bold;
-  color: red;
+  color: #D1E1BF;
 }
 
 .card__item__heading {
   text-align: center;
-  color: black;
-  font-size: 30px;
-  padding-top: 2%;
-  font-family: "Teko";
+  color: white;
+  font-size: 22px;
+  padding-top: 7%;
 }
 
 .separation_ligne {
@@ -45,6 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top : 2%;
 }
 
 .card__item__image-container img {
@@ -66,8 +70,8 @@
 .card__item__details p {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 2rem;
-  color: red !important;
+  margin-top: 1.5rem;
+  color: white !important;
 }
 
 .card__item__details i {
@@ -92,6 +96,10 @@
   color: black !important;
 }
 
+.myModal__footer {
+  justify-content: space-between !important;
+
+}
 
 .myModal__footer p {
   font-weight: bold;
@@ -126,9 +134,10 @@
   padding: 1.5rem;
   color: white !important;
   font-family: "Roboto";
+  
 }
 .MuiFormHelperText-root.MuiFormHelperText-root {
-  color: red;
+  color: #D1E1BF;
   margin: 0;
   font-size: 0.75rem;
   margin-top: 3px;
@@ -141,7 +150,8 @@
 
 @media (max-width: 1100px) {
   .card__item__heading {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    padding-top : 13%;
   }
 }
 
@@ -151,9 +161,12 @@
     max-width: 175px;
     max-height: 125px;
     object-fit: contain;
+    margin-top : 10%;
+    
   }
   .card__item__heading {
-    font-size: 1.4rem;
+    
+    font-size: 1.8rem;
   }
 }
 
@@ -169,7 +182,10 @@
 @media (max-width: 400px) {
   .card__item {
     width: 250px;
-    color: red !important;
+    color: #D1E1BF !important;
+  }
+  body {
+    height: 100%;
   }
 }
 
@@ -178,4 +194,5 @@
   .card__item {
     width: 250px;
   }
+  
 }

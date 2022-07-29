@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core';
 import Logo_Fb from '../../images/Logo_Fb.png';
 import Logo_Insta from '../../images/Logo_Insta.png';
-import Logo_Mustang from '../../images/Logo_Mustang.png';
+import Logo_Mustang from '../../images/Logo_pharmacie.png';
 import './Footer.css';
 import { useLocation } from "react-router-dom";
 
@@ -38,36 +38,27 @@ const Footer = () => {
                       </a>
                     </p>
                   </Grid>
-                  <Grid xs={12} sm={6} md={3} className="openhours">
-                    <h5>HORAIRES</h5>
-                    <span>Lundi au Samedi : </span><br/><span className="openhours"> 11h00 – 14h00, 18h00 – 23h00</span>
-                    <p>Dimanche : <br/> <span>15h00 – 23h00</span></p>
-                  </Grid>
+                  
+
                   <Grid xs={12} sm={6} md={3}>
                     <h5>CONTACT</h5>
                     <p>
-                    <a class="footer-link" href="tel:03-10-64-76-45"> 03 10 64 76 45 </a>
+                    <a class="footer-link" href="tel:09-36-25-34-94"> 09 36 25 34 94 </a>
                        <br></br> 
                     <a 
                       className="footer-link" 
                       href="mailto:lemustangtroyes.site@gmail.com"
                       rel="noreferrer"
-                    > lemustangtroyes.site@gmail.com</a>
+                    > parmacie.siteweb@gmail.com</a>
                     </p>
                   </Grid>
-                  <Grid xs={12} sm={6} md={3}>
-                    <h5>REJOIGNEZ-NOUS !</h5>
-                    <p>
-                      <a href="https://www.facebook.com/LeMustang10/" target="_blank" rel="noreferrer" >
-                        <img src={Logo_Fb}></img>
-                      </a>
-                       &nbsp; 
-                      <a href="https://www.instagram.com/lemustang93/?hl=fr" target="_blank" rel="noreferrer" >
-                      <img src={Logo_Insta}></img>
-                      </a>
-                    </p>
-                  </Grid>
+                 
 
+                  <Grid xs={12} sm={6} md={3} className="openhours">
+                    <h5>HORAIRES</h5>
+                    <span>Lundi 10h - 20h</span><br/><span> Mardi - Vendredi 8h30 - 20h </span>
+                    <br/> <span> Samedi 09h - 19h30</span>
+                  </Grid>
                   
 
               </Grid>

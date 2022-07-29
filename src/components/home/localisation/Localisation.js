@@ -1,7 +1,7 @@
 import React from 'react';
 import './Localisation.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import image1 from "../../../images/Plats/Rectangle1.jpg";
+import image1 from "../../../images/Localisation.png";
 
 
 import {Grid } from '@material-ui/core';

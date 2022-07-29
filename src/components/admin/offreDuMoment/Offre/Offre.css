@@ -1,0 +1,42 @@
+.offre__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+.offre__container img, input {
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+label.offre__upload_image {
+    background-color: #04295d;
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+#file-chosen{
+    margin-left: 0.3rem;
+    font-family: sans-serif;
+}
+
+.offre__container .button_inside {
+    background-color: green;
+    padding: 0.5% 0 0.5% 0;
+    color: white;
+    width: 10em;
+    border: none;
+    margin-bottom: 2%;
+}
+
+button:disabled.button_inside{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

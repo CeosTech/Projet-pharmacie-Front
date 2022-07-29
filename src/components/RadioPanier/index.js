@@ -106,7 +106,7 @@ const RadioButtonsGroup = (props) => {
   };
 
   const get_restaurant = async () => {
-    sendrequest("get", "restaurant/info_restaurant/", setOpening);
+    sendrequest("get", "pharmacie/info_pharmacie/", setOpening);
   };
 
   const affichageZone1 = () => {
@@ -154,9 +154,9 @@ const RadioButtonsGroup = (props) => {
     const isMenu = baskets.filter((menu) => "type" in menu);
     console.log("go");
     //If the restaurant is closed
-    if (!isOpened[isOpened.length - 1].disponibilite_restaurant) {
+    if (!isOpened[isOpened.length - 1].disponibilite_pharmacie) {
       alert(
-        "Nous sommes désolés, le restaurant est actuellement fermé, revenez bientôt !"
+        "Nous sommes désolés, la pharmacie est actuellement fermée, revenez bientôt !"
       );
     } else if (day > 5 && isMenu.length > 0) {
       //If the user is trying to order a menu at the wrong time : order possible monday to friday

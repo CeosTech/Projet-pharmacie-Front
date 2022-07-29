@@ -72,7 +72,7 @@ const AdminNav = () => {
       
       </div>
 
-      <h2 className="adminNav__title">Mustang</h2>
+      <h2 className="adminNav__title">Pharmacie</h2>
       {/*Switch pour ouvrir et fermer (close and open restaurant)*/}
       
       {items[0] != undefined ? (
@@ -84,6 +84,7 @@ const AdminNav = () => {
       ) : null}
     
       <div className="adminNav__links">
+
         {admin.pages.map((page) => (
           <button
             key={page.name}
@@ -99,6 +100,10 @@ const AdminNav = () => {
           >
             <i className={"fas adminNav__link__icone " + page.icone}></i>{" "}
             <p>{page.libelle}</p>
+            
+
+
+            
             {page.name === "nouvelles_commandes" &&
               admin.nouvelleCommandeLength > 0 && (
                 <div className="adminNav__nouvelles_commandes__indicator">
@@ -113,6 +118,9 @@ const AdminNav = () => {
               )}
           </button>
         ))}
+
+
+        
         <button
           type="submit"
           onClick={() => deconnexion()}

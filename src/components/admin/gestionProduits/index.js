@@ -41,7 +41,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function GestionProduits () {
+export default function GestionProduitsOrtho () {
     const classes = useStyles();
     const [active, setActive] = useState(1);
     const [activeCarte, setActiveCarte] = useState(true);
@@ -62,16 +62,16 @@ export default function GestionProduits () {
         : (window.document.body.style.overflow = "auto");
 
 
-    const fetchData = async () => {
+        const fetchData = async () => {
         
-        //sendrequest("get", "letexan/produit/?accompagnement=true", setSideDishes, setSideDishesLoading);
-        axios.get(URL + "restaurant/produit/").then((res) => {
-          setDatas(res.data);
-          console.log(res.data);
+            //sendrequest("get", "letexan/produit/?accompagnement=true", setSideDishes, setSideDishesLoading);
+            axios.get(URL + "orthopedie/produit/").then((res) => {
+            setDatas(res.data);
+            console.log(res.data);
         });
    
 
-        axios.get(URL + "restaurant/categorie/").then((res) => {
+        axios.get(URL + "orthopedie/categorie/").then((res) => {
           setMenuCategories(res.data);
           console.log(res.data);
         });
@@ -95,7 +95,7 @@ export default function GestionProduits () {
     }
 
     const updateDisponibilite = async (id, disponibilite) => {
-        await axios.put(URL + "restaurant/produit/" + id +"/", {
+        await axios.put(URL + "orthopedie/produit/" + id +"/", {
             disponibilite: disponibilite,
         });
     };
@@ -175,6 +175,7 @@ export default function GestionProduits () {
     return (
         <div className='commander__'>
             <div style={{ textAlign: 'center', width: "100%" }}>
+
             
                 <FormControl >
                     <InputLabel id="demo-simple-select-label">Categorie</InputLabel>

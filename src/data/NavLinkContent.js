@@ -17,12 +17,12 @@ export const NavLinkContent = [
     {
         id: 4,
         titre: "Orthopédie",
-        link: "/"
+        link: "/shop-orthopedie"
     },
     {
         id: 5,
         titre: "Parapharmacie",
-        link: "/"
+        link: "/shop-parapharmacie"
     },
     {
         id: 6,
@@ -32,7 +32,7 @@ export const NavLinkContent = [
     {
         id: 7,
         titre: "Rappel vaccin",
-        link: "/"
+        link: "/Choix du vaccin"
     },
     {
         id: 8,
@@ -41,6 +41,11 @@ export const NavLinkContent = [
     },
     {
         id: 9,
+        titre: "Location de matériel",
+        link: "/Location De Materiel"
+    },
+    {
+        id: 10,
         titre: "Panier",
         link: "/panier"
     },

@@ -8,7 +8,7 @@ import './FormulaireAntigenique.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import axios from 'axios';
 
 
@@ -18,16 +18,19 @@ const FormulaireAntigenique = () => {
 
     const [startDate, setStartDate] = useState(new Date());
     
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, control } = useForm();
     
     const envoi = async (data) => {
+
+        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
         console.log("==============ENVOIE=======")
         console.log(data)
         console.log("==============FIN=======")
 
         await axios.post(
-            'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
-            {...data, message: "Rendez-vous antigénique"} // {...data, message: "...."}
+            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
+            'http://localhost:8000/pharmacie/formulaire-test-covid/',
+            {...data, date_reservation:startDate} // {...data, message: "...."}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
         ).then(response => {
             console.log(response.data);
@@ -56,6 +59,7 @@ const FormulaireAntigenique = () => {
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire">
 
+
                 {/** FIRST NAME INPUT */}
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
@@ -68,6 +72,7 @@ const FormulaireAntigenique = () => {
                 {/** Show an error message under the input if the field does not respect validation rules */}
                 <ErrorMessage   errors={errors}   name="nom"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
+
                 {/* --- LAST NAME INPUT --- */}
                 <input {...register("prenom",
                             {
@@ -77,26 +82,33 @@ const FormulaireAntigenique = () => {
 
                 <ErrorMessage   errors={errors}   name="prenom"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
+
                 {/* --- PHONE NUMBER INPUT --- */}
                 <input {...register("telephone",
                             {
                                 required: "* Ce champs est requis",
                                 pattern: { 
-                                value: /\d+/,
-                                message: "Ce champs ne comprend que des chiffres."
-                                }
+                                    value: /\d+/,
+                                    message: "Ce champs ne comprend que des chiffres."
+                                },
+                                maxLength : {
+                                    value: 10,
+                                    message: "Veuillez entrer votre numéro de téléphone à 10 chiffres"
+                                },
+                                minLength : {
+                                    value: 10,
+                                    message: "Veuillez entrer votre numéro de téléphone à 10 chiffres"
+                                },
                             }) 
                 } placeholder="Telephone *" />
                 <ErrorMessage   errors={errors}   name="telephone"  render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
+
 
                 {/* --- EMAIL INPUT --- */}
                 <input {...register("email",
                             {
                                 required: "* Ce champs est requis",
-                                pattern: { 
-                                value: /\d+/,
-                                message: "Ce champs ne comprend que des chiffres."
-                                }
+                                
                             }) 
                 } placeholder="Email *" />
                 <ErrorMessage   errors={errors}   name="email"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
@@ -114,6 +126,7 @@ const FormulaireAntigenique = () => {
                                     value: 3,
                                     message: "L'age n'est pas valide"
                                 }
+                                
                             })
                 } placeholder="Age *" />
 
@@ -126,25 +139,25 @@ const FormulaireAntigenique = () => {
                                 required: '* Ce champs est requis'
                             })
                 } placeholder="Adresse *" />
-                <ErrorMessage 
-                    errors={errors}
-                    name="adresse"
-                    render={({ message }) => <p id='Message_erreur'>{message}</p>}
-                />
+                <ErrorMessage   errors={errors}    name="adresse"   render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
 
 
                 {/* --- POSTCODE INPUT --- */}
                 <input {...register("code_postal",
                             {
-                                required: '* Ce champs est requis'
+                                required: '* Ce champs est requis',
+                                maxLength : {
+                                    value: 5,
+                                    message: "Veuillez entrer votre code postal à 5 chiffres"
+                                },
+                                minLength : {
+                                    value: 5,
+                                    message: "Veuillez entrer votre code postal à 5 chiffres"
+                                },
                             })
                 } placeholder="Code Postal *" />
 
-                <ErrorMessage 
-                    errors={errors}
-                    name="code_postal"
-                    render={({ message }) => <p id='Message_erreur'>{message}</p>}
-                />
+                <ErrorMessage  errors={errors}   name="code_postal"  render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
 
                 {/* --- CITY INPUT --- */}
@@ -153,32 +166,39 @@ const FormulaireAntigenique = () => {
                                 required: '* Ce champs est requis'
                             })
                 } placeholder="Ville *" />
-                <ErrorMessage 
-                    errors={errors}
-                    name="ville"
-                    render={({ message }) => <p id='Message_erreur'>{message}</p>}
-                />
+                <ErrorMessage   errors={errors}   name="ville"  render={({ message }) => <p id='Message_erreur'>{message}</p>}    />
 
 
                 {/* --- SOCIAL SECURITY SYSTEM NUMBER INPUT --- */}
                 <input {...register("num_secu",
-                                {
-                                    required: "* Ce champs est requis",
-                                    pattern: { 
+                            {
+                                required: "* Ce champs est requis",
+                                pattern: { 
                                     value: /\d+/,
                                     message: "Ce champs ne comprend que des chiffres."
-                                    }
-                                }) 
+                                },
+                                /*maxLength : {
+                                    value: 15,
+                                    message: "Veuillez entrer votre numéro de sécurité sociale à 15 chiffres"
+                                },
+                                minLength : {
+                                    value: 15,
+                                    message: "Veuillez entrer votre numéro de sécurité sociale à 15 chiffres"
+                                },*/
+                                
+                            }) 
             
                 } placeholder="Numéro de sécurité sociale *" />
-                <ErrorMessage 
-                    errors={errors}
-                    name="NumeroSecuriteSociale"
-                    render={({ message }) => <p id='Message_erreur'>{message}</p>}
-                />
-      
+                <ErrorMessage   errors={errors}     name="num_secu"     render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
+
                 
+                {/* ---  MESSAGE FIELD --- */}
+                <input {...register("message") } placeholder="Un message à nous transmettre ?" />
+
+      
+                {/* --- DATE AND TIME FIELD --- */}
                 <DatePicker
+                    {...register("date_reservation") }
                     placeholderText="Choisissez votre rendez-vous *"
                     showTimeSelect
                     isClearable
@@ -187,8 +207,6 @@ const FormulaireAntigenique = () => {
                     selectsStart
                     startDate={startDate}
                     onChange={date => setStartDate(date)}
-
-
                     
                 />
 

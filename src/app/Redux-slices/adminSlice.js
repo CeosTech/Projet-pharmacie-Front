@@ -34,6 +34,72 @@ export const adminSlice = createSlice({
         active: true,
       },
       {
+        name: "creation_magasin_ortho",
+        path: "/creation-magasin-ortho",
+        libelle: "Création Orthopédie",
+        icone: "fa-stethoscope",
+        active: true,
+      },
+
+      {
+        name: "creation_magasin_parapharmacie",
+        path: "/creation-magasin-parapharmacie",
+        libelle: "Création Parapharmacie",
+        icone:"fa-medkit",
+        active: true,
+      },
+
+      {
+        name: "gestion-produits",
+        path: "/produits",
+        libelle: "Gestion des produits",
+        icone: "fa-plus",
+        active: false,
+      },
+      {
+        name: "nouvelles_ordonnances",
+        path: "/nouvelles-ordonnances",
+        libelle: "Ordonnances",
+        icone: "fa-bullhorn",
+        active: true,
+      },
+      {
+        name: "historique_ordonnance",
+        path: "/historiques-orodnnaces",
+        libelle: "Historique Ordonnances",
+        icone: "fa-clipboard-list",
+        active: true,
+      },
+      {
+        name: "nouveaux_rdv_test_covid",
+        path: "/nouveaux-formulaires-test-covid",
+        libelle: "Formulaires Test Covid-19",
+        icone: "fa-bullhorn",
+        active: true,
+      },
+      {
+        name: "historique_test_covid",
+        path: "/historiques-test-covid",
+        libelle: "Historique Test Covid-19",
+        icone: "fa-clipboard-list",
+        active: true,
+      },
+
+      {
+        name: "gestion_rdv_vaccin",
+        path: "/gestion-rdv-vaccin",
+        libelle: "Formulaires Vaccin Covid-19",
+        icone: "fa-bullhorn",
+        active: true,
+      },
+      {
+        name: "historique_vaccin",
+        path: "/historiques-vaccin",
+        libelle: "Historique Vaccin Covid-19",
+        icone: "fa-clipboard-list",
+        active: true,
+      },
+      {
         name: "suivi_activite",
         path: "/suivi-activites",
         libelle: "Suivi de l’activité",
@@ -78,10 +144,10 @@ export const adminSlice = createSlice({
         icone: "fa-chalkboard-teacher",
       },*/
       {
-        name: "gestion-produits",
-        path: "/produits",
-        libelle: "Gestion des produits",
-        icone: "fa-utensils",
+        name: "offres-du-moment",
+        path: "/offres-du-moment",
+        libelle: "Les offres du moment",
+        icone: "fa-gift",
         active: false,
       },
       {

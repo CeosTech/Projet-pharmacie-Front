@@ -1,0 +1,206 @@
+.Container_choix_rappel{
+    height: 100%;
+    width: 100%;
+    background-color : white;
+ 
+    position: relative;
+}
+
+.Title {
+    text-decoration: none;
+    color: white;
+
+}
+
+.Title:hover {
+    color: white;
+}
+
+.Choix_Rappel h5 {
+    margin-top : -90px;
+    font-size : 3em;
+    font-weight : bold;
+
+}
+
+
+.Choix_Rappel{
+    height: 40%;
+    font-size: 1em;
+    font-family: Montserrat;
+    text-align: left;
+    
+    color: #3F981C;
+    margin: 0 auto;
+    margin-top: -32vh;
+
+    top: 361px;
+    left: 200px;
+    width: 1000px;
+    height: 113px;
+    text-align: center;
+    font: normal normal bold 93px/113px ;
+    letter-spacing: 0px;
+    
+}
+
+
+#Btn_Reserver_Vaccin{
+    font-size: 18px;
+
+    background-color: #79B65D!important;
+    border-color : white;
+    font-family: Montserrat;
+   margin-bottom : -5%;
+    padding: 8px 30px;    
+    align-items: center;
+    margin-top : 7%;
+    margin-left : 30%;
+    width: 400px;
+    height: 98px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 49px;
+    opacity: 1;
+
+    display: flex;
+
+    flex-direction : column;
+    justify-content : space-around;
+}
+
+
+#Btn_Reserver_Vaccin:hover {
+    background-color: #a0e282!important;
+
+}
+
+/* responsive */
+#header {
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+}
+
+/* for w < 960 or h < 730 */
+@media screen and (max-width: 960px) , (max-height: 800px) {
+
+    #Btn_Prise_Rdv{
+        font-size: var(--font-size-button-mobile);
+        padding: 8px 20px;  
+    }
+}
+
+/* -------------- WIDTH --------------------- */
+/* w <= 1104 */
+@media screen and (max-width: 1104px) {
+    .Div_Text_Header {
+       font-size: 5em;
+       margin-top: -10vh;
+    }
+}
+/* 746 <= w <= 1104 */
+@media screen and (max-width: 746px) {
+    .Div_Text_Header {
+       font-size: 4em;
+       margin-top: -10vh;
+    }
+}
+
+@media screen and (max-width: 608px) {
+    .Div_Text_Header {
+       font-size: 3em;
+       margin-top: -2vh;
+    }
+}
+
+@media screen and (max-width: 514px) {
+    .Div_Text_Header {
+       font-size: 2em;
+       margin-top: 9vh;
+    }
+}
+
+/* -------------- MIN WIDTH 332 --------------------- */
+
+
+/* -------------- HEIGHT -------------- */
+
+@media only screen and (max-width: 514px) and (max-height: 540px) {
+    .Div_Text_Header {
+        font-size: 2em;
+        margin-top: -20vh;
+    }
+}
+
+@media only screen and (min-width: 514px) and (max-width: 595px) and (max-height: 596px) {
+    .Div_Text_Header {
+        font-size: 3em;
+        margin-top: -20vh;
+    }
+}
+
+@media only screen and (min-width: 514px) and (max-width: 595px) and (max-height: 515px) {
+    .Div_Text_Header {
+        font-size: 2em;
+        margin-top: -20vh;
+    }
+}
+
+@media only screen and (min-width: 595px) and (max-width: 1104px) and (max-height: 790px) {
+    .Div_Text_Header {
+        font-size: 4em;
+        margin-top: -16vh;
+    }
+}
+
+@media only screen and (min-width: 595px) and (max-width: 1104px) and (max-height: 645px) {
+    .Div_Text_Header {
+        font-size: 3em;
+        margin-top: -16vh;
+    }
+}
+
+@media only screen and (min-width: 595px) and (max-width: 1104px) and (max-height: 540px) {
+    .Div_Text_Header {
+        font-size: 2em;
+        margin-top: -16vh;
+    }
+}
+
+@media only screen and (min-width: 1104px) and (max-height: 893px) {
+    .Div_Text_Header {
+        font-size: 6em;
+        margin-top: -40vh;
+    }
+}
+
+@media only screen and (min-width: 1104px) and (max-height: 741px) {
+    .Div_Text_Header {
+        font-size: 4em;
+        margin-top: -20vh;
+    }
+}
+
+@media only screen and (min-width: 1104px) and (max-height: 626px) {
+    .Div_Text_Header {
+        font-size: 3em;
+        margin-top: -20vh;
+    }
+}
+
+@media only screen and (min-width: 1104px) and (max-height: 529px) {
+    .Div_Text_Header {
+        font-size: 2em;
+        margin-top: -16vh;
+    }
+}
+
+
+
+
+/* -------------- MIN HEIGHT 550 -------------- */
+
+/* -------------- WIDTH AND HEIGHT  --------------------- */
+
+/* -------------- MIN WIDTH AND HEIGT --------------------- */
+

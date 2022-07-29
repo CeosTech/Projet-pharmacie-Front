@@ -38,8 +38,6 @@ export default function ({
             categorie: categorieId,
             disponibilite: disponibilite ? disponibilite : true
         });
-
-
     }
     const [product, setProduct] = useState(initialProduct());
 
@@ -79,7 +77,7 @@ export default function ({
         form_data.append("categorie", categorieId);
         form_data.append("disponibilite", product.disponibilite);
         console.log(`from_data`, form_data)
-        let url = URL + "restaurant/produit/";
+        let url = URL + "orthopedie/produit/";
         axios
             .post(url, form_data, {
                 headers: {
@@ -97,7 +95,7 @@ export default function ({
     }
 
     const deleteProduct = async () => {
-        await axios.delete(URL + "restaurant/produit/" + id + "/")
+        await axios.delete(URL + "orthopedie/produit/" + id + "/")
           .then(() => console.log(`deleted`))
           .catch(error => console.error(error));
 
@@ -119,7 +117,7 @@ export default function ({
         form_data.append("prix", product.prix);
         form_data.append("categorie", product.categorie);
         form_data.append("disponibilite", product.disponibilite);
-        let url = URL + "restaurant/produit/" + id + "/";
+        let url = URL + "orthopedie/produit/" + id + "/";
         axios
             .put(url, form_data, {
                 headers: {

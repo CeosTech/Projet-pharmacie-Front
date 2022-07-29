@@ -28,6 +28,17 @@
   text-decoration :none ;
 }
 
+
+.cardTitle {
+  color : #79B65D;
+  font-family: "Montserrat" !important;
+  
+  text-align: center;
+  font-weight: 900 !important;
+  font-size: 26px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase;
+}
 .cardGalerie {
   width: 537px;
   height: 558px;
