@@ -1,7 +1,10 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 const SecuredRoute = ({ component: Component, ...otherProps }) => {
-  const token = localStorage.getItem('jwtToken');
+  //decommenter pour remettre le login
+  
+  // const token = localStorage.getItem('jwtToken');
+  const token = true;
   return(
   <Route
     {...otherProps}

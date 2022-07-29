@@ -103,7 +103,6 @@ function App() {
             </Route>
           )}
       
-          
           <Route exact path="/felicitation" component={Felicitation} />
           <SecuredRoute path="/admin" component={Admin} />
         </NavBarContextProvider>
