@@ -1,0 +1,69 @@
+.Container_Loc{
+    height: 100%;
+    width: 100%;
+}
+
+
+.Text_Loc h5 {
+    font-size : 3em;
+    font-weight : bold;
+
+}
+
+
+.Text_Loc {
+    height: 40%;
+    font-size: 1em;
+    font-family: Montserrat;
+    text-align: left;
+    
+    color: #3F981C;
+
+    width: 250px;
+    height: 203px;
+    text-align: left;
+    margin-left : 40px;
+    
+}
+
+
+.localisation_img {
+
+    width : auto;
+    height : 350px;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 500px) {
+
+    
+    
+    
+    .Text_Loc h5 {
+        font-size : 2em;
+        font-weight : bold;
+    
+    }
+    
+    
+    .Text_Loc {
+        font-size: 1em;
+        font-family: Montserrat;
+        text-align: left;
+       
+    
+        margin-top : -10em;
+        text-align: left;
+        
+    }
+    
+    
+    .localisation_img {
+    
+        width : 300px;
+        height : auto;
+    }
+
+}
