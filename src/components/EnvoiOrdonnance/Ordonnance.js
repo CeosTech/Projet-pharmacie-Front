@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
@@ -6,69 +6,31 @@ import TextField from '@material-ui/core/TextField';
 import './Ordonnance.css';
 import img from "../../images/feuille.png"
 import 'bootstrap/dist/css/bootstrap.min.css'
-<<<<<<< HEAD
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 
-=======
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import axios from 'axios';
 import toISOString from '../../utils/toISOString'
 
 
 
   
 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 /** Using React Hook form library. Find more : https://react-hook-form.com/ */
 
 const Ordonnance = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-<<<<<<< HEAD
-    const [image, setImage] = useState(img);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const envoi = async (data) => {
-        console.log("==============ENVOIE=======")
-        console.log(data)
-        console.log("==============FIN=======")
-
-        await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/',
-            'http://localhost:8000/pharmacie/formulaire-ordonnance/', 
-            {...data, date_retrait:startDate, image_ordonnance:img } // {...data, message: "...."}
-        ).then(response => {
-            console.log(response.data);
-        }).catch((e) => {
-            console.log(e.response)
-        })
-
-    }
-
-    return (
-
-=======
     const [isSubmited, setssubmited] = useState(false);
     const [image, setImage] = useState();
-    const { register, formState: { errors }, handleSubmit } = useForm();
 
 
     const handleCloudinaryUpload = (e) =>{
-
         setImage(e.target.files[0])
-
-        // const formData = new FormData()
-        // formData.append("file", e.target.files[0])
-        // formData.append("upload_preset", "qewnhky7")
-        // axios.post("https://api.cloudinary.com/v1_1/dce8mcmao/image/upload",
-        // formData).then(res=>{
-        //     setImage(res.data.secure_url)
-        // })
     }
 
     const envoi =  (data) => {
@@ -107,7 +69,7 @@ const Ordonnance = () => {
     return (
 
        
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         <div className="Page_Formulaire_Ordonnance">
         
             {/*Presentation text of the prescription send*/}
@@ -119,12 +81,11 @@ const Ordonnance = () => {
             </div>
 
             {/* prescription send form */}
-<<<<<<< HEAD
-=======
+
             {isSubmited ? 
             <div className="Formulaire_Ordonnance" > <ThumbUpIcon style={{ color: "#49a010", fontSize: "80px", marginBottom: "40px" }} /> <h2>Votre demande a été envoyée avec succès </h2></div> 
             : 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
             <form className="Formulaire_Ordonnance" onSubmit={handleSubmit((data) => { envoi(data) }) }>
                 <h5> Lieu de Consultation </h5>
                 <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
@@ -194,26 +155,19 @@ const Ordonnance = () => {
 
                     {/* --- UPLOAD FILE FIELD --- */}
                     <TextField
-<<<<<<< HEAD
-=======
                     required
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
                     id="image_ordonnance"
                     type="file"
                     variant="outlined"
                     size="small"
                     name="image_ordonnance"
-<<<<<<< HEAD
-                    
-                />
-=======
                     onChange={handleCloudinaryUpload} />
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 
 
 
                     <button type="submit">
-                        ENVOYER
+                       <span> ENVOYER </span>
                     </button>
 
 
@@ -224,18 +178,12 @@ const Ordonnance = () => {
                 <h5> Motif de Consultation </h5>
                 <p>Réception d'articles après l'envoi d'une ordonnance</p>
 
-<<<<<<< HEAD
-            </form>
+            </form>}
             {/* end of antigenic test form */}
 
 
         </div>
 
-        
-=======
-            </form>}
-        </div> 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
         
     );
     

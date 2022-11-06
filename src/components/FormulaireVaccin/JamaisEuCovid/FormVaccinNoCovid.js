@@ -1,52 +1,23 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import DatePicker from "react-datepicker";
 import ReactDatePicker from "react-datepicker";
 import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
 import ReactSelect from "react-select";
 import '../PremiereInjection/FormulaireVaccin.css';
-<<<<<<< HEAD
-
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-import { useState } from "react";
 import { useForm} from "react-hook-form";
 import axios from 'axios';
-
-=======
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from "react";
-import { useForm} from "react-hook-form";
-import axios from 'axios';
 import toISOString from '../../../utils/toISOString';
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 
 /** Using React Hook form library. Find more : https://react-hook-form.com/ */
 
 const FormVaccinNoCovid = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-<<<<<<< HEAD
-    
-    const { register, formState: { errors }, handleSubmit } = useForm();
-
-
-    const envoi = async (data) => {
-
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-        console.log("==============ENVOIE=======")
-        console.log(data)
-        console.log("==============FIN=======")
-
-        await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/',
-            'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data, objet: "Jamais contracté Covid-19", date_reservation:startDate }
-           // {...data, date_reservation: {date}} // {...data, message: "...."}
-        ).then(response => {
-            console.log(response.data);
-=======
     const [isSubmited, setssubmited] = useState(false);
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -90,17 +61,17 @@ const FormVaccinNoCovid = () => {
         ).then(response => {
             console.log(response.data);
              setssubmited(true)
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         }).catch((e) => {
             console.log(e.response)
         })
 
     }
-<<<<<<< HEAD
+
     
 
-=======
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
+
     return (
 
         <div className="Page_Formulaire_Vaccin">
@@ -111,18 +82,18 @@ const FormVaccinNoCovid = () => {
         </div>
 
         {/* vaccin form */}
-<<<<<<< HEAD
-=======
+
+
         {isSubmited ? 
             <div className="Formulaire_Vaccin" > <ThumbUpIcon style={{ color: "#49a010", fontSize: "80px", marginBottom: "40px" }} /> <h2>Votre demande a été envoyée avec succès </h2></div> 
             :
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         <form className="Formulaire_Vaccin" onSubmit={handleSubmit((data) => { envoi(data) }) }>
             <h5> Lieu de Consultation </h5>
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire_Vaccin">
-<<<<<<< HEAD
-=======
+
+
              {/** FIRST NAME INPUT */}
               objet *
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
@@ -135,7 +106,7 @@ const FormVaccinNoCovid = () => {
 
                 {/** Show an error message under the input if the field does not respect validation rules */}
                 <ErrorMessage   errors={errors}   name="objet"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 
 
                 {/** FIRST NAME INPUT */}
@@ -261,13 +232,8 @@ const FormVaccinNoCovid = () => {
                             {
                                 required: "* Ce champs est requis",
                                 pattern: { 
-<<<<<<< HEAD
-                                    value: /\d+/,
-                                    message: "Ce champs ne comprend que des chiffres."
-=======
                                  value: /\d+/,
                                  message: "Ce champs ne comprend que des chiffres."
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
                                 },
                                 /*maxLength : {
                                     value: 15,
@@ -283,13 +249,13 @@ const FormVaccinNoCovid = () => {
                 } placeholder="Saisir..." />
                 <ErrorMessage   errors={errors}     name="num_secu"     render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
 
-<<<<<<< HEAD
+
                 
                 
 
 
-=======
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
+
                 {/* --- VACCIN CHOICE --- */}
                 Choissisez un vaccin*
                      
@@ -322,11 +288,11 @@ const FormVaccinNoCovid = () => {
                 </label>
                 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
+
+
                {/* --- DATE AND TIME FIELD --- */}
                Choisir une date *
                 <DatePicker
@@ -364,11 +330,10 @@ const FormVaccinNoCovid = () => {
 
            
 
-<<<<<<< HEAD
-        </form>
-=======
+
+
         </form>}
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         {/* end of antigenic test form */}
       
         </div>

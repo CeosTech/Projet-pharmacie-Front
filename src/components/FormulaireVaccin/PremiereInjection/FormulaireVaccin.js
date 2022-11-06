@@ -4,15 +4,15 @@ import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
 import './FormulaireVaccin.css';
-<<<<<<< HEAD
+
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-=======
+
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import toISOString from '../../../utils/toISOString'
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import axios from 'axios';
@@ -23,31 +23,6 @@ import axios from 'axios';
 const FormulaireVaccin = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-<<<<<<< HEAD
-    
-    const { register, formState: { errors }, handleSubmit } = useForm();
-
-
-    const [checked, setChecked] = React.useState(false);
-
-    const { control} = useForm();
-  const [value, setValue] = useState("");
-    
-    const envoi = async (data) => {
-
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-        console.log("==============ENVOIE=======")
-        console.log(data)
-        console.log("==============FIN=======")
-
-        await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/',
-            'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data, objet:"Première Injection", date_reservation:startDate}
-           // {...data, date_reservation: {date}} // {...data, message: "...."}
-        ).then(response => {
-            console.log(response.data);
-=======
     const [isSubmited, setssubmited] = useState(false);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [checked, setChecked] = React.useState(false);
@@ -95,7 +70,7 @@ const FormulaireVaccin = () => {
         ).then(response => {
             console.log(response.data);
             setssubmited(true)
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         }).catch((e) => {
             console.log(e.response)
         })
@@ -113,22 +88,22 @@ const FormulaireVaccin = () => {
         </div>
 
         {/* vaccin form */}
-<<<<<<< HEAD
-=======
+
+
         {isSubmited ? 
             <div className="Formulaire_Vaccin" > <ThumbUpIcon style={{ color: "#49a010", fontSize: "80px", marginBottom: "40px" }} /> <h2>Votre demande a été envoyée avec succès </h2></div> 
             :
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         <form className="Formulaire_Vaccin" onSubmit={handleSubmit((data) => { envoi(data) }) }>
             <h5> Lieu de Consultation </h5>
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire_Vaccin">
-<<<<<<< HEAD
 
-=======
+
+
                 
                 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 
                 {/** FIRST NAME INPUT */}
                 Nom *
@@ -271,13 +246,13 @@ const FormulaireVaccin = () => {
                 <ErrorMessage   errors={errors}     name="num_secu"     render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
 
                 
-<<<<<<< HEAD
+
                 
 
 
-=======
+
             
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
                 {/* --- VACCIN CHOICE --- */}
                 Choissisez un vaccin*
                      
@@ -315,10 +290,10 @@ const FormulaireVaccin = () => {
                {/* --- DATE AND TIME FIELD --- */}
                Choisir une date *
                 <DatePicker
-<<<<<<< HEAD
-=======
+
+
                  {...register("date_retrait") }
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
                     placeholderText="Choisissez votre rendez-vous *"
                     showTimeSelect
                     isClearable
@@ -326,7 +301,7 @@ const FormulaireVaccin = () => {
                     selected={startDate}
                     selectsStart
                     startDate={startDate}
-<<<<<<< HEAD
+
                     onChange={date => setStartDate(date)}
 
                     
@@ -334,19 +309,7 @@ const FormulaireVaccin = () => {
 
                 {/* ---  MESSAGE FIELD --- */}
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
-               
                     
-                
-                
-                 
-                   
-                
-=======
-                    onChange={date => setStartDate(date)}  />
-                {/* ---  MESSAGE FIELD --- */}
-                <input {...register("message") } placeholder="Un message à nous transmettre ?" />
-             
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
                 <button type="submit">
                     ENVOYER
                 </button>
@@ -359,14 +322,9 @@ const FormulaireVaccin = () => {
             <h5> Motif de Consultation </h5>
             <p>Première Injection de vaccin contre la COVID-19</p>
 
-
            
-
-<<<<<<< HEAD
-        </form>
-=======
         </form>}
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         {/* end of antigenic test form */}
       
         </div>

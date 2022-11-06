@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "mustang-front",
-=======
   "name": "pharmacie-front",
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,10 +16,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
-<<<<<<< HEAD
     "caniuse-lite": "^1.0.30001429",
-=======
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
     "firebase": "^9.6.5",
     "flatlist-react": "^1.5.0",
     "framer-motion": "^4.1.17",

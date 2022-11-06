@@ -9,8 +9,10 @@ export default function GestionRdvVaccin() {
 
   const fetchArticles = async () => {
     await axios
-      .get(//`https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/`
-      'http://localhost:8000/pharmacie/formulaire-vaccin/')
+      .get(
+        `https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/`
+      // 'http://localhost:8000/pharmacie/formulaire-vaccin/'
+      )
       .then((response) => {
         setArticles(response.data);
       })

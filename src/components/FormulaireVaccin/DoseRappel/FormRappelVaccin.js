@@ -4,11 +4,11 @@ import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
 import '../PremiereInjection/FormulaireVaccin.css';
-<<<<<<< HEAD
 
-=======
+
+
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useState } from "react";
@@ -21,34 +21,11 @@ import axios from 'axios';
 const FormRappelVaccin = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-<<<<<<< HEAD
+
     
     const { register, formState: { errors }, handleSubmit } = useForm();
    
-    const envoi = async (data) => {
-
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-        console.log("==============ENVOIE=======")
-        console.log(data)
-        console.log("==============FIN=======")
-
-        await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin',
-            'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data, objet: "Dose de rappel", date_reservation:startDate}
-           // {...data, date_reservation: {date}} // {...data, message: "...."}
-        ).then(response => {
-            console.log(response.data);
-=======
     const [isSubmited, setssubmited] = useState(false);
-    const { register, formState: { errors }, handleSubmit } = useForm();
-   
-   // const envoi = async (data) => {
-
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-       // console.log("==============ENVOIE=======")
-       // console.log(data)
-       // console.log("==============FIN=======")
 
        const envoi =  (data) => {
         console.log(data)
@@ -81,7 +58,7 @@ const FormRappelVaccin = () => {
         ).then(response => {
             console.log(response.data);
             setssubmited(true)
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         }).catch((e) => {
             console.log(e.response)
         })
@@ -99,21 +76,21 @@ const FormRappelVaccin = () => {
         </div>
 
         {/* vaccin form */}
-<<<<<<< HEAD
-=======
+
+
         {isSubmited ? 
             <div className="Formulaire_Vaccin" > <ThumbUpIcon style={{ color: "#49a010", fontSize: "80px", marginBottom: "40px" }} /> <h2>Votre demande a été envoyée avec succès </h2></div> 
             : 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         <form className="Formulaire_Vaccin" onSubmit={handleSubmit((data) => { envoi(data) }) }>
             <h5> Lieu de Consultation </h5>
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire_Vaccin">
 
-<<<<<<< HEAD
+
 
                 {/** FIRST NAME INPUT */}
-=======
+
                  {/** FIRST NAME INPUT */}
                  objet *
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
@@ -128,7 +105,7 @@ const FormRappelVaccin = () => {
                 <ErrorMessage   errors={errors}   name="objet"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
                 {/** FIRST NAME INPUT */}
 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
                 Nom *
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
@@ -342,15 +319,8 @@ const FormRappelVaccin = () => {
             <h5> Motif de Consultation </h5>
             <p>Première Injection de vaccin contre la COVID-19</p>
 
-
-           
-
-<<<<<<< HEAD
-        </form>
-=======
         </form>}
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
-        {/* end of antigenic test form */}
+
       
         </div>
         

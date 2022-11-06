@@ -4,15 +4,15 @@ import { ErrorMessage } from '@hookform/error-message';
 import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
 import '../PremiereInjection/FormulaireVaccin.css';
-<<<<<<< HEAD
+
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-=======
+
 //import toISOString from '../../utils/toISOString';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
@@ -23,35 +23,9 @@ import axios from 'axios';
 const FormDeuxiemeInjec = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-<<<<<<< HEAD
-    
     const { register, formState: { errors }, handleSubmit } = useForm();
-    
-    const envoi = async (data) => {
-
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-        console.log("==============ENVOIE=======")
-        console.log(data)
-        console.log("==============FIN=======")
-
-        await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
-            'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data , objet: "Deuxieme Injection", date_reservation:startDate}
-           // {...data, date_reservation: {date}} // {...data, message: "...."}
-        ).then(response => {
-            console.log(response.data);
-=======
     const [isSubmited, setssubmited] = useState(false);
-    const { register, formState: { errors }, handleSubmit } = useForm();
     
-          // const envoi = async (data) => {
-
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-        //console.log("==============ENVOIE=======")
-       // console.log(data)
-        //console.log("==============FIN=======")
-
               const envoi =  (data) => {
               console.log(data)
               const formData = new FormData()
@@ -82,7 +56,7 @@ const FormDeuxiemeInjec = () => {
         ).then(response => {
             console.log(response.data);
             setssubmited(true)
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         }).catch((e) => {
             console.log(e.response)
         })
@@ -100,19 +74,19 @@ const FormDeuxiemeInjec = () => {
         </div>
 
         {/* vaccin form */}
-<<<<<<< HEAD
-=======
+
+
         {isSubmited ? 
             <div className="Formulaire_Vaccin" > <ThumbUpIcon style={{ color: "#49a010", fontSize: "80px", marginBottom: "40px" }} /> <h2>Votre demande a été envoyée avec succès </h2></div> 
             : 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
         <form className="Formulaire_Vaccin" onSubmit={handleSubmit((data) => { envoi(data) }) }>
             <h5> Lieu de Consultation </h5>
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire_Vaccin">
-<<<<<<< HEAD
 
-=======
+
+
              {/** FIRST NAME INPUT */}
                 objet *
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
@@ -122,7 +96,7 @@ const FormDeuxiemeInjec = () => {
                             required: '* Ce champs est requis'
                         })
                 } placeholder="Saisir..." />
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
+
 
                 {/** FIRST NAME INPUT */}
                 Nom *
@@ -322,10 +296,6 @@ const FormDeuxiemeInjec = () => {
                
                     
                 
-                
-                 
-                   
-                
                 <button type="submit">
                     ENVOYER
                 </button>
@@ -338,26 +308,16 @@ const FormDeuxiemeInjec = () => {
             <h5> Motif de Consultation </h5>
             <p>Première Injection de vaccin contre la COVID-19</p>
 
-
-           
-
-<<<<<<< HEAD
-        </form>
-=======
         </form>}
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
-        {/* end of antigenic test form */}
+
       
         </div>
         
     );
-<<<<<<< HEAD
+
     
 }
-=======
 
- }
 
->>>>>>> c39b148 (improve forms ux by adding thank you component on form submmition)
 
 export default FormDeuxiemeInjec;
