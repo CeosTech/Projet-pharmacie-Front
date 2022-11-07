@@ -97,6 +97,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/** FIRST NAME INPUT */}
+                <div style={{margin:"20px 0"}}>Nom <span style={{color:"red"}}>*</span></div>
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
                         ...register("nom",
@@ -110,6 +111,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- LAST NAME INPUT --- */}
+                <div style={{margin:"20px 0"}}>Prénom <span style={{color:"red"}}>*</span></div>
                 <input {...register("prenom",
                             {
                                 required: '* Ce champs est requis'
@@ -120,6 +122,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- PHONE NUMBER INPUT --- */}
+                <div style={{margin:"20px 0"}}>Email <span style={{color:"red"}}>*</span></div>
                 <input {...register("telephone",
                             {
                                 required: "* Ce champs est requis",
@@ -141,6 +144,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- EMAIL INPUT --- */}
+                <div style={{margin:"20px 0"}}>Email <span style={{color:"red"}}>*</span></div>
                 <input {...register("email",
                             {
                                 required: "* Ce champs est requis",
@@ -151,6 +155,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- AGE INPUT --- */}
+                <div style={{margin:"20px 0"}}>Age <span style={{color:"red"}}>*</span></div>
                 <input {...register("age",
                             {
                                 required: '* Ce champs est requis',
@@ -170,6 +175,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- ADRESS INPUT --- */}
+                <div style={{margin:"20px 0"}}>Adresse <span style={{color:"red"}}>*</span></div>
                 <input {...register("adresse",
                             {
                                 required: '* Ce champs est requis'
@@ -179,6 +185,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- POSTCODE INPUT --- */}
+                <div style={{margin:"20px 0"}}>Code Postale <span style={{color:"red"}}>*</span></div>
                 <input {...register("code_postal",
                             {
                                 required: '* Ce champs est requis',
@@ -197,6 +204,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- CITY INPUT --- */}
+                <div style={{margin:"20px 0"}}>Ville <span style={{color:"red"}}>*</span></div>
                 <input {...register("ville",
                             {
                                 required: '* Ce champs est requis'
@@ -206,6 +214,7 @@ const FormulaireAntigenique = () => {
 
 
                 {/* --- SOCIAL SECURITY SYSTEM NUMBER INPUT --- */}
+                <div style={{margin:"20px 0"}}>Numéro de Sécurité sociale <span style={{color:"red"}}>*</span></div>
                 <input {...register("num_secu",
                             {
                                 required: "* Ce champs est requis",
@@ -229,10 +238,12 @@ const FormulaireAntigenique = () => {
 
                 
                 {/* ---  MESSAGE FIELD --- */}
+                <div style={{margin:"20px 0"}}>Message </div>
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
 
       
                 {/* --- DATE AND TIME FIELD --- */}
+                <div style={{margin:"20px 0"}}>Choisir une date <span style={{color:"red"}}>*</span></div>
                 <DatePicker
                     {...register("date_reservation") }
                     placeholderText="Choisissez votre rendez-vous *"
@@ -248,7 +259,7 @@ const FormulaireAntigenique = () => {
                 
                 
                 <button type="submit">
-                    ENVOYER
+                <span> ENVOYER </span>
                 </button>
 
                 

@@ -99,14 +99,9 @@ const FormulaireVaccin = () => {
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire_Vaccin">
 
-
-
-                
-                
-
-
                 {/** FIRST NAME INPUT */}
-                Nom *
+               
+                <div style={{margin:"20px 0"}}>  Nom  <span style={{color:"red"}}>*</span></div>
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
                         ...register("nom",
@@ -120,7 +115,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- LAST NAME INPUT --- */}
-                Prénom *
+                
+                <div style={{margin:"20px 0"}}>  Prénom  <span style={{color:"red"}}>*</span></div>
                 <input {...register("prenom",
                             {
                                 required: '* Ce champs est requis'
@@ -131,7 +127,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- PHONE NUMBER INPUT --- */}
-                Telephone *
+                
+                <div style={{margin:"20px 0"}}>  Téléphone  <span style={{color:"red"}}>*</span></div>
                 <input {...register("telephone",
                             {
                                 required: "* Ce champs est requis",
@@ -153,7 +150,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- EMAIL INPUT --- */}
-                Email *
+                
+                <div style={{margin:"20px 0"}}>  Email  <span style={{color:"red"}}>*</span></div>
                 <input {...register("email",
                             {
                                 required: "* Ce champs est requis",
@@ -164,7 +162,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- AGE INPUT --- */}
-                Age *
+                
+                <div style={{margin:"20px 0"}}>  Age  <span style={{color:"red"}}>*</span></div>
                 <input {...register("age",
                             {
                                 required: '* Ce champs est requis',
@@ -184,7 +183,7 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- ADRESS INPUT --- */}
-                Adresse *
+                <div style={{margin:"20px 0"}}>  Adresse  <span style={{color:"red"}}>*</span></div>
                 <input {...register("adresse",
                             {
                                 required: '* Ce champs est requis'
@@ -194,7 +193,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- POSTCODE INPUT --- */}
-                Code Postal *
+
+                <div style={{margin:"20px 0"}}>  Code Postal  <span style={{color:"red"}}>*</span></div>
                 <input {...register("code_postal",
                             {
                                 required: '* Ce champs est requis',
@@ -213,7 +213,7 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- CITY INPUT --- */}
-                Ville*
+                <div style={{margin:"20px 0"}}>  Ville <span style={{color:"red"}}>*</span></div>
                 <input {...register("ville",
                             {
                                 required: '* Ce champs est requis'
@@ -223,7 +223,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- SOCIAL SECURITY SYSTEM NUMBER INPUT --- */}
-                Numéro de sécurité sociale *
+                <div style={{margin:"20px 0"}}>  Numéro de sécurité sociale  <span style={{color:"red"}}>*</span></div>
+              
                 <input {...register("num_secu",
                             {
                                 required: "* Ce champs est requis",
@@ -254,8 +255,8 @@ const FormulaireVaccin = () => {
             
 
                 {/* --- VACCIN CHOICE --- */}
-                Choissisez un vaccin*
-                     
+               
+                <div style={{margin:"20px 0"}}> Choissisez un vaccin <span style={{color:"red"}}>*</span></div>
                 <label className="type_vaccin">
                     <input {...register("choix_vaccin") } type="radio"   value="Sans préférence"/>
                     <p className="vaccinTitle"> Vaccin ARNm, sans préférence </p>
@@ -288,7 +289,8 @@ const FormulaireVaccin = () => {
 
 
                {/* --- DATE AND TIME FIELD --- */}
-               Choisir une date *
+               
+               <div style={{margin:"20px 0"}}> Choisissez une date <span style={{color:"red"}}>*</span></div>
                 <DatePicker
 
 
@@ -308,10 +310,11 @@ const FormulaireVaccin = () => {
                 />
 
                 {/* ---  MESSAGE FIELD --- */}
+                <div style={{margin:"20px 0"}}> Message <span style={{color:"red"}}>*</span></div>
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
                     
                 <button type="submit">
-                    ENVOYER
+                <span> ENVOYER </span>
                 </button>
 
                 

@@ -92,6 +92,7 @@ const Ordonnance = () => {
                 <div className="Categorie_Formulaire_Ordonnance">
 
                     {/** FIRST NAME INPUT */}
+                    <div style={{margin:"20px 0"}}>Nom <span style={{color:"red"}}>*</span></div>
                     <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
 
                             ...register("nom",
@@ -104,6 +105,7 @@ const Ordonnance = () => {
                     <ErrorMessage   errors={errors}   name="nom"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
                     {/* --- LAST NAME INPUT --- */}
+                    <div style={{margin:"20px 0"}}>Prénom <span style={{color:"red"}}>*</span></div>
                     <input {...register("prenom",
                                 {
                                     required: '* Ce champs est requis'
@@ -113,6 +115,7 @@ const Ordonnance = () => {
                     <ErrorMessage   errors={errors}   name="prenom"   render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
                     {/* --- PHONE NUMBER INPUT --- */}
+                    <div style={{margin:"20px 0"}}>Téléphone <span style={{color:"red"}}>*</span></div>
                     <input {...register("telephone",
                                 {
                                     required: "* Ce champs est requis",
@@ -125,6 +128,7 @@ const Ordonnance = () => {
                     <ErrorMessage   errors={errors}   name="telephone"  render={({ message }) => <p id='Message_erreur'>{message}</p>}  />
 
                     {/* --- EMAIL INPUT --- */}
+                    <div style={{margin:"20px 0"}}>Email <span style={{color:"red"}}>*</span></div>
                     <input {...register("email",
                                 {
                                     required: "* Ce champs est requis",
@@ -135,6 +139,7 @@ const Ordonnance = () => {
 
 
                     {/* --- DATE AND TIME FIELD --- */}
+                    <div style={{margin:"20px 0"}}>Choisir une date <span style={{color:"red"}}>*</span></div>
                     <DatePicker
                         {...register("date_retrait") }
                         placeholderText="Choisissez votre rendez-vous *"
@@ -150,10 +155,12 @@ const Ordonnance = () => {
 
 
                     {/* ---  MESSAGE FIELD --- */}
+                    <div style={{margin:"20px 0"}}>Message</div>
                     <input {...register("message") } placeholder="Un message à nous transmettre ?" />
 
 
                     {/* --- UPLOAD FILE FIELD --- */}
+                    <div style={{margin:"20px 0"}}>Ordonnance <span style={{color:"red"}}>*</span></div>
                     <TextField
                     required
                     id="image_ordonnance"

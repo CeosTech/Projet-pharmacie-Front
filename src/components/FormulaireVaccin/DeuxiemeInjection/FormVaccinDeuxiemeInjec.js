@@ -87,8 +87,9 @@ const FormDeuxiemeInjec = () => {
 
 
 
-             {/** FIRST NAME INPUT */}
-                objet *
+             {/** FIRST OBJECT INPUT */}
+                
+                <div style={{margin:"20px 0"}}> Objet <span style={{color:"red"}}>*</span></div>
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
                         ...register("objet",
@@ -99,7 +100,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/** FIRST NAME INPUT */}
-                Nom *
+              
+                <div style={{margin:"20px 0"}}> Nom <span style={{color:"red"}}>*</span></div>
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
                         ...register("nom",
@@ -113,7 +115,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- LAST NAME INPUT --- */}
-                Prénom *
+                
+                <div style={{margin:"20px 0"}}> Prénom <span style={{color:"red"}}>*</span></div>
                 <input {...register("prenom",
                             {
                                 required: '* Ce champs est requis'
@@ -124,7 +127,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- PHONE NUMBER INPUT --- */}
-                Telephone *
+              
+                <div style={{margin:"20px 0"}}> Téléphone <span style={{color:"red"}}>*</span></div>
                 <input {...register("telephone",
                             {
                                 required: "* Ce champs est requis",
@@ -146,7 +150,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- EMAIL INPUT --- */}
-                Email *
+                
+                <div style={{margin:"20px 0"}}> Email <span style={{color:"red"}}>*</span></div>
                 <input {...register("email",
                             {
                                 required: "* Ce champs est requis",
@@ -157,7 +162,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- AGE INPUT --- */}
-                Age *
+                
+                <div style={{margin:"20px 0"}}> Age <span style={{color:"red"}}>*</span></div>
                 <input {...register("age",
                             {
                                 required: '* Ce champs est requis',
@@ -177,7 +183,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- ADRESS INPUT --- */}
-                Adresse *
+                
+                <div style={{margin:"20px 0"}}> Adresse <span style={{color:"red"}}>*</span></div>
                 <input {...register("adresse",
                             {
                                 required: '* Ce champs est requis'
@@ -187,7 +194,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- POSTCODE INPUT --- */}
-                Code Postal *
+               
+                <div style={{margin:"20px 0"}}> Code Postal <span style={{color:"red"}}>*</span></div>
                 <input {...register("code_postal",
                             {
                                 required: '* Ce champs est requis',
@@ -206,7 +214,7 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- CITY INPUT --- */}
-                Ville*
+                <div style={{margin:"20px 0"}}> Ville <span style={{color:"red"}}>*</span></div>
                 <input {...register("ville",
                             {
                                 required: '* Ce champs est requis'
@@ -216,7 +224,7 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- SOCIAL SECURITY SYSTEM NUMBER INPUT --- */}
-                Numéro de sécurité sociale *
+                <div style={{margin:"20px 0"}}> Numéro de Sécurité sociale <span style={{color:"red"}}>*</span></div>
                 <input {...register("num_secu",
                             {
                                 required: "* Ce champs est requis",
@@ -243,8 +251,7 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- VACCIN CHOICE --- */}
-                Choissisez un vaccin*
-                     
+                <div style={{margin:"20px 0"}}> Choisissez un vaccin <span style={{color:"red"}}>*</span></div>
                 <label className="type_vaccin">
                     <input {...register("choix_vaccin") } type="radio"   value="Sans préférence"/>
                     <p className="vaccinTitle"> Vaccin ARNm, sans préférence </p>
@@ -277,7 +284,8 @@ const FormDeuxiemeInjec = () => {
 
 
                {/* --- DATE AND TIME FIELD --- */}
-               Choisir une date *
+              
+               <div style={{margin:"20px 0"}}> Choisir une date <span style={{color:"red"}}>*</span>:</div>
                 <DatePicker
                     placeholderText="Choisissez votre rendez-vous *"
                     showTimeSelect
@@ -292,12 +300,13 @@ const FormDeuxiemeInjec = () => {
                 />
 
                 {/* ---  MESSAGE FIELD --- */}
+                <div style={{margin:"20px 0"}}> Message <span style={{color:"red"}}>*</span>:</div>
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
                
                     
                 
                 <button type="submit">
-                    ENVOYER
+                <span> ENVOYER </span>
                 </button>
 
                 
