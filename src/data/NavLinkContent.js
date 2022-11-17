@@ -1,7 +1,7 @@
 export const NavLinkContent = [
     {
         id: 1,
-        titre: "Acceuil",
+        titre: "Accueil",
         link: "/#header"
     },
     {

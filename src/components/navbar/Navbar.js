@@ -8,7 +8,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import Logo_Mustang from '../../images/Logo_pharmacie.png';
 import feuille from '../../images/feuille.png';
 import { NavLink } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,16 +17,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { NavLinkContent } from '../../data/NavLinkContent';
 import { Grid } from '@material-ui/core';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+
 import {HashLink} from 'react-router-hash-link';
-import StarIcon from '@material-ui/icons/Star';
-import { useNavBarStateValue } from "../../contexts/Navbar/navbarState";
+
 import { useLocation } from "react-router-dom";
-import { getNombresArticles, smoothScroll } from "../../utilities";
+
 import { sendrequest } from "../../middlewares/request";
 import { selectBaskets } from "../../app/Redux-slices/basketsSlice";
 import { useSelector } from "react-redux";
-import SVG_MENU from "../../images/burger-menu.svg";
+
 import Switch from "react-switch";
 
 const useStyles = makeStyles({

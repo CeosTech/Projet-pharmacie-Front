@@ -83,7 +83,7 @@ function Service() {
             {
               breakpoint: 480,
               settings: {
-                slidesToShow: 1,
+              slidesToShow: 1,
               }
             }
         ]
@@ -93,16 +93,16 @@ function Service() {
 
         <>
         <div className="platsTitleContainer">
-                    <Typography gutterBottom variant="h5" component="h1" className="platsTitle">
+                    <Typography gutterBottom variant="h5" component="h1" className="formulaire">
                         Nos services 
                     </Typography>
                 </div>
 
-        <div style= {{padding:"50px"}}>
-        <Slider {...settings}>
+        <div style= {{padding:"50px"}} className="formulaire" >
+        <Slider {...settings} >
           
           
-          {data.map((item, index)=><Carte omar='this is my name' index={index} item={item}/>)}
+          {data.map((item, index)=><Carte index={index} item={item}/>)}
         </Slider>
         </div>
         </>

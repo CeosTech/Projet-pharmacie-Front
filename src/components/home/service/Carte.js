@@ -26,6 +26,16 @@ const useStyles = makeStyles({
   media: {
     height: 150,
   },
+
+  titre:{
+    color:"#3f981c",
+    fontFamily: "Montserrat",
+    textAlign: "center",
+  //  paddingTop: "30px",
+   //  borderRadius: "50%"
+    fontWeight: "700",
+    
+  }
 });
 
 export default function Carte(props) {
@@ -42,7 +52,7 @@ export default function Carte(props) {
           title={props.item.titre}
         />
         <CardContent className={classes.cardContentStyle}>
-          <Typography align="center" variant="h5" component="h2">
+          <Typography className={classes.titre} align="center" variant="h5" component="h2">
           {props.item.titre}
           </Typography>
        

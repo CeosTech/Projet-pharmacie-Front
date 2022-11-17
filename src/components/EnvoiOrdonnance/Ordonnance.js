@@ -6,11 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import './Ordonnance.css';
 import img from "../../images/feuille.png"
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-
-
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import toISOString from '../../utils/toISOString'
 
@@ -48,7 +45,7 @@ const Ordonnance = () => {
         
         axios.post(
              'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/',
-            //'http://localhost:8000/pharmacie/formulaire-ordonnance/', 
+            // 'http://localhost:8000/pharmacie/formulaire-ordonnance/', 
             formData,
              // {...data, message: "...."}
             {
@@ -149,14 +146,13 @@ const Ordonnance = () => {
                         selected={startDate}
                         selectsStart
                         startDate={startDate}
-                        onChange={date => setStartDate(date)}
-                        
+                        onChange={date => setStartDate(date)}     
                     />
-
 
                     {/* ---  MESSAGE FIELD --- */}
                     <div style={{margin:"20px 0"}}>Message</div>
-                    <input {...register("message") } placeholder="Un message à nous transmettre ?" />
+                    <input {...register("message") } placeholder="Un message à nous transmettre ?"
+                     />
 
 
                     {/* --- UPLOAD FILE FIELD --- */}
