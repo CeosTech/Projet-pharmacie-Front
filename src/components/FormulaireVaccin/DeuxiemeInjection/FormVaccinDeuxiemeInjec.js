@@ -5,7 +5,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
 import '../PremiereInjection/FormulaireVaccin.css';
 
+
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+//import toISOString from '../../utils/toISOString';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -17,23 +23,40 @@ import axios from 'axios';
 const FormDeuxiemeInjec = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-    
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [isSubmited, setssubmited] = useState(false);
     
-    const envoi = async (data) => {
-
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-        console.log("==============ENVOIE=======")
-        console.log(data)
-        console.log("==============FIN=======")
-
-        await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
-            'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data , objet: "Deuxieme Injection", date_reservation:startDate}
+              const envoi =  (data) => {
+              console.log(data)
+              const formData = new FormData()
+              formData.append("objet", data.objet)
+              formData.append("nom", data.nom)
+              formData.append("prenom", data.prenom)
+              formData.append("telephone", data.telephone)
+              formData.append("email", data.email)
+              formData.append("age", data.age)
+              formData.append("adresse", data.adresse)
+              formData.append("code_postal", data.code_postal)
+              formData.append("ville", data.ville)
+              formData.append("num_secu", data.num_secu)
+         //   formData.append("date_retrait", toISOString(startDate))
+              formData.append("choix_vaccin", data.choix_vaccin)
+        axios.post(
+              'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
+            //'http://localhost:8000/pharmacie/formulaire-vaccin/',
+            //{...data , objet: "Deuxieme Injection", date_reservation:startDate}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
+           formData,
+           // {...data, message: "...."}
+          {
+              headers: {
+                  'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+              }
+          }
         ).then(response => {
             console.log(response.data);
+            setssubmited(true)
+
         }).catch((e) => {
             console.log(e.response)
         })
@@ -51,14 +74,34 @@ const FormDeuxiemeInjec = () => {
         </div>
 
         {/* vaccin form */}
+
+
+        {isSubmited ? 
+            <div className="Formulaire_Vaccin" > <ThumbUpIcon style={{ color: "#49a010", fontSize: "80px", marginBottom: "40px" }} /> <h2>Votre demande a été envoyée avec succès </h2></div> 
+            : 
+
         <form className="Formulaire_Vaccin" onSubmit={handleSubmit((data) => { envoi(data) }) }>
             <h5> Lieu de Consultation </h5>
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire_Vaccin">
 
 
+
+             {/** FIRST OBJECT INPUT */}
+                
+                <div style={{margin:"20px 0"}}> Objet <span style={{color:"red"}}>*</span></div>
+                <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
+                    
+                        ...register("objet",
+                        {
+                            required: '* Ce champs est requis'
+                        })
+                } placeholder="Saisir..." />
+
+
                 {/** FIRST NAME INPUT */}
-                Nom *
+              
+                <div style={{margin:"20px 0"}}> Nom <span style={{color:"red"}}>*</span></div>
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
                         ...register("nom",
@@ -72,7 +115,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- LAST NAME INPUT --- */}
-                Prénom *
+                
+                <div style={{margin:"20px 0"}}> Prénom <span style={{color:"red"}}>*</span></div>
                 <input {...register("prenom",
                             {
                                 required: '* Ce champs est requis'
@@ -83,7 +127,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- PHONE NUMBER INPUT --- */}
-                Telephone *
+              
+                <div style={{margin:"20px 0"}}> Téléphone <span style={{color:"red"}}>*</span></div>
                 <input {...register("telephone",
                             {
                                 required: "* Ce champs est requis",
@@ -105,7 +150,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- EMAIL INPUT --- */}
-                Email *
+                
+                <div style={{margin:"20px 0"}}> Email <span style={{color:"red"}}>*</span></div>
                 <input {...register("email",
                             {
                                 required: "* Ce champs est requis",
@@ -116,7 +162,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- AGE INPUT --- */}
-                Age *
+                
+                <div style={{margin:"20px 0"}}> Age <span style={{color:"red"}}>*</span></div>
                 <input {...register("age",
                             {
                                 required: '* Ce champs est requis',
@@ -136,7 +183,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- ADRESS INPUT --- */}
-                Adresse *
+                
+                <div style={{margin:"20px 0"}}> Adresse <span style={{color:"red"}}>*</span></div>
                 <input {...register("adresse",
                             {
                                 required: '* Ce champs est requis'
@@ -146,7 +194,8 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- POSTCODE INPUT --- */}
-                Code Postal *
+               
+                <div style={{margin:"20px 0"}}> Code Postal <span style={{color:"red"}}>*</span></div>
                 <input {...register("code_postal",
                             {
                                 required: '* Ce champs est requis',
@@ -165,7 +214,7 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- CITY INPUT --- */}
-                Ville*
+                <div style={{margin:"20px 0"}}> Ville <span style={{color:"red"}}>*</span></div>
                 <input {...register("ville",
                             {
                                 required: '* Ce champs est requis'
@@ -175,7 +224,7 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- SOCIAL SECURITY SYSTEM NUMBER INPUT --- */}
-                Numéro de sécurité sociale *
+                <div style={{margin:"20px 0"}}> Numéro de Sécurité sociale <span style={{color:"red"}}>*</span></div>
                 <input {...register("num_secu",
                             {
                                 required: "* Ce champs est requis",
@@ -202,8 +251,7 @@ const FormDeuxiemeInjec = () => {
 
 
                 {/* --- VACCIN CHOICE --- */}
-                Choissisez un vaccin*
-                     
+                <div style={{margin:"20px 0"}}> Choisissez un vaccin <span style={{color:"red"}}>*</span></div>
                 <label className="type_vaccin">
                     <input {...register("choix_vaccin") } type="radio"   value="Sans préférence"/>
                     <p className="vaccinTitle"> Vaccin ARNm, sans préférence </p>
@@ -236,7 +284,8 @@ const FormDeuxiemeInjec = () => {
 
 
                {/* --- DATE AND TIME FIELD --- */}
-               Choisir une date *
+              
+               <div style={{margin:"20px 0"}}> Choisir une date <span style={{color:"red"}}>*</span>:</div>
                 <DatePicker
                     placeholderText="Choisissez votre rendez-vous *"
                     showTimeSelect
@@ -251,16 +300,13 @@ const FormDeuxiemeInjec = () => {
                 />
 
                 {/* ---  MESSAGE FIELD --- */}
+                <div style={{margin:"20px 0"}}> Message <span style={{color:"red"}}>*</span>:</div>
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
                
                     
                 
-                
-                 
-                   
-                
                 <button type="submit">
-                    ENVOYER
+                <span> ENVOYER </span>
                 </button>
 
                 
@@ -271,16 +317,16 @@ const FormDeuxiemeInjec = () => {
             <h5> Motif de Consultation </h5>
             <p>Première Injection de vaccin contre la COVID-19</p>
 
+        </form>}
 
-           
-
-        </form>
-        {/* end of antigenic test form */}
       
         </div>
         
     );
+
     
 }
+
+
 
 export default FormDeuxiemeInjec;

@@ -5,7 +5,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import TextField from '@material-ui/core/TextField';
 import './FormulaireVaccin.css';
 
+
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import toISOString from '../../../utils/toISOString'
 
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
@@ -17,29 +23,54 @@ import axios from 'axios';
 const FormulaireVaccin = () => {
 
     const [startDate, setStartDate] = useState(new Date());
-    
+    const [isSubmited, setssubmited] = useState(false);
     const { register, formState: { errors }, handleSubmit } = useForm();
-
-
     const [checked, setChecked] = React.useState(false);
-
     const { control} = useForm();
-  const [value, setValue] = useState("");
-    
-    const envoi = async (data) => {
+     const [value, setValue] = useState("");
 
-        //next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
-        console.log("==============ENVOIE=======")
+     const envoi =  (data) => {
         console.log(data)
-        console.log("==============FIN=======")
+        const formData = new FormData()
+        formData.append("objet", data.objet)
+        formData.append("nom", data.nom)
+        formData.append("prenom", data.prenom)
+        formData.append("telephone", data.telephone)
+        formData.append("email", data.email)
+        formData.append("age", data.age)
+        formData.append("adresse", data.adresse)
+        formData.append("code_postal", data.code_postal)
+        formData.append("ville", data.ville)
+        formData.append("num_secu", data.num_secu)
+        formData.append("choix_vaccin", data.choix_vaccin)
+        formData.append("date_retrait", toISOString(startDate))
+        formData.append("message", data.message)
+    
 
-        await axios.post(
-            //'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/',
-            'http://localhost:8000/pharmacie/formulaire-vaccin/',
-            {...data, objet:"Première Injection", date_reservation:startDate}
+        for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }  //  const envoi = async (data) => {
+
+       // next 3 lines are for devs just to see in the console if everything is ok, cand be deleted at the end of the project
+       // console.log("==============ENVOIE=======")
+       // console.log(data)
+       // console.log("==============FIN=======")
+
+         axios.post(
+              'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/',
+           //'http://localhost:8000/pharmacie/formulaire-vaccin/',
+           // {...data, objet:"Première Injection", date_reservation:startDate}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
+           formData,
+           {
+            headers: {
+                'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+            }
+        }
         ).then(response => {
             console.log(response.data);
+            setssubmited(true)
+
         }).catch((e) => {
             console.log(e.response)
         })
@@ -57,14 +88,20 @@ const FormulaireVaccin = () => {
         </div>
 
         {/* vaccin form */}
+
+
+        {isSubmited ? 
+            <div className="Formulaire_Vaccin" > <ThumbUpIcon style={{ color: "#49a010", fontSize: "80px", marginBottom: "40px" }} /> <h2>Votre demande a été envoyée avec succès </h2></div> 
+            :
+
         <form className="Formulaire_Vaccin" onSubmit={handleSubmit((data) => { envoi(data) }) }>
             <h5> Lieu de Consultation </h5>
             <p>Supeco - Dépistage Antigénique <br></br> 2 Avenue De La Garonne, 78200 Buchelay</p> <br></br>
             <div className="Categorie_Formulaire_Vaccin">
 
-
                 {/** FIRST NAME INPUT */}
-                Nom *
+               
+                <div style={{margin:"20px 0"}}>  Nom  <span style={{color:"red"}}>*</span></div>
                 <input {/* register must be use to apply validation rules on the input. Find more : https://react-hook-form.com/api/useform/register/ */
                     
                         ...register("nom",
@@ -78,7 +115,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- LAST NAME INPUT --- */}
-                Prénom *
+                
+                <div style={{margin:"20px 0"}}>  Prénom  <span style={{color:"red"}}>*</span></div>
                 <input {...register("prenom",
                             {
                                 required: '* Ce champs est requis'
@@ -89,7 +127,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- PHONE NUMBER INPUT --- */}
-                Telephone *
+                
+                <div style={{margin:"20px 0"}}>  Téléphone  <span style={{color:"red"}}>*</span></div>
                 <input {...register("telephone",
                             {
                                 required: "* Ce champs est requis",
@@ -111,7 +150,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- EMAIL INPUT --- */}
-                Email *
+                
+                <div style={{margin:"20px 0"}}>  Email  <span style={{color:"red"}}>*</span></div>
                 <input {...register("email",
                             {
                                 required: "* Ce champs est requis",
@@ -122,7 +162,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- AGE INPUT --- */}
-                Age *
+                
+                <div style={{margin:"20px 0"}}>  Age  <span style={{color:"red"}}>*</span></div>
                 <input {...register("age",
                             {
                                 required: '* Ce champs est requis',
@@ -142,7 +183,7 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- ADRESS INPUT --- */}
-                Adresse *
+                <div style={{margin:"20px 0"}}>  Adresse  <span style={{color:"red"}}>*</span></div>
                 <input {...register("adresse",
                             {
                                 required: '* Ce champs est requis'
@@ -152,7 +193,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- POSTCODE INPUT --- */}
-                Code Postal *
+
+                <div style={{margin:"20px 0"}}>  Code Postal  <span style={{color:"red"}}>*</span></div>
                 <input {...register("code_postal",
                             {
                                 required: '* Ce champs est requis',
@@ -171,7 +213,7 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- CITY INPUT --- */}
-                Ville*
+                <div style={{margin:"20px 0"}}>  Ville <span style={{color:"red"}}>*</span></div>
                 <input {...register("ville",
                             {
                                 required: '* Ce champs est requis'
@@ -181,7 +223,8 @@ const FormulaireVaccin = () => {
 
 
                 {/* --- SOCIAL SECURITY SYSTEM NUMBER INPUT --- */}
-                Numéro de sécurité sociale *
+                <div style={{margin:"20px 0"}}>  Numéro de sécurité sociale  <span style={{color:"red"}}>*</span></div>
+              
                 <input {...register("num_secu",
                             {
                                 required: "* Ce champs est requis",
@@ -204,12 +247,16 @@ const FormulaireVaccin = () => {
                 <ErrorMessage   errors={errors}     name="num_secu"     render={({ message }) => <p id='Message_erreur'>{message}</p>}   />
 
                 
+
                 
 
 
+
+            
+
                 {/* --- VACCIN CHOICE --- */}
-                Choissisez un vaccin*
-                     
+               
+                <div style={{margin:"20px 0"}}> Choissisez un vaccin <span style={{color:"red"}}>*</span></div>
                 <label className="type_vaccin">
                     <input {...register("choix_vaccin") } type="radio"   value="Sans préférence"/>
                     <p className="vaccinTitle"> Vaccin ARNm, sans préférence </p>
@@ -242,8 +289,13 @@ const FormulaireVaccin = () => {
 
 
                {/* --- DATE AND TIME FIELD --- */}
-               Choisir une date *
+               
+               <div style={{margin:"20px 0"}}> Choisissez une date <span style={{color:"red"}}>*</span></div>
                 <DatePicker
+
+
+                 {...register("date_retrait") }
+
                     placeholderText="Choisissez votre rendez-vous *"
                     showTimeSelect
                     isClearable
@@ -251,22 +303,18 @@ const FormulaireVaccin = () => {
                     selected={startDate}
                     selectsStart
                     startDate={startDate}
+
                     onChange={date => setStartDate(date)}
 
                     
                 />
 
                 {/* ---  MESSAGE FIELD --- */}
+                <div style={{margin:"20px 0"}}> Message <span style={{color:"red"}}>*</span></div>
                 <input {...register("message") } placeholder="Un message à nous transmettre ?" />
-               
                     
-                
-                
-                 
-                   
-                
                 <button type="submit">
-                    ENVOYER
+                <span> ENVOYER </span>
                 </button>
 
                 
@@ -277,10 +325,9 @@ const FormulaireVaccin = () => {
             <h5> Motif de Consultation </h5>
             <p>Première Injection de vaccin contre la COVID-19</p>
 
-
            
+        </form>}
 
-        </form>
         {/* end of antigenic test form */}
       
         </div>

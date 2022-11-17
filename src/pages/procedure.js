@@ -7,7 +7,7 @@ const Procedure = (props) => {
     return (
         <div className="procedure-panier">
             <p>
-            {idProcedure == 1 
+            {idProcedure === 1 
                 ? (<p className="procedure-in"> 1 </p>)
                 : (<p className="procedure-out"> 1 </p>)
             }
@@ -15,7 +15,7 @@ const Procedure = (props) => {
             </p>
             <div className="procedure-icon"></div>
             <p>
-            {idProcedure == 2 
+            {idProcedure === 2 
                 ? (<p className="procedure-in"> 2 </p>)
                 : (<p className="procedure-out"> 2 </p>)
             }
@@ -23,7 +23,7 @@ const Procedure = (props) => {
             </p>
             <div className="procedure-icon"></div>
             <p>
-            {idProcedure == 3
+            {idProcedure === 3
                 ? (<p className="procedure-in"> 3 </p>)
                 : (<p className="procedure-out"> 3 </p>)
             }
