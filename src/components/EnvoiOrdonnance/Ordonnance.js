@@ -61,12 +61,7 @@ const Ordonnance = () => {
         })
     }
 
-
-
     return (
-
-       
-
         <div className="Page_Formulaire_Ordonnance">
         
             {/*Presentation text of the prescription send*/}

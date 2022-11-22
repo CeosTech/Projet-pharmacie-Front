@@ -42,8 +42,8 @@ const FormDeuxiemeInjec = () => {
          //   formData.append("date_retrait", toISOString(startDate))
               formData.append("choix_vaccin", data.choix_vaccin)
         axios.post(
-              'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
-            //'http://localhost:8000/pharmacie/formulaire-vaccin/',
+             // 'https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/',
+                 'http://localhost:8000/pharmacie/formulaire-test-covid/',
             //{...data , objet: "Deuxieme Injection", date_reservation:startDate}
            // {...data, date_reservation: {date}} // {...data, message: "...."}
            formData,

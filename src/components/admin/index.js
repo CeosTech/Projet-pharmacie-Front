@@ -50,7 +50,7 @@ import CreationMenus from "./CreationOrtho/CreationMenus"
 import CreationMenusParapharma from "./CreationParapharmacie/CreationMenus"
 
 import GestionRdvCovid from "./GestionRdvTestCovid/GestionRdvCovid";
-import GestionRdvVaccin from "./GestionRdv_Vaccin/Gestion_Rdv_Vaccin";
+import GestionRdvVaccin from "./GestionRdvVaccin/GestionRdvVaccin";
 
 import OffresDuMoment from "./offreDuMoment/";
 
@@ -77,7 +77,6 @@ const AdminPage = () => {
   useEffect(() => {
     // console.log("changement");
     dispatch(changePage(admin.currentPage));
-    history.push(path + "/nouvelles-commandes");
   }, []);
 
   return (

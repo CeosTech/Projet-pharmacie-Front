@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import EditIcon from "@material-ui/icons/Edit";
 import Pagination from "react-js-pagination";
 import ReactHtmlParser from "react-html-parser";
 import "./Gestion_Ordonnance.css";
@@ -7,6 +8,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   makeStyles,
+  IconButton,
 } from "@material-ui/core";
 import ExpandedIcon from "../product/ExpandedIcon";
 import axios from "axios";
@@ -63,17 +65,14 @@ const ItemsCountPerPage = 10;
 
 export default function GestionOrdonnancesPublies() {
   const [articles, setArticles] = useState([]);
-
   const [bounds, setBounds] = useState([0, ItemsCountPerPage]);
   const [activePage, setActivePage] = useState(1);
-
   const [expanded, setExpanded] = useState(false);
-
   const [loadingDelete, setLoadingDelete] = useState(false);
+  const [loadingUpdate, setLoadingUpdate] = useState(false);
 
   const ordRef = useRef();
   const history = useHistory();
-
   const classes = useStyles();
 
   const handlePageChange = (pageNumber) => {
@@ -85,12 +84,6 @@ export default function GestionOrdonnancesPublies() {
     window.scrollTo(0, 0);
   };
 
-  const handleEdit = () => {
-    //   history.push({
-    //     pathname: "/admin/editer-article",
-    //     state: { articleToUpdate: article },
-    //   });
-  };
 
   const deleteData = (e) => {
     console.log("old articles", articles);
@@ -99,7 +92,7 @@ export default function GestionOrdonnancesPublies() {
     axios
       .delete(
         "https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/" +
-          // 'http://localhost:8000/pharmacie/formulaire-ordonnance/'
+          //'http://localhost:8000/pharmacie/formulaire-ordonnance/'
           val
       )
       .then((response) => {
@@ -109,14 +102,34 @@ export default function GestionOrdonnancesPublies() {
           setLoadingDelete(false);
         }
       });
-
-    // console.log(val)
-    // let currentPath = window.location.pathname;
-    // history.replace(`${currentPath}/replace`);
-    // setTimeout(() => {
-    //   history.replace(currentPath);
-    // }, 1000);
   };
+
+  const updateData = (val, champ, value) => {
+
+    console.log(value)
+    let data ={}
+    data[champ] = value
+    console.log(data)
+    setLoadingUpdate(true);
+    axios.patch(
+        `https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/${val}/`
+     // `http://localhost:8000/pharmacie/formulaire-ordonnance/${val}`
+          ,
+          data
+      )
+      .then((response) => {
+          console.log(response)
+        //       const newArticles = articles.filter((a) => a.id !== Number(val));
+    //       setArticles(newArticles);
+    //       setLoadingUpdate(false);
+      }).catch(err => console.log(err));
+  };
+  // console.log(val)
+  // let currentPath = window.location.pathname;
+  // history.replace(`${currentPath}/replace`);
+  // setTimeout(() => {
+  //   history.replace(currentPath);
+  // }, 1000);
 
   const fetchArticles = async () => {
     await axios
@@ -161,8 +174,8 @@ export default function GestionOrdonnancesPublies() {
             {articles.slice(bounds[0], bounds[1]).map((article) => (
               <Accordion
                 className={classes.accordion}
-                key={article.id}
                 id={article.id}
+                key={article.id}
                 onChange={(e, expand) => setExpanded(expand)}
               >
                 <AccordionSummary
@@ -192,18 +205,44 @@ export default function GestionOrdonnancesPublies() {
                         alt=""
                       />
                     </div>
-                    <div className="container darker">
-                      <strong> Nom : </strong> {ReactHtmlParser(article.nom)}
-                      <strong> Prénom : </strong>{" "}
-                      {ReactHtmlParser(article.prenom)}
-                      <strong> Téléphone : </strong>{" "}
-                      {ReactHtmlParser(article.telephone)}
-                      <strong> email : </strong>{" "}
-                      {ReactHtmlParser(article.email)}
+                    <div className="container ">
+                      <Champ
+                        articleId = {article.id}
+                        id = "nom"
+                        label="Nom"
+                        value={article.nom}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Prénom"
+                        id = "prenom"
+                        value={article.prenom}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Téléphone"
+                        id="telephone"
+                        value={article.telephone}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Email"
+                        id="email"
+                        value={article.email}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Message du client"
+                        id="message"
+                        value={article.message}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
                       <strong> Date de retrait : </strong>{" "}
                       {new Date(article.date_message).toLocaleDateString()}
-                      <strong> Message du client : </strong>{" "}
-                      {ReactHtmlParser(article.message)}
                     </div>
                     {article.image_ordonnance && (
                       <div
@@ -231,32 +270,20 @@ export default function GestionOrdonnancesPublies() {
 
                     <div className="article__button">
                       {/** ANSWER BUTTON */}
-                      <button
-                        className="answer__button"
-                        onClick={() => {
-                          handleEdit();
-                        }}
+                      <button className="answer__button"
                       >
                         Répondre
-                      </button>
+                        </button>
 
                       {/** MODIFY BUTTON */}
                       <button
-                        className="registre__button"
-                        onClick={() => {
-                          handleEdit();
-                        }}
                       >
                         Modifier
                       </button>
 
                       {/** VALIDATION BUTTON */}
 
-                      <button
-                        className="validation__button"
-                        onClick={() => {
-                          handleEdit();
-                        }}
+                      <button className="validation__button"
                       >
                         Confirmer
                       </button>
@@ -300,5 +327,52 @@ export default function GestionOrdonnancesPublies() {
         )}
       </div>
     </>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+function Champ({ label, value, updateData,articleId, id }) {
+  const [edit, setEdit] = useState(false);
+  const [val, setVal] = useState(value)
+  const handleEdit = (e) => {
+    setEdit(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    updateData(articleId, e.target.id, e.target[0].value)
+    setEdit(false)
+    setVal( e.target[0].value)
+
+  };
+
+  return (
+    <div>
+      <strong> {label} : </strong>
+      {edit ? (
+        <form style={{display:'flex'}} id={id} onSubmit={handleSubmit}>
+          <input type="text" defaultValue={val} />
+          <input style={{marginLeft:"15px"}} type="submit" value="confirmer le changement" />
+        </form>
+      ) : (
+        <div>{ReactHtmlParser(val)}</div>
+      )}
+
+      <IconButton
+        onClick={(e) => {
+          handleEdit(e);
+        }}
+      >
+        <EditIcon />
+      </IconButton>
+    </div>
   );
 }
