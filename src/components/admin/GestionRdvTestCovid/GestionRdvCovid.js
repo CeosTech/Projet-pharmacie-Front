@@ -100,7 +100,7 @@ const ItemsCountPerPage = 10;
     axios
       .delete(
         " https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/"+
-        // `http://localhost:8000/pharmacie/formulaire-test-covid/`
+      // `http://localhost:8000/pharmacie/formulaire-test-covid/`
           val
       )
       .then((response) => {
@@ -156,8 +156,8 @@ const ItemsCountPerPage = 10;
   const fetchArticles = async () => {
     await axios
       .get(        
-      //   `https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/`
-        `http://localhost:8000/pharmacie/formulaire-test-covid/`
+            `https://pharmacie-site.herokuapp.com/pharmacie/formulaire-test-covid/`
+         //  `http://localhost:8000/pharmacie/formulaire-test-covid/`
         )
       .then((response) => {
         setArticles(response.data);

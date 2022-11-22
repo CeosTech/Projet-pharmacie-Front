@@ -69,8 +69,8 @@ export default function GestionRdvVaccin() {
   const [activePage, setActivePage] = useState(1);
   const[expanded, setExpanded]=useState(false);
   const[loadingDelete, setLoadingDelete] = useState(false);
-  
-
+  const [loadingUpdate, setLoadingUpdate] = useState(false);
+ 
   const classes = useStyles();
   
   const date_RDV = new Date(articles.date_reservation).toLocaleDateString();
@@ -108,6 +108,27 @@ export default function GestionRdvVaccin() {
                  setLoadingDelete(false)
               }
             });
+  };
+
+  const updateData = (val, champ, value) => {
+
+    console.log(value)
+    let data ={}
+    data[champ] = value
+    console.log(data)
+    setLoadingUpdate(true);
+    axios.patch(
+      `https://pharmacie-site.herokuapp.com/pharmacie/formulaire-vaccin/${val}/`
+     // `http://localhost:8000/pharmacie/formulaire-vaccin/${val}/`
+          ,
+          data
+      )
+      .then((response) => {
+          console.log(response)
+        //       const newArticles = articles.filter((a) => a.id !== Number(val));
+    //       setArticles(newArticles);
+    //       setLoadingUpdate(false);
+      }).catch(err => console.log(err));
   };
 
    const fetchArticles = async () =>{
@@ -181,8 +202,55 @@ export default function GestionRdvVaccin() {
            </AccordionSummary>
            <AccordionDetails>
         <div className="article__container">
+
+        <div className="container ">
+                      <Champ
+                        articleId = {article.id}
+                        id = "objet"
+                        label="Objet"
+                        value={article.objet}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        id = "nom"
+                        label="Nom"
+                        value={article.nom}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Prénom"
+                        id = "prenom"
+                        value={article.prenom}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Téléphone"
+                        id="telephone"
+                        value={article.telephone}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Email"
+                        id="email"
+                        value={article.email}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <Champ
+                        articleId = {article.id}
+                        label="Message du client"
+                        id="message"
+                        value={article.message}
+                        updateData={(val, champ, value) => updateData(val, champ, value)}
+                      />
+                      <strong> Date de retrait : </strong>{" "}
+                      {new Date(article.date_message).toLocaleDateString()}
+                    </div>
   
-          <div className="container darker">
+          {/* <div className="container darker">
             <strong> Objet : </strong> 
             {ReactHtmlParser(article.objet)}
             <strong> Choix du vaccin : </strong>
@@ -212,7 +280,7 @@ export default function GestionRdvVaccin() {
 
             <strong> Heure rendez-vous : </strong> 
             {heure_RDV}
-          </div>
+          </div> */}
           
           <div
                         style={{
@@ -303,5 +371,44 @@ export default function GestionRdvVaccin() {
       )}
     </div>
     </>
+  );
+}
+
+
+function Champ({ label, value, updateData,articleId, id }) {
+  const [edit, setEdit] = useState(false);
+  const [val, setVal] = useState(value)
+  const handleEdit = (e) => {
+    setEdit(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    updateData(articleId, e.target.id, e.target[0].value)
+    setEdit(false)
+    setVal( e.target[0].value)
+
+  };
+
+  return (
+    <div>
+      <strong> {label} : </strong>
+      {edit ? (
+        <form style={{display:'flex'}} id={id} onSubmit={handleSubmit}>
+          <input type="text" defaultValue={val} />
+          <input style={{marginLeft:"15px"}} type="submit" value="confirmer le changement" />
+        </form>
+      ) : (
+        <div>{ReactHtmlParser(val)}</div>
+      )}
+
+      <IconButton
+        onClick={(e) => {
+          handleEdit(e);
+        }}
+      >
+        <EditIcon />
+      </IconButton>
+    </div>
   );
 }

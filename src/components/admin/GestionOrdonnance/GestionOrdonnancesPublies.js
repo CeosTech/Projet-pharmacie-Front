@@ -92,7 +92,7 @@ export default function GestionOrdonnancesPublies() {
     axios
       .delete(
         "https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/" +
-          //'http://localhost:8000/pharmacie/formulaire-ordonnance/'
+       //'http://localhost:8000/pharmacie/formulaire-ordonnance/'
           val
       )
       .then((response) => {
@@ -135,7 +135,7 @@ export default function GestionOrdonnancesPublies() {
     await axios
       .get(
         `https://pharmacie-site.herokuapp.com/pharmacie/formulaire-ordonnance/`
-        // 'http://localhost:8000/pharmacie/formulaire-ordonnance/'
+     // 'http://localhost:8000/pharmacie/formulaire-ordonnance/'
       )
       .then((response) => {
         setArticles(response.data);
@@ -329,11 +329,6 @@ export default function GestionOrdonnancesPublies() {
     </>
   );
 }
-
-
-
-
-
 
 
 
