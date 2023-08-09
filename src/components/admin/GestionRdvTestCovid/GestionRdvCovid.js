@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import EditIcon from "@material-ui/icons/Edit"
+import EditIcon from "@material-ui/icons/Edit";
 import Pagination from "react-js-pagination";
 import ReactHtmlParser from "react-html-parser";
 import axios from "axios";
